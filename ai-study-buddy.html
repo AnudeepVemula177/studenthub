@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4f46e5">
+<title>AI Study Buddy — StudentHub</title>
+<meta name="description" content="StudentHub AI Study Buddy for doubts, revision, quizzes, files, photos and voice.">
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#080b14;color:#eef2ff}body{display:flex;flex-direction:column}.top{padding:14px 16px;border-bottom:1px solid #263244;background:#0d1220;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}.back{color:#c7d2fe;text-decoration:none;font-weight:700}.brand{font-weight:800}.brand span{opacity:.6;font-weight:500}.hero{max-width:1000px;width:100%;margin:0 auto;padding:24px 16px 10px}.hero h1{margin:0 0 6px;font-size:30px}.hero p{margin:0;color:#94a3b8}.modes{display:flex;gap:8px;overflow:auto;padding:16px 0 4px}.mode{white-space:nowrap;width:auto;margin:0;padding:9px 13px;border:1px solid #334155;background:#111827;border-radius:999px;color:#cbd5e1}.mode.active{background:#4f46e5;border-color:#4f46e5;color:#fff}.chat{width:100%;max-width:1000px;margin:0 auto;padding:10px 16px 150px;flex:1}.bubble{max-width:850px;padding:13px 15px;border-radius:18px;margin:10px 0;line-height:1.55;white-space:pre-wrap}.ai{background:#111827;border:1px solid #263244;margin-right:auto}.user{background:#4f46e5;margin-left:auto}.welcome{display:flex;gap:12px;align-items:flex-start}.avatar{width:38px;height:38px;border-radius:13px;background:#4f46e5;display:grid;place-items:center;flex:none}.suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.suggestions button{width:auto;margin:0;background:#0f172a;border:1px solid #334155;color:#cbd5e1;padding:9px 12px}.composer-wrap{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(transparent,#080b14 22%);padding:26px 12px 14px;z-index:9}.composer{max-width:900px;margin:auto;background:#111827;border:1px solid #334155;border-radius:20px;padding:8px;box-shadow:0 10px 35px #0008}.preview{display:none;padding:7px 8px 3px;gap:8px;align-items:center}.preview.show{display:flex}.preview img{width:44px;height:44px;object-fit:cover;border-radius:9px}.preview span{font-size:13px;color:#cbd5e1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row{display:flex;gap:7px;align-items:flex-end}.iconbtn{width:46px;height:46px;margin:0;padding:0;border-radius:14px;background:#0f172a;border:1px solid #334155;font-size:21px;flex:none}.send{background:#4f46e5;border:0}.text{flex:1;min-height:46px;max-height:130px;resize:none;border:0;outline:0;background:transparent;color:#fff;font:inherit;padding:11px 7px}.attach-menu{display:none;position:absolute;bottom:75px;left:calc(50% - 430px);background:#111827;border:1px solid #334155;border-radius:16px;padding:8px;box-shadow:0 15px 40px #0009}.attach-menu.show{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.attach-menu button{width:auto;margin:0;background:#0f172a;border:1px solid #263244;padding:12px 10px;color:#e2e8f0}.attach-menu label{cursor:pointer}.status{text-align:center;font-size:12px;color:#64748b;margin-top:6px}.typing{color:#94a3b8;font-size:13px;padding-left:52px;display:none}.typing.show{display:block}.notice{font-size:12px;color:#64748b;text-align:center;margin:12px auto;max-width:700px}
+@media(max-width:700px){.hero h1{font-size:25px}.attach-menu{left:12px;right:12px}.attach-menu.show{grid-template-columns:1fr 1fr 1fr}.bubble{max-width:92%}}
+</style>
+</head>
+<body>
+<header class="top"><a class="back" href="./index.html">← StudentHub</a><div class="brand">🤖 AI Study Buddy <span>• V1</span></div></header>
+<section class="hero">
+<h1>Your study buddy, whenever you need it 💫</h1>
+<p>Ask doubts, revise topics, practice questions, or talk naturally. Upload a question when typing is difficult.</p>
+<div class="modes" id="modes">
+<button class="mode active" data-mode="Doubt">🧠 Doubt</button><button class="mode" data-mode="Study">📚 Study</button><button class="mode" data-mode="Revision">🔄 Revision</button><button class="mode" data-mode="Quiz">📝 Quiz</button><button class="mode" data-mode="Exam">⏰ Exam</button><button class="mode" data-mode="GK">🌎 General Knowledge</button>
+</div>
+</section>
+<main class="chat" id="chat">
+<div class="welcome"><div class="avatar">🤖</div><div class="bubble ai">Hey! 👋 I'm your StudentHub Study Buddy.
+
+Send me a doubt, upload a photo/file, or tap 🎙️ and talk. I’ll aim to explain things in a simple student-friendly way.
+
+Try: “Explain eigen values simply” or “Give me 5 MCQs on graphs.”<div class="suggestions"><button onclick="quick('Explain this topic in very simple words')">Explain simply</button><button onclick="quick('Give me 5 MCQs for practice')">Make a quiz</button><button onclick="quick('Help me revise this topic')">Revise</button></div></div></div>
+<div class="notice">V1 demo UI: AI backend will be connected next. Your API secret should never be placed in this page.</div>
+</main>
+<div class="typing" id="typing">🤖 Study Buddy is thinking…</div>
+<div class="composer-wrap">
+<div class="composer">
+<div class="preview" id="preview"><img id="previewImg" alt=""><span id="previewName"></span><button class="iconbtn" onclick="clearAttachment()" title="Remove">✕</button></div>
+<div class="row"><button class="iconbtn" onclick="toggleAttach()" title="Attach">＋</button><textarea class="text" id="text" rows="1" placeholder="Ask your doubt…" oninput="autoGrow(this)" onkeydown="keySend(event)"></textarea><button class="iconbtn" id="mic" onclick="toggleMic()" title="Voice input">🎙️</button><button class="iconbtn send" onclick="sendMessage()" title="Send">➤</button></div>
+</div>
+<div class="attach-menu" id="attachMenu">
+<label class="iconbtn"><input id="fileInput" type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.csv" onchange="handleFile(this)">📄<small> File</small></label>
+<label class="iconbtn"><input id="photoInput" type="file" hidden accept="image/*" onchange="handlePhoto(this)">🖼️<small> Photo</small></label>
+<label class="iconbtn"><input id="cameraInput" type="file" hidden accept="image/*" capture="environment" onchange="handlePhoto(this)">📷<small> Camera</small></label>
+</div>
+<div class="status" id="status">Mode: Doubt • Tip: say “ardham kaaledu” for a simpler explanation.</div>
+</div>
+<script>
+let mode='Doubt',attachment=null,listening=false,recognition=null;
+const chat=document.getElementById('chat'),text=document.getElementById('text'),status=document.getElementById('status'),typing=document.getElementById('typing');
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.mode;status.textContent='Mode: '+mode+' • Tip: say “ardham kaaledu” for a simpler explanation.'});
+function toggleAttach(){document.getElementById('attachMenu').classList.toggle('show')}
+function handleFile(input){if(input.files[0]){attachment={type:'file',file:input.files[0]};showPreview(input.files[0]);document.getElementById('attachMenu').classList.remove('show')}}
+function handlePhoto(input){if(input.files[0]){attachment={type:'image',file:input.files[0]};showPreview(input.files[0]);document.getElementById('attachMenu').classList.remove('show')}}
+function showPreview(file){document.getElementById('preview').classList.add('show');document.getElementById('previewName').textContent=file.name;if(file.type.startsWith('image/')){const r=new FileReader();r.onload=e=>{document.getElementById('previewImg').src=e.target.result;document.getElementById('previewImg').style.display='block'};r.readAsDataURL(file)}else{document.getElementById('previewImg').style.display='none'}}
+function clearAttachment(){attachment=null;document.getElementById('preview').classList.remove('show');document.getElementById('fileInput').value='';document.getElementById('photoInput').value='';document.getElementById('cameraInput').value=''}
+function autoGrow(e){e.style.height='auto';e.style.height=Math.min(e.scrollHeight,130)+'px'}
+function keySend(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}}
+function quick(q){text.value=q;autoGrow(text);sendMessage()}
+function addBubble(content,who='user'){const d=document.createElement('div');d.className='bubble '+who;d.textContent=content;chat.appendChild(d);d.scrollIntoView({behavior:'smooth',block:'end'})}
+function sendMessage(){const q=text.value.trim();if(!q&&!attachment)return;let label=q||('Please help me with this '+attachment.type+'.');if(attachment)label+=(q?'\n':'')+'📎 Attached: '+attachment.file.name;addBubble(label,'user');text.value='';text.style.height='auto';clearAttachment();typing.classList.add('show');setTimeout(()=>{typing.classList.remove('show');let reply='I’m ready for the real AI connection 🚀\n\nMode: '+mode+'\n\nFor now this V1 is the working chat interface. Next, the secure backend will send your question/file context to the AI and return the actual answer.';if(q.toLowerCase().includes('ardham kaaledu'))reply='No problem 😄 Once the AI backend is connected, “ardham kaaledu” will trigger a simpler explanation with an easier example instead of repeating the same answer.';addBubble(reply,'ai')},450)}
+function toggleMic(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){status.textContent='Voice input is not supported in this browser. You can still use the keyboard.';return}if(listening){recognition.stop();return}recognition=new SR();recognition.lang='en-IN';recognition.interimResults=true;recognition.continuous=false;recognition.onstart=()=>{listening=true;document.getElementById('mic').textContent='⏹️';status.textContent='Listening… speak your doubt 🎙️'};recognition.onresult=e=>{let s='';for(let i=e.resultIndex;i<e.results.length;i++)s+=e.results[i][0].transcript;text.value=s;autoGrow(text)};recognition.onend=()=>{listening=false;document.getElementById('mic').textContent='🎙️';status.textContent='Voice captured • Tap ➤ to send'};recognition.onerror=()=>{listening=false;document.getElementById('mic').textContent='🎙️';status.textContent='Could not capture voice. Try again.'};recognition.start()}
+document.addEventListener('click',e=>{if(!e.target.closest('.iconbtn')&&!e.target.closest('.attach-menu'))document.getElementById('attachMenu').classList.remove('show')});
+</script>
+</body>
+</html>

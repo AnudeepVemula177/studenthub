@@ -134,8 +134,9 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
     <button onclick="v14ClearQuickSearch()">Clear</button>
   </div>
   <div class="v14-cat-grid" id="v14CatGrid">
-    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Study notes</span></button>
-    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Study notes</span></button>
+    <button class="v14-cat-card" onclick="location.href='./ai-study-buddy.html'"><span class="v14-cat-icon">🤖</span><span class="v14-cat-title">AI Study Buddy</span><span class="v14-cat-sub">Doubts • Voice • Uploads</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('questions')"><span class="v14-cat-icon">📝</span><span class="v14-cat-title">Important Questions</span><span class="v14-cat-sub">Exam practice</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('exams')"><span class="v14-cat-icon">⏳</span><span class="v14-cat-title">Exam Countdown</span><span class="v14-cat-sub">Never miss a date</span></button>
@@ -317,7 +318,7 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
 <a href="sgpa-calculator.html">SGPA Calculator Guide</a>
 <a href="attendance-calculator.html">Attendance Calculator Guide</a>
 <a href="study-tools.html">Study Tools Guide</a>
-<a href="mfcs.html">MFCS Notes</a>
+<a href="mfcs.html">MFCS 1st Sem Notes</a>
 </div>
 <h3>Quick answers</h3>
 <div class="guide-item"><h3>Percentage</h3><p>Percentage = obtained marks ÷ total marks × 100.</p></div>
@@ -639,14 +640,15 @@ function budgetBreakdown(){
 
 <script id="v14-home-js">
 const v14HomeItems={
+ studybuddy:[['🤖','AI Study Buddy','Ask doubts, upload files/photos, use your voice and practice with AI.','ai-study-buddy.html']],
  notes:[
   ['📚','Study Tools','Open the existing study tools and revision helpers.','study-tools.html'],
-  ['🧠','MFCS Notes','Mathematical Foundations of Computer Science (MFCS).','mfcs.html'],
+  ['🧠','MFCS Notes','1st Semester Mathematical Foundations of Computer Science.','mfcs.html'],
   ['⚡','Quick Revision','Use the study planner and progress tracker for revision.','v14-planner']
  ],
  subjects:[
-  ['📐','Mathematics','Mathematical Foundations of Computer Science (MFCS).','mfcs.html'],
-  ['📘','Applied Mathematics for Engineering (AME)','Matrices, eigen values, quadratic forms, vector spaces and inner products.','ame.html'],
+  ['📐','Mathematics — MFCS 1st Semester','Mathematical Foundations of Computer Science.','mfcs.html'],
+  ['🧠','MFCS Modules','Logic, relations, functions, counting and graph theory.','mfcs.html'],
   ['📝','MFCS Important Questions','Module-wise exam practice questions.','mfcs.html#questions']
  ],
  calculators:[
@@ -687,7 +689,7 @@ const v14HomeItems={
   ['📊','Required Attendance','Find classes needed to reach a target attendance.','required-attendance']
  ]
 };
-const v14HomeTitles={notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
+const v14HomeTitles={studybuddy:'🤖 AI Study Buddy',notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
 function v14OpenCategory(cat){const modal=document.getElementById('v14LaunchModal');const list=document.getElementById('v14LaunchList');document.getElementById('v14LaunchTitle').textContent=v14HomeTitles[cat]||'StudentHub';list.innerHTML=v14HomeItems[cat].map((x,i)=>{const isPage=x[3].endsWith(".html");return '<div class="v14-launch-item"><div><strong>'+x[0]+' '+x[1]+'</strong><span>'+x[2]+'</span></div>'+(isPage?'<a class="v14-launch-open" href="./'+x[3]+'">Open</a>':'<button onclick="v14Launch(\''+x[3]+'\')">Open</button>')+'</div>';}).join('');modal.classList.add('show');document.body.style.overflow='hidden'}
 function v14CloseCategory(){document.getElementById('v14LaunchModal').classList.remove('show');document.body.style.overflow=''}
 function v14Launch(target){v14CloseCategory();if(target==='mfcs.html'){window.location.href='./mfcs.html';return}if(target==='v15'){v14Toast('V15 Notes & Question Bank is coming next. 📚');return}if(target==='tools'){document.querySelectorAll('.tool').forEach(x=>x.style.display='');document.getElementById('search').value='';document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'start'});return}if(target.endsWith('.html')){location.href=target;return}let map={'v14-exams':'v14-exams','v14-planner':'v14-planner','v14-progress':'v14-progress','v14-boost':'v14Boost','study-timer':'timer','target-marks':'targetMarkr','target-cgpa':'tcgr','required-attendance':'reqAttr','semester-countdown':'semr','calculator':'search'};let id=map[target]||target;let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:'smooth',block:'center'});if(['search'].includes(target))document.getElementById('search')?.focus()}}
