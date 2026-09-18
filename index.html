@@ -42,6 +42,15 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 .guide-item p{margin:0;line-height:1.6}
 </style>
 
+
+<style>
+.v8-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.v8-actions button{flex:1;min-width:110px}
+.fav-btn{cursor:pointer}
+.tool.fav{outline:2px solid currentColor}
+.v8-note{font-size:.9rem;opacity:.8;margin-top:8px}
+</style>
+
 </head>
 <body>
 <header><h1>🎓 StudentHub</h1><p>Free tools that make student life easier.</p>
@@ -51,36 +60,48 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <button class="chip active" onclick="cat('all',this)">All</button><button class="chip" onclick="cat('marks',this)">📊 Marks</button><button class="chip" onclick="cat('college',this)">🎓 College</button><button class="chip" onclick="cat('study',this)">📚 Study</button><button class="chip" onclick="cat('finance',this)">💰 Finance</button>
 </div>
 <div class="grid">
-<section class="card tool" data-cat="marks" data-name="percentage"><h2>📊 Percentage Calculator</h2><p>Find percentage from obtained and total marks.</p><input id="p1" type="number" placeholder="Obtained marks"><input id="p2" type="number" placeholder="Total marks"><button onclick="percentage()">Calculate</button><div id="pr" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="attendance"><h2>📅 Attendance Calculator</h2><p>Check your current attendance percentage.</p><input id="a1" type="number" placeholder="Classes attended"><input id="a2" type="number" placeholder="Total classes"><button onclick="attendance()">Calculate</button><div id="ar" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="cgpa"><h2>🎯 CGPA Calculator</h2><p>Convert CGPA to percentage using the common 9.5 formula.</p><input id="cg" type="number" step=".01" placeholder="Enter CGPA"><button onclick="cgpa()">Convert</button><div id="cgr" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="sgpa"><h2>🎓 SGPA Calculator</h2><p>Calculate SGPA from credits and grade points.</p><input id="credits" placeholder="Credits: 3,3,4"><input id="grades" placeholder="Grade points: 8,9,10"><button onclick="sgpa()">Calculate</button><div id="sgr" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="average marks"><h2>📝 Marks Average</h2><p>Average multiple marks at once.</p><input id="marks" placeholder="Marks: 80,75,90"><button onclick="avg()">Calculate</button><div id="mr" class="result"></div></section>
-<section class="card tool" data-cat="study" data-name="exam countdown"><h2>⏳ Exam Countdown</h2><p>See how many days remain until your exam.</p><input id="exam" type="date"><button onclick="countdown()">Check Countdown</button><div id="er" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="required marks"><h2>🏆 Required Marks</h2><p>Find marks needed for a target percentage.</p><input id="rt" type="number" placeholder="Total marks"><input id="rp" type="number" placeholder="Target %"><button onclick="required()">Calculate</button><div id="rr" class="result"></div></section>
-<section class="card tool" data-cat="finance" data-name="discount"><h2>🏷️ Discount Calculator</h2><p>Find savings and final sale price.</p><input id="price" type="number" placeholder="Original price"><input id="disc" type="number" placeholder="Discount %"><button onclick="discount()">Calculate</button><div id="dr" class="result"></div></section>
-<section class="card tool" data-cat="finance" data-name="simple interest"><h2>💰 Simple Interest</h2><p>Calculate interest and total amount.</p><input id="sp" type="number" placeholder="Principal"><input id="sr" type="number" placeholder="Rate %"><input id="st" type="number" placeholder="Time in years"><button onclick="interest()">Calculate</button><div id="sir" class="result"></div></section>
-<section class="card tool" data-cat="study" data-name="study timer"><h2>⏱️ Study Timer</h2><p>Simple 25-minute focus timer.</p><button onclick="startTimer()">Start 25 Minutes</button><button onclick="stopTimer()">Stop</button><div id="timer" class="result">25:00</div></section>
-<section class="card tool" data-cat="study" data-name="age calculator"><h2>🎂 Age Calculator</h2><p>Calculate age from birth date.</p><input id="dob" type="date"><button onclick="age()">Calculate Age</button><div id="ager" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="ratio"><h2>➗ Ratio Calculator</h2><p>Simplify two numbers into a ratio.</p><input id="rx" type="number" placeholder="First number"><input id="ry" type="number" placeholder="Second number"><button onclick="ratio()">Simplify</button><div id="rratio" class="result"></div></section>
+
+<section class="card" id="dashboard">
+<h2>⭐ My StudentHub</h2>
+<p>Quick controls for your favorite tools and results.</p>
+<div class="v8-actions">
+<button onclick="showFavorites()">⭐ Favorites</button>
+<button onclick="showAllTools()">🔄 Show All</button>
+<button onclick="shareSite()">📤 Share StudentHub</button>
+</div>
+<p id="dashMsg" class="v8-note">Tip: tap ⭐ on any tool to save it on this device.</p>
+</section>
+
+<section class="card tool" data-cat="marks" data-name="percentage"><h2>📊 Percentage Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find percentage from obtained and total marks.</p><input id="p1" type="number" placeholder="Obtained marks"><input id="p2" type="number" placeholder="Total marks"><button onclick="percentage()">Calculate</button><div id="pr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance"><h2>📅 Attendance Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Check your current attendance percentage.</p><input id="a1" type="number" placeholder="Classes attended"><input id="a2" type="number" placeholder="Total classes"><button onclick="attendance()">Calculate</button><div id="ar" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="cgpa"><h2>🎯 CGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage using the common 9.5 formula.</p><input id="cg" type="number" step=".01" placeholder="Enter CGPA"><button onclick="cgpa()">Convert</button><div id="cgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="sgpa"><h2>🎓 SGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate SGPA from credits and grade points.</p><input id="credits" placeholder="Credits: 3,3,4"><input id="grades" placeholder="Grade points: 8,9,10"><button onclick="sgpa()">Calculate</button><div id="sgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="average marks"><h2>📝 Marks Average</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Average multiple marks at once.</p><input id="marks" placeholder="Marks: 80,75,90"><button onclick="avg()">Calculate</button><div id="mr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="exam countdown"><h2>⏳ Exam Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many days remain until your exam.</p><input id="exam" type="date"><button onclick="countdown()">Check Countdown</button><div id="er" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="required marks"><h2>🏆 Required Marks</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed for a target percentage.</p><input id="rt" type="number" placeholder="Total marks"><input id="rp" type="number" placeholder="Target %"><button onclick="required()">Calculate</button><div id="rr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="discount"><h2>🏷️ Discount Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find savings and final sale price.</p><input id="price" type="number" placeholder="Original price"><input id="disc" type="number" placeholder="Discount %"><button onclick="discount()">Calculate</button><div id="dr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="simple interest"><h2>💰 Simple Interest</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate interest and total amount.</p><input id="sp" type="number" placeholder="Principal"><input id="sr" type="number" placeholder="Rate %"><input id="st" type="number" placeholder="Time in years"><button onclick="interest()">Calculate</button><div id="sir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timer"><h2>⏱️ Study Timer</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simple 25-minute focus timer.</p><button onclick="startTimer()">Start 25 Minutes</button><button onclick="stopTimer()">Stop</button><div id="timer" class="result">25:00</div></section>
+<section class="card tool" data-cat="study" data-name="age calculator"><h2>🎂 Age Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate age from birth date.</p><input id="dob" type="date"><button onclick="age()">Calculate Age</button><div id="ager" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="ratio"><h2>➗ Ratio Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simplify two numbers into a ratio.</p><input id="rx" type="number" placeholder="First number"><input id="ry" type="number" placeholder="Second number"><button onclick="ratio()">Simplify</button><div id="rratio" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
 </div>
 
-<section class="card tool" data-cat="college" data-name="target cgpa"><h2>🎯 Target CGPA</h2><p>Estimate the average SGPA needed for a target CGPA.</p><input id="tcg" type="number" step=".01" placeholder="Current CGPA"><input id="tsem" type="number" placeholder="Semesters completed"><input id="ttarget" type="number" step=".01" placeholder="Target CGPA"><button onclick="targetCGPA()">Calculate</button><div id="tcgr" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="attendance skip classes"><h2>🏫 Attendance Planner</h2><p>See how many more classes you can miss and stay at your target.</p><input id="attDone" type="number" placeholder="Classes attended"><input id="attTotal" type="number" placeholder="Total classes"><input id="attTarget" type="number" placeholder="Target %"><button onclick="skipClasses()">Calculate</button><div id="skipr" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="grade calculator"><h2>📝 Grade Calculator</h2><p>Convert marks into a simple letter grade.</p><input id="gradeMark" type="number" placeholder="Marks %"><button onclick="gradeCalc()">Calculate</button><div id="grader" class="result"></div></section>
-<section class="card tool" data-cat="finance" data-name="college fee calculator"><h2>💸 College Fee Planner</h2><p>Estimate total fees for your course.</p><input id="feeYear" type="number" placeholder="Fee per year (₹)"><input id="feeYears" type="number" placeholder="Number of years"><button onclick="feeCalc()">Calculate</button><div id="feer" class="result"></div></section>
-<section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div></section>
+<section class="card tool" data-cat="college" data-name="target cgpa"><h2>🎯 Target CGPA</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate the average SGPA needed for a target CGPA.</p><input id="tcg" type="number" step=".01" placeholder="Current CGPA"><input id="tsem" type="number" placeholder="Semesters completed"><input id="ttarget" type="number" step=".01" placeholder="Target CGPA"><button onclick="targetCGPA()">Calculate</button><div id="tcgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance skip classes"><h2>🏫 Attendance Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many more classes you can miss and stay at your target.</p><input id="attDone" type="number" placeholder="Classes attended"><input id="attTotal" type="number" placeholder="Total classes"><input id="attTarget" type="number" placeholder="Target %"><button onclick="skipClasses()">Calculate</button><div id="skipr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="grade calculator"><h2>📝 Grade Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert marks into a simple letter grade.</p><input id="gradeMark" type="number" placeholder="Marks %"><button onclick="gradeCalc()">Calculate</button><div id="grader" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="college fee calculator"><h2>💸 College Fee Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate total fees for your course.</p><input id="feeYear" type="number" placeholder="Fee per year (₹)"><input id="feeYears" type="number" placeholder="Number of years"><button onclick="feeCalc()">Calculate</button><div id="feer" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
 
 
-<section class="card tool" data-cat="marks" data-name="cgpa percentage converter"><h2>🔄 CGPA ↔ Percentage</h2><p>Convert CGPA to percentage or percentage to CGPA.</p><input id="convVal" type="number" step=".01" placeholder="Enter value"><input id="convMode" placeholder="Type: CGPA or %"><button onclick="convertCGPA()">Convert</button><div id="convr" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="required attendance classes"><h2>📅 Required Attendance Classes</h2><p>Find classes needed to reach your target attendance.</p><input id="reqAtt" type="number" placeholder="Current attendance %"><input id="reqTotal" type="number" placeholder="Classes conducted so far"><input id="reqTarget" type="number" placeholder="Target %"><button onclick="requiredAttendance()">Calculate</button><div id="reqAttr" class="result"></div></section>
-<section class="card tool" data-cat="finance" data-name="student budget planner"><h2>💰 Student Budget Planner</h2><p>Plan your monthly student spending and savings.</p><input id="budgetIncome" type="number" placeholder="Monthly income / allowance (₹)"><input id="budgetSpend" type="number" placeholder="Monthly expenses (₹)"><button onclick="budgetCalc()">Calculate</button><div id="budgetr" class="result"></div></section>
-<section class="card tool" data-cat="finance" data-name="emi calculator"><h2>🏦 EMI Calculator</h2><p>Estimate monthly EMI for a student or education loan.</p><input id="emiP" type="number" placeholder="Loan amount (₹)"><input id="emiR" type="number" step=".01" placeholder="Annual interest %"><input id="emiY" type="number" placeholder="Loan period (years)"><button onclick="emiCalc()">Calculate</button><div id="emir" class="result"></div></section>
-<section class="card tool" data-cat="marks" data-name="target marks planner"><h2>🎯 Target Marks Planner</h2><p>Find marks needed in remaining assessments for a target percentage.</p><input id="targetScored" type="number" placeholder="Marks scored so far"><input id="targetTotal" type="number" placeholder="Total marks so far"><input id="targetRemaining" type="number" placeholder="Remaining total marks"><input id="targetPct" type="number" placeholder="Target overall %"><button onclick="targetMarks()">Calculate</button><div id="targetMarkr" class="result"></div></section>
-<section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div></section>
-<section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div></section>
-<section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div></section>
+<section class="card tool" data-cat="marks" data-name="cgpa percentage converter"><h2>🔄 CGPA ↔ Percentage</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage or percentage to CGPA.</p><input id="convVal" type="number" step=".01" placeholder="Enter value"><input id="convMode" placeholder="Type: CGPA or %"><button onclick="convertCGPA()">Convert</button><div id="convr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="required attendance classes"><h2>📅 Required Attendance Classes</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find classes needed to reach your target attendance.</p><input id="reqAtt" type="number" placeholder="Current attendance %"><input id="reqTotal" type="number" placeholder="Classes conducted so far"><input id="reqTarget" type="number" placeholder="Target %"><button onclick="requiredAttendance()">Calculate</button><div id="reqAttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="student budget planner"><h2>💰 Student Budget Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Plan your monthly student spending and savings.</p><input id="budgetIncome" type="number" placeholder="Monthly income / allowance (₹)"><input id="budgetSpend" type="number" placeholder="Monthly expenses (₹)"><button onclick="budgetCalc()">Calculate</button><div id="budgetr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="emi calculator"><h2>🏦 EMI Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate monthly EMI for a student or education loan.</p><input id="emiP" type="number" placeholder="Loan amount (₹)"><input id="emiR" type="number" step=".01" placeholder="Annual interest %"><input id="emiY" type="number" placeholder="Loan period (years)"><button onclick="emiCalc()">Calculate</button><div id="emir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="target marks planner"><h2>🎯 Target Marks Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed in remaining assessments for a target percentage.</p><input id="targetScored" type="number" placeholder="Marks scored so far"><input id="targetTotal" type="number" placeholder="Total marks so far"><input id="targetRemaining" type="number" placeholder="Remaining total marks"><input id="targetPct" type="number" placeholder="Target overall %"><button onclick="targetMarks()">Calculate</button><div id="targetMarkr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
 
 
 <section class="card" id="guides">
@@ -180,4 +201,51 @@ function semesterCountdown(){
   semr.textContent=d>=0?d+' day(s) remaining 🎓':'Date has passed.'
 }
 
-</script></body></html>
+</script>
+<script>
+function toolCards(){return Array.from(document.querySelectorAll('.tool'))}
+function keyFor(card){return 'studenthub_fav_'+(card.getAttribute('data-name')||card.querySelector('h2')?.textContent||'tool').toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+function toggleFavorite(btn){
+  const card=btn.closest('.tool'), key=keyFor(card), fav=localStorage.getItem(key)==='1';
+  if(fav){localStorage.removeItem(key);btn.textContent='☆ Favorite';card.classList.remove('fav')}
+  else{localStorage.setItem(key,'1');btn.textContent='★ Favorite';card.classList.add('fav')}
+}
+function refreshFavorites(){
+  toolCards().forEach(card=>{
+    const btn=card.querySelector('.fav-btn');
+    if(btn&&localStorage.getItem(keyFor(card))==='1'){btn.textContent='★ Favorite';card.classList.add('fav')}
+  })
+}
+function showFavorites(){
+  let n=0;
+  toolCards().forEach(card=>{let yes=localStorage.getItem(keyFor(card))==='1';card.style.display=yes?'':'none';if(yes)n++});
+  dashMsg.textContent=n?n+' favorite tool(s) shown.':'No favorites yet — tap ☆ Favorite on a tool.'
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+function showAllTools(){
+  toolCards().forEach(card=>card.style.display='');
+  dashMsg.textContent='All tools are shown.'
+}
+async function copyResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied! 📋'}
+  catch(e){dashMsg.textContent='Copy is not available in this browser.'}
+}
+async function shareResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  if(navigator.share){try{await navigator.share({title:'StudentHub Result',text:text,url:location.href})}catch(e){}}
+  else{try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied. Share it anywhere! 📋'}catch(e){dashMsg.textContent='Sharing is not available.'}}
+}
+async function shareSite(){
+  const data={title:'StudentHub',text:'Free student calculators and study tools',url:'https://anudeepvemula177.github.io/studenthub/'};
+  if(navigator.share){try{await navigator.share(data)}catch(e){}}
+  else{try{await navigator.clipboard.writeText(data.url);dashMsg.textContent='Site link copied! 📋'}catch(e){dashMsg.textContent=data.url}}
+}
+document.addEventListener('DOMContentLoaded',refreshFavorites)
+</script>
+
+</body></html>
