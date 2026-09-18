@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudentHub — Free Student Tools & Calculators</title>
+<meta name="description" content="Free student tools and calculators for CGPA, SGPA, attendance, percentage, marks, exams, study time and more.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://anudeepvemula177.github.io/studenthub/">
+<meta property="og:title" content="StudentHub — Free Student Tools">
+<meta property="og:description" content="Free calculators and study tools made for students.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anudeepvemula177.github.io/studenthub/">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#080b14;color:#eef2ff}
+header{padding:42px 16px 30px;text-align:center;background:linear-gradient(135deg,#4f46e5,#9333ea)}
+h1{font-size:38px;margin:0 0 8px}header p{color:#eee;margin:0 auto 20px}.search{max-width:620px;margin:auto;display:flex;background:#fff;border-radius:14px;padding:5px}.search input{flex:1;border:0;outline:0;padding:12px;font-size:15px;color:#111}.search button{width:auto;margin:0}
+main{max-width:1000px;margin:auto;padding:22px 16px}.chips{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.chip{white-space:nowrap;border:1px solid #334155;background:#111827;color:#cbd5e1;padding:9px 14px;border-radius:999px;cursor:pointer}.active{background:#4f46e5;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card,.about{background:#111827;border:1px solid #263244;border-radius:18px;padding:20px}.card h2{font-size:19px;margin:0 0 7px}.card p{color:#94a3b8;font-size:14px;min-height:38px}
+input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;font-size:15px;margin-top:8px;background:#0f172a;color:#fff}button{border:0;background:#4f46e5;font-weight:700;cursor:pointer}.result{margin-top:10px;color:#a5b4fc;font-weight:700;min-height:22px}
+.about{margin-top:22px;color:#cbd5e1}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.links a{color:#a5b4fc;text-decoration:none}.links a:hover{text-decoration:underline}
+footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1px solid #1f2937;margin-top:20px}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How is CGPA converted to percentage?","acceptedAnswer":{"@type":"Answer","text":"A common approximation is CGPA multiplied by 9.5. University conversion rules can differ."}},
+    {"@type":"Question","name":"How do I calculate attendance?","acceptedAnswer":{"@type":"Answer","text":"Attendance percentage equals classes attended divided by total classes, multiplied by 100."}},
+    {"@type":"Question","name":"How do I calculate SGPA?","acceptedAnswer":{"@type":"Answer","text":"SGPA is generally the sum of grade point multiplied by course credits, divided by total credits."}},
+    {"@type":"Question","name":"Are StudentHub calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. StudentHub provides free student calculators and planning tools."}}
+  ]
+}
+</script>
+
+
+<style>
+.guide-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.guide-item:last-child{border-bottom:0}
+.guide-item h3{margin:4px 0 6px}
+.guide-item p{margin:0;line-height:1.6}
+</style>
+
+
+<style>
+.v8-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.v8-actions button{flex:1;min-width:110px}
+.fav-btn{cursor:pointer}
+.tool.fav{outline:2px solid currentColor}
+.v8-note{font-size:.9rem;opacity:.8;margin-top:8px}
+</style>
+
+
+<style>
+.account-btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.account-box{width:min(420px,100%);padding:24px;border-radius:18px;background:inherit;border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.account-box input{width:100%;box-sizing:border-box;margin:7px 0;padding:12px;border-radius:10px}
+.account-box .close{float:right;border:0;background:transparent;font-size:22px;cursor:pointer}
+.account-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.account-actions button{flex:1;min-width:130px}
+.profile-card{display:none}
+.profile-card.show{display:block}
+.small-muted{font-size:.88rem;opacity:.75}
+</style>
+
+
+<style>
+.v10-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.v10-box{padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:14px}
+.v10-box input,.v10-box select{width:100%;box-sizing:border-box;margin:6px 0;padding:11px;border-radius:9px}
+.v10-box button{margin-top:7px}
+.v10-list{margin:8px 0 0;padding-left:20px}
+.progress-wrap{height:10px;border-radius:10px;background:rgba(127,127,127,.25);overflow:hidden;margin-top:8px}
+.progress-bar{height:100%;width:0;background:currentColor}
+</style>
+
+</head>
+<body>
+<header><h1>🎓 StudentHub</h1>
+<button class="account-btn" onclick="openAccount()">👤 Login / Sign Up</button>
+<p>Free tools that make student life easier.</p>
+<div class="search"><input id="search" oninput="filterTools()" placeholder="🔎 Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
+<main>
+<div class="chips">
+<button class="chip active" onclick="cat('all',this)">All</button><button class="chip" onclick="cat('marks',this)">📊 Marks</button><button class="chip" onclick="cat('college',this)">🎓 College</button><button class="chip" onclick="cat('study',this)">📚 Study</button><button class="chip" onclick="cat('finance',this)">💰 Finance</button>
+</div>
+<div class="grid">
+
+<section class="card" id="dashboard">
+<h2>⭐ My StudentHub</h2>
+<p>Quick controls for your favorite tools and results.</p>
+<div class="v8-actions">
+<button onclick="showFavorites()">⭐ Favorites</button>
+<button onclick="showAllTools()">🔄 Show All</button>
+<button onclick="shareSite()">📤 Share StudentHub</button>
+</div>
+<p id="dashMsg" class="v8-note">Tip: tap ⭐ on any tool to save it on this device.</p>
+</section>
+
+<section class="card tool" data-cat="marks" data-name="percentage"><h2>📊 Percentage Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find percentage from obtained and total marks.</p><input id="p1" type="number" placeholder="Obtained marks"><input id="p2" type="number" placeholder="Total marks"><button onclick="percentage()">Calculate</button><div id="pr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance"><h2>📅 Attendance Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Check your current attendance percentage.</p><input id="a1" type="number" placeholder="Classes attended"><input id="a2" type="number" placeholder="Total classes"><button onclick="attendance()">Calculate</button><div id="ar" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="cgpa"><h2>🎯 CGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage using the common 9.5 formula.</p><input id="cg" type="number" step=".01" placeholder="Enter CGPA"><button onclick="cgpa()">Convert</button><div id="cgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="sgpa"><h2>🎓 SGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate SGPA from credits and grade points.</p><input id="credits" placeholder="Credits: 3,3,4"><input id="grades" placeholder="Grade points: 8,9,10"><button onclick="sgpa()">Calculate</button><div id="sgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="average marks"><h2>📝 Marks Average</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Average multiple marks at once.</p><input id="marks" placeholder="Marks: 80,75,90"><button onclick="avg()">Calculate</button><div id="mr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="exam countdown"><h2>⏳ Exam Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many days remain until your exam.</p><input id="exam" type="date"><button onclick="countdown()">Check Countdown</button><div id="er" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="required marks"><h2>🏆 Required Marks</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed for a target percentage.</p><input id="rt" type="number" placeholder="Total marks"><input id="rp" type="number" placeholder="Target %"><button onclick="required()">Calculate</button><div id="rr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="discount"><h2>🏷️ Discount Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find savings and final sale price.</p><input id="price" type="number" placeholder="Original price"><input id="disc" type="number" placeholder="Discount %"><button onclick="discount()">Calculate</button><div id="dr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="simple interest"><h2>💰 Simple Interest</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate interest and total amount.</p><input id="sp" type="number" placeholder="Principal"><input id="sr" type="number" placeholder="Rate %"><input id="st" type="number" placeholder="Time in years"><button onclick="interest()">Calculate</button><div id="sir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timer"><h2>⏱️ Study Timer</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simple 25-minute focus timer.</p><button onclick="startTimer()">Start 25 Minutes</button><button onclick="stopTimer()">Stop</button><div id="timer" class="result">25:00</div></section>
+<section class="card tool" data-cat="study" data-name="age calculator"><h2>🎂 Age Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate age from birth date.</p><input id="dob" type="date"><button onclick="age()">Calculate Age</button><div id="ager" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="ratio"><h2>➗ Ratio Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simplify two numbers into a ratio.</p><input id="rx" type="number" placeholder="First number"><input id="ry" type="number" placeholder="Second number"><button onclick="ratio()">Simplify</button><div id="rratio" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+</div>
+
+<section class="card tool" data-cat="college" data-name="target cgpa"><h2>🎯 Target CGPA</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate the average SGPA needed for a target CGPA.</p><input id="tcg" type="number" step=".01" placeholder="Current CGPA"><input id="tsem" type="number" placeholder="Semesters completed"><input id="ttarget" type="number" step=".01" placeholder="Target CGPA"><button onclick="targetCGPA()">Calculate</button><div id="tcgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance skip classes"><h2>🏫 Attendance Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many more classes you can miss and stay at your target.</p><input id="attDone" type="number" placeholder="Classes attended"><input id="attTotal" type="number" placeholder="Total classes"><input id="attTarget" type="number" placeholder="Target %"><button onclick="skipClasses()">Calculate</button><div id="skipr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="grade calculator"><h2>📝 Grade Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert marks into a simple letter grade.</p><input id="gradeMark" type="number" placeholder="Marks %"><button onclick="gradeCalc()">Calculate</button><div id="grader" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="college fee calculator"><h2>💸 College Fee Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate total fees for your course.</p><input id="feeYear" type="number" placeholder="Fee per year (₹)"><input id="feeYears" type="number" placeholder="Number of years"><button onclick="feeCalc()">Calculate</button><div id="feer" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+
+
+<section class="card tool" data-cat="marks" data-name="cgpa percentage converter"><h2>🔄 CGPA ↔ Percentage</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage or percentage to CGPA.</p><input id="convVal" type="number" step=".01" placeholder="Enter value"><input id="convMode" placeholder="Type: CGPA or %"><button onclick="convertCGPA()">Convert</button><div id="convr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="required attendance classes"><h2>📅 Required Attendance Classes</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find classes needed to reach your target attendance.</p><input id="reqAtt" type="number" placeholder="Current attendance %"><input id="reqTotal" type="number" placeholder="Classes conducted so far"><input id="reqTarget" type="number" placeholder="Target %"><button onclick="requiredAttendance()">Calculate</button><div id="reqAttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="student budget planner"><h2>💰 Student Budget Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Plan your monthly student spending and savings.</p><input id="budgetIncome" type="number" placeholder="Monthly income / allowance (₹)"><input id="budgetSpend" type="number" placeholder="Monthly expenses (₹)"><button onclick="budgetCalc()">Calculate</button><div id="budgetr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="emi calculator"><h2>🏦 EMI Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate monthly EMI for a student or education loan.</p><input id="emiP" type="number" placeholder="Loan amount (₹)"><input id="emiR" type="number" step=".01" placeholder="Annual interest %"><input id="emiY" type="number" placeholder="Loan period (years)"><button onclick="emiCalc()">Calculate</button><div id="emir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="target marks planner"><h2>🎯 Target Marks Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed in remaining assessments for a target percentage.</p><input id="targetScored" type="number" placeholder="Marks scored so far"><input id="targetTotal" type="number" placeholder="Total marks so far"><input id="targetRemaining" type="number" placeholder="Remaining total marks"><input id="targetPct" type="number" placeholder="Target overall %"><button onclick="targetMarks()">Calculate</button><div id="targetMarkr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+
+
+
+<section class="card" id="powerpack">
+<h2>⚡ Student Power Pack</h2>
+<p>Extra planning tools for exams, subjects and daily study.</p>
+<div class="v10-grid">
+<div class="v10-box">
+<h3>📊 Semester GPA Tracker</h3>
+<input id="gpa1" type="number" step=".01" placeholder="Semester 1 GPA">
+<input id="gpa2" type="number" step=".01" placeholder="Semester 2 GPA">
+<input id="gpa3" type="number" step=".01" placeholder="Semester 3 GPA">
+<button onclick="gpaTrack()">Calculate Average</button>
+<div id="gpar" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⚠️ Attendance Risk Checker</h3>
+<input id="riskAtt" type="number" step=".01" placeholder="Current attendance %">
+<input id="riskTarget" type="number" step=".01" placeholder="Minimum target %">
+<button onclick="attendanceRisk()">Check Risk</button>
+<div id="riskr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>🎯 Exam Score Goal</h3>
+<input id="goalCurrent" type="number" placeholder="Marks scored">
+<input id="goalTotal" type="number" placeholder="Total marks so far">
+<input id="goalRemaining" type="number" placeholder="Remaining total marks">
+<input id="goalPercent" type="number" placeholder="Target overall %">
+<button onclick="examGoal()">Calculate</button>
+<div id="goalr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>📚 Subject Priority Planner</h3>
+<input id="subNames" placeholder="Subjects: Maths, Python, Cloud">
+<input id="subDays" type="number" placeholder="Days available">
+<button onclick="subjectPriority()">Plan</button>
+<div id="subr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⏱️ Pomodoro Timer</h3>
+<p id="pomoDisplay">25:00</p>
+<button onclick="startPomo()">▶ Start</button>
+<button onclick="pausePomo()">⏸ Pause</button>
+<button onclick="resetPomo()">↻ Reset</button>
+<div id="pomor" class="small-muted"></div>
+</div>
+<div class="v10-box">
+<h3>💰 Budget Breakdown</h3>
+<input id="bbIncome" type="number" placeholder="Monthly income (₹)">
+<input id="bbFood" type="number" placeholder="Food (₹)">
+<input id="bbTravel" type="number" placeholder="Travel (₹)">
+<input id="bbStudy" type="number" placeholder="Study/college (₹)">
+<input id="bbOther" type="number" placeholder="Other (₹)">
+<button onclick="budgetBreakdown()">Calculate</button>
+<div id="bbr" class="result"></div>
+</div>
+</div>
+</section>
+
+<section class="card" id="guides">
+<h2>📚 Student Guides & FAQs</h2>
+<p>Quick answers to common student questions.</p>
+<div class="guide-item"><h3>How is CGPA converted to percentage?</h3><p>A common approximation is CGPA × 9.5 = percentage. Check your university's official conversion rule because formulas can differ.</p></div>
+<div class="guide-item"><h3>How do I calculate attendance?</h3><p>Attendance % = (Classes Attended ÷ Total Classes) × 100.</p></div>
+<div class="guide-item"><h3>How do I calculate SGPA?</h3><p>SGPA is generally calculated as the sum of (grade point × course credits) divided by total credits. Use your institution's grading scale.</p></div>
+<div class="guide-item"><h3>How can I plan study hours?</h3><p>List your subjects, set available hours, and divide time according to subject difficulty, exam priority and your current preparation.</p></div>
+<div class="guide-item"><h3>Are StudentHub calculators free?</h3><p>Yes. StudentHub is designed to provide simple, free tools for everyday student calculations and planning.</p></div>
+</section>
+
+
+<section class="card" id="disclosure">
+<h2>💡 About StudentHub</h2>
+<p>StudentHub provides free calculators and planning tools for students. Results are estimates for general educational use; always follow your college or university's official rules where applicable.</p>
+<p>StudentHub may use third-party advertising in the future to help support the free service. Advertising will not change calculator results or educational information.</p>
+</section>
+
+<section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
+<div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div></section>
+</main>
+<footer>© 2026 StudentHub • Free student tools 📱</footer>
+<script>
+const v=id=>parseFloat(document.getElementById(id).value);
+function percentage(){pr.textContent=v('p2')>0?(v('p1')/v('p2')*100).toFixed(2)+'%':'Enter valid marks.'}
+function attendance(){ar.textContent=v('a2')>0?(v('a1')/v('a2')*100).toFixed(2)+'%':'Enter valid classes.'}
+function cgpa(){cgr.textContent=!isNaN(v('cg'))?'≈ '+(v('cg')*9.5).toFixed(2)+'%':'Enter CGPA.'}
+function nums(id){return document.getElementById(id).value.split(',').map(Number).filter(x=>!isNaN(x))}
+function sgpa(){let c=nums('credits'),g=nums('grades');sgr.textContent=c.length&&c.length==g.length?'SGPA: '+(c.reduce((s,x,i)=>s+x*g[i],0)/c.reduce((s,x)=>s+x,0)).toFixed(2):'Enter matching values.'}
+function avg(){let a=nums('marks');mr.textContent=a.length?'Average: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter marks.'}
+function countdown(){if(!exam.value){er.textContent='Select a date.';return}let d=Math.ceil((new Date(exam.value+'T00:00:00')-new Date())/86400000);er.textContent=d>=0?d+' day(s) remaining 🎯':'Exam date has passed.'}
+function required(){rr.textContent=v('rt')>0?'Marks needed: '+(v('rt')*v('rp')/100).toFixed(0):'Enter valid values.'}
+function discount(){dr.textContent='You save: ₹'+(v('price')*v('disc')/100).toFixed(2)+' | Sale price: ₹'+(v('price')*(1-v('disc')/100)).toFixed(2)}
+function interest(){let i=v('sp')*v('sr')*v('st')/100;sir.textContent='Interest: ₹'+i.toFixed(2)+' | Total: ₹'+(v('sp')+i).toFixed(2)}
+function age(){let d=new Date(dob.value),n=new Date(),y=n.getFullYear()-d.getFullYear();if(n<new Date(n.getFullYear(),d.getMonth(),d.getDate()))y--;ager.textContent='Age: '+y+' years'}
+function gcd(a,b){return b?gcd(b,a%b):Math.abs(a)}
+function ratio(){let a=v('rx'),b=v('ry');if(a&&b){let g=gcd(a,b);rratio.textContent='Ratio: '+a/g+':'+b/g}else rratio.textContent='Enter two numbers.'}
+let ti;function startTimer(){clearInterval(ti);let s=1500;ti=setInterval(()=>{timer.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');if(!s--)clearInterval(ti)},1000)}function stopTimer(){clearInterval(ti)}
+function cat(c,b){document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tool').forEach(x=>x.style.display=c==='all'||x.dataset.cat===c?'block':'none');search.value=''}
+function filterTools(){let q=search.value.toLowerCase();document.querySelectorAll('.tool').forEach(x=>x.style.display=(x.dataset.name+' '+x.innerText).toLowerCase().includes(q)?'block':'none')}
+function clearSearch(){search.value='';filterTools()}
+
+function targetCGPA(){let c=v('tcg'),s=v('tsem'),t=v('ttarget');if(s>0){let need=t*(s+1)-c*s;tcgr.textContent='Approx. next SGPA needed: '+need.toFixed(2)}else tcgr.textContent='Enter semesters completed.'}
+function skipClasses(){let a=v('attDone'),t=v('attTotal'),p=v('attTarget');if(t>0&&p>=0&&p<=100){let x=0;while((a/(t+x))*100>=p)x++;skipr.textContent=x>0?'You can miss up to '+(x-1)+' more class(es).':'You cannot miss another class and stay at '+p+'%.'}else skipr.textContent='Enter valid values.'}
+function gradeCalc(){let m=v('gradeMark');grader.textContent=isNaN(m)?'Enter marks %':m>=90?'Grade: A+':m>=80?'Grade: A':m>=70?'Grade: B':m>=60?'Grade: C':m>=50?'Grade: D':'Grade: F'}
+function feeCalc(){let f=v('feeYear'),y=v('feeYears');feer.textContent=f>0&&y>0?'Estimated total: ₹'+(f*y).toLocaleString('en-IN'):'Enter valid values.'}
+function studyPlan(){let h=v('studyHours'),s=v('studySubjects');studyr.textContent=h>0&&s>0?'About '+(h/s).toFixed(2)+' hour(s) per subject.':'Enter valid values.'}
+function passCalc(){let t=v('passTotal'),p=v('passPct'),g=v('passGot');let need=t*p/100-g;passr.textContent=need<=0?'You already reached the pass mark 🎉':'Marks still needed: '+Math.ceil(need)}
+
+function convertCGPA(){
+  let x=v('convVal'),m=document.getElementById('convMode').value.trim().toLowerCase();
+  if(isNaN(x)){convr.textContent='Enter a value.';return}
+  if(m==='cgpa'||m==='cg'){convr.textContent='Percentage ≈ '+(x*9.5).toFixed(2)+'%'}
+  else if(m==='%'||m==='percent'||m==='percentage'){convr.textContent='CGPA ≈ '+(x/9.5).toFixed(2)}
+  else convr.textContent='Type CGPA or % in the second box.'
+}
+function requiredAttendance(){
+  let p=v('reqAtt'),n=v('reqTotal'),t=v('reqTarget');
+  if(p>=0&&p<=100&&n>0&&t>=0&&t<=100){
+    let attended=p*n/100, x=0;
+    while(((attended+x)/(n+x))*100<t && x<100000)x++;
+    reqAttr.textContent=x===0?'Target already reached 🎉':'Attend the next '+x+' class(es) to reach about '+t+'%.'
+  } else reqAttr.textContent='Enter valid values.'
+}
+function budgetCalc(){
+  let i=v('budgetIncome'),s=v('budgetSpend');
+  if(i>=0&&s>=0){let b=i-s;budgetr.textContent=b>=0?'Left after expenses: ₹'+b.toLocaleString('en-IN'):'Over budget by: ₹'+Math.abs(b).toLocaleString('en-IN')}
+  else budgetr.textContent='Enter valid values.'
+}
+function emiCalc(){
+  let p=v('emiP'),r=v('emiR')/1200,n=v('emiY')*12;
+  if(p>0&&n>0&&v('emiR')>=0){
+    let e=r===0?p/n:p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+    emir.textContent='Approx. EMI: ₹'+e.toFixed(2)+' | Total: ₹'+(e*n).toFixed(2)
+  } else emir.textContent='Enter valid values.'
+}
+function targetMarks(){
+  let s=v('targetScored'),t=v('targetTotal'),rem=v('targetRemaining'),p=v('targetPct');
+  let need=(p/100)*(t+rem)-s;
+  if(t>=0&&rem>0&&p>=0&&p<=100){targetMarkr.textContent=need<=0?'Target already reached 🎉':'Need about '+Math.ceil(need)+' marks out of '+rem+' remaining.'}
+  else targetMarkr.textContent='Enter valid values.'
+}
+function makeTimetable(){
+  let h=v('ttHours'),subs=document.getElementById('ttSubjects').value.split(',').map(x=>x.trim()).filter(Boolean);
+  if(h>0&&subs.length){let each=h/subs.length;ttr.innerHTML='Each subject: '+each.toFixed(2)+' hour(s)<br>'+subs.map((s,i)=>(i+1)+'. '+s).join('<br>')}
+  else ttr.textContent='Enter hours and subjects separated by commas.'
+}
+function daysBetween(){
+  let a=new Date(dateA.value),b=new Date(dateB.value);
+  if(dateA.value&&dateB.value){daysr.textContent='Difference: '+Math.abs(Math.round((b-a)/86400000))+' day(s).'}
+  else daysr.textContent='Select both dates.'
+}
+function semesterCountdown(){
+  if(!semDate.value){semr.textContent='Select a date.';return}
+  let d=Math.ceil((new Date(semDate.value+'T00:00:00')-new Date())/86400000);
+  semr.textContent=d>=0?d+' day(s) remaining 🎓':'Date has passed.'
+}
+
+</script>
+<script>
+function toolCards(){return Array.from(document.querySelectorAll('.tool'))}
+function keyFor(card){return 'studenthub_fav_'+(card.getAttribute('data-name')||card.querySelector('h2')?.textContent||'tool').toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+function toggleFavorite(btn){
+  const card=btn.closest('.tool'), key=keyFor(card), fav=localStorage.getItem(key)==='1';
+  if(fav){localStorage.removeItem(key);btn.textContent='☆ Favorite';card.classList.remove('fav')}
+  else{localStorage.setItem(key,'1');btn.textContent='★ Favorite';card.classList.add('fav')}
+}
+function refreshFavorites(){
+  toolCards().forEach(card=>{
+    const btn=card.querySelector('.fav-btn');
+    if(btn&&localStorage.getItem(keyFor(card))==='1'){btn.textContent='★ Favorite';card.classList.add('fav')}
+  })
+}
+function showFavorites(){
+  let n=0;
+  toolCards().forEach(card=>{let yes=localStorage.getItem(keyFor(card))==='1';card.style.display=yes?'':'none';if(yes)n++});
+  dashMsg.textContent=n?n+' favorite tool(s) shown.':'No favorites yet — tap ☆ Favorite on a tool.'
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+function showAllTools(){
+  toolCards().forEach(card=>card.style.display='');
+  dashMsg.textContent='All tools are shown.'
+}
+async function copyResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied! 📋'}
+  catch(e){dashMsg.textContent='Copy is not available in this browser.'}
+}
+async function shareResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  if(navigator.share){try{await navigator.share({title:'StudentHub Result',text:text,url:location.href})}catch(e){}}
+  else{try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied. Share it anywhere! 📋'}catch(e){dashMsg.textContent='Sharing is not available.'}}
+}
+async function shareSite(){
+  const data={title:'StudentHub',text:'Free student calculators and study tools',url:'https://anudeepvemula177.github.io/studenthub/'};
+  if(navigator.share){try{await navigator.share(data)}catch(e){}}
+  else{try{await navigator.clipboard.writeText(data.url);dashMsg.textContent='Site link copied! 📋'}catch(e){dashMsg.textContent=data.url}}
+}
+document.addEventListener('DOMContentLoaded',refreshFavorites)
+</script>
+
+
+<div id="accountModal" class="modal" onclick="if(event.target===this)closeAccount()">
+<div class="account-box">
+<button class="close" onclick="closeAccount()">✕</button>
+<h2>👤 StudentHub Account</h2>
+<p class="small-muted">Optional — calculators remain free without an account.</p>
+<div id="accountForm">
+<input id="accName" placeholder="Your name">
+<input id="accEmail" type="email" placeholder="Email">
+<div class="account-actions">
+<button onclick="demoSignup()">Create Account</button>
+<button onclick="demoLogin()">Login</button>
+</div>
+<p class="small-muted">V9 preview: these buttons demonstrate the account flow only. No password or real account is created yet.</p>
+</div>
+<div id="profileCard" class="profile-card">
+<h3>Welcome, <span id="profileName"></span>! 👋</h3>
+<p>You are viewing the StudentHub account dashboard preview.</p>
+<div class="account-actions">
+<button onclick="closeAccount()">Continue to Tools</button>
+<button onclick="demoLogout()">Log out</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAccount()}
+function closeAccount(){document.getElementById('accountModal').classList.remove('show')}
+function refreshAccount(){
+  const name=localStorage.getItem('studenthub_demo_user');
+  document.getElementById('accountForm').style.display=name?'none':'block';
+  document.getElementById('profileCard').classList.toggle('show',!!name);
+  if(name) document.getElementById('profileName').textContent=name;
+}
+function demoSignup(){
+  const name=document.getElementById('accName').value.trim();
+  const email=document.getElementById('accEmail').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
+}
+function demoLogin(){
+  const name=document.getElementById('accName').value.trim()||'Student';
+  const email=document.getElementById('accEmail').value.trim();
+  if(!email){alert('Enter your email to continue with this V9 preview.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
+}
+function demoLogout(){
+  localStorage.removeItem('studenthub_demo_user');
+  localStorage.removeItem('studenthub_demo_email');
+  refreshAccount();
+}
+</script>
+
+
+<script>
+function num(id){return parseFloat(document.getElementById(id).value)}
+function gpaTrack(){
+  let a=[num('gpa1'),num('gpa2'),num('gpa3')].filter(x=>!isNaN(x));
+  gpar.textContent=a.length?'Average GPA: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter at least one GPA.'
+}
+function attendanceRisk(){
+  let a=num('riskAtt'),t=num('riskTarget');
+  if(a>=0&&a<=100&&t>=0&&t<=100){
+    riskr.textContent=a<t?'⚠️ Below target by '+(t-a).toFixed(2)+' percentage points.':'✅ Above target by '+(a-t).toFixed(2)+' percentage points.'
+  }else riskr.textContent='Enter valid percentages.'
+}
+function examGoal(){
+  let s=num('goalCurrent'),t=num('goalTotal'),r=num('goalRemaining'),p=num('goalPercent');
+  let need=(p/100)*(t+r)-s;
+  if(t>=0&&r>0&&p>=0&&p<=100){
+    goalr.textContent=need<=0?'🎉 Target already reached.':'Need '+Math.ceil(need)+' / '+r+' remaining marks ('+((need/r)*100).toFixed(1)+'%).'
+  }else goalr.textContent='Enter valid values.'
+}
+function subjectPriority(){
+  let names=document.getElementById('subNames').value.split(',').map(x=>x.trim()).filter(Boolean),d=num('subDays');
+  if(names.length&&d>0){
+    subr.innerHTML='<ol class="v10-list">'+names.map((x,i)=>'<li>'+x+' — '+Math.max(1,Math.ceil(d/names.length))+' day(s) focus</li>').join('')+'</ol>'
+  }else subr.textContent='Enter subjects and available days.'
+}
+let pomoSeconds=1500,pomoTimer=null;
+function renderPomo(){let m=Math.floor(pomoSeconds/60),sec=pomoSeconds%60;pomoDisplay.textContent=String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')}
+function startPomo(){
+  if(pomoTimer)return;
+  pomor.textContent='Focus time running 🔥';
+  pomoTimer=setInterval(()=>{if(pomoSeconds>0){pomoSeconds--;renderPomo()}else{clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Time is up! Take a short break 🎉'}},1000)
+}
+function pausePomo(){clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Paused.'}
+function resetPomo(){pausePomo();pomoSeconds=1500;renderPomo();pomor.textContent='Ready for 25 minutes.'}
+function budgetBreakdown(){
+  let i=num('bbIncome'),items=['bbFood','bbTravel','bbStudy','bbOther'].map(num);
+  if(i>=0&&items.every(x=>x>=0)){
+    let total=items.reduce((a,b)=>a+b,0),left=i-total;
+    bbr.innerHTML='Total expenses: ₹'+total.toLocaleString('en-IN')+'<br>'+ (left>=0?'Remaining: ₹'+left.toLocaleString('en-IN'):'Over budget: ₹'+Math.abs(left).toLocaleString('en-IN'))
+  }else bbr.textContent='Enter valid values.'
+}
+</script>
+
+</body></html>
