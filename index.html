@@ -20,6 +20,12 @@ main{max-width:1000px;margin:auto;padding:22px 16px}.chips{display:flex;gap:8px;
 input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;font-size:15px;margin-top:8px;background:#0f172a;color:#fff}button{border:0;background:#4f46e5;font-weight:700;cursor:pointer}.result{margin-top:10px;color:#a5b4fc;font-weight:700;min-height:22px}
 .about{margin-top:22px;color:#cbd5e1}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.links a{color:#a5b4fc;text-decoration:none}.links a:hover{text-decoration:underline}
 footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1px solid #1f2937;margin-top:20px}
+
+.cloud-card{margin-top:16px;padding:16px;border:1px solid #343a55;border-radius:16px;background:#111326}
+.cloud-card h3{margin:0 0 8px}
+.cloud-status{font-size:14px;color:#bfc5d8;margin:8px 0 12px}
+.cloud-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cloud-actions button{flex:1;min-width:140px}
 </style>
 <script type="application/ld+json">
 {
@@ -294,6 +300,7 @@ function toggleFavorite(btn){
   const card=btn.closest('.tool'), key=keyFor(card), fav=localStorage.getItem(key)==='1';
   if(fav){localStorage.removeItem(key);btn.textContent='☆ Favorite';card.classList.remove('fav')}
   else{localStorage.setItem(key,'1');btn.textContent='★ Favorite';card.classList.add('fav')}
+  if(typeof saveCloudData==='function') saveCloudData(false);
 }
 function refreshFavorites(){
   toolCards().forEach(card=>{
@@ -353,6 +360,14 @@ document.addEventListener('DOMContentLoaded',refreshFavorites)
 <div id="profileCard" class="profile-card">
 <h3>Welcome, <span id="profileName"></span>! 👋</h3>
 <p id="profileEmail"></p>
+<div class="cloud-card">
+<h3>☁️ My StudentHub Cloud</h3>
+<p id="cloudStatus" class="cloud-status">Your favorites and Student Power Pack can sync across devices.</p>
+<div class="cloud-actions">
+<button onclick="saveCloudData(true)">☁️ Save to Cloud</button>
+<button onclick="loadCloudData(true)">🔄 Load from Cloud</button>
+</div>
+</div>
 <div class="account-actions">
 <button onclick="closeAccount()">Continue to Tools</button>
 <button onclick="signOutStudent()">Log out</button>
@@ -406,8 +421,63 @@ async function refreshAuthUI(){
   if(user){
     document.getElementById('profileName').textContent=user.user_metadata?.name || user.email?.split('@')[0] || 'Student';
     document.getElementById('profileEmail').textContent=user.email || '';
+    cloudMessage('☁️ Loading your cloud data...');
+    loadCloudData(false);
+  } else {
+    cloudMessage('Log in to sync favorites and Student Power Pack across devices.');
   }
 }
+async function currentStudent(){
+  const {data}=await supabaseClient.auth.getSession();
+  return data.session?.user || null;
+}
+function cloudMessage(msg){
+  const el=document.getElementById('cloudStatus');
+  if(el) el.textContent=msg;
+}
+function collectPowerPack(){
+  const ids=['gpa1','gpa2','gpa3','riskAtt','riskTarget','goalCurrent','goalTotal','goalRemaining','goalPercent','subNames','subDays','bbIncome','bbFood','bbTravel','bbStudy','bbOther'];
+  const out={};
+  ids.forEach(id=>{const el=document.getElementById(id);if(el) out[id]=el.value});
+  return out;
+}
+function applyPowerPack(data){
+  if(!data)return;
+  Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val ?? ''});
+}
+function collectFavorites(){
+  return toolCards().filter(card=>localStorage.getItem(keyFor(card))==='1').map(card=>keyFor(card));
+}
+function applyFavorites(keys){
+  if(!Array.isArray(keys))return;
+  const wanted=new Set(keys);
+  toolCards().forEach(card=>{
+    const key=keyFor(card),btn=card.querySelector('.fav-btn');
+    if(wanted.has(key)){localStorage.setItem(key,'1');if(btn)btn.textContent='★ Favorite';card.classList.add('fav')}
+  });
+}
+async function saveCloudData(manual=false){
+  const user=await currentStudent();
+  if(!user){if(manual)cloudMessage('Please log in first.');return false}
+  const payload={user_id:user.id,display_name:user.user_metadata?.name || user.email?.split('@')[0] || 'Student',favorites:collectFavorites(),dashboard:collectPowerPack(),updated_at:new Date().toISOString()};
+  const {error}=await supabaseClient.from('student_cloud').upsert(payload,{onConflict:'user_id'});
+  if(error){cloudMessage('Cloud save failed: '+error.message);return false}
+  cloudMessage('☁️ Saved to cloud just now.');
+  return true;
+}
+async function loadCloudData(manual=false){
+  const user=await currentStudent();
+  if(!user){if(manual)cloudMessage('Please log in first.');return false}
+  const {data,error}=await supabaseClient.from('student_cloud').select('favorites,dashboard,updated_at').eq('user_id',user.id).maybeSingle();
+  if(error){cloudMessage('Cloud load failed: '+error.message);return false}
+  if(!data){cloudMessage('No cloud data yet. Tap Save to Cloud.');return true}
+  applyFavorites(data.favorites||[]);
+  applyPowerPack(data.dashboard||{});
+  refreshFavorites();
+  cloudMessage('☁️ Loaded from cloud'+(data.updated_at?' • '+new Date(data.updated_at).toLocaleString():'')+'.');
+  return true;
+}
+
 supabaseClient.auth.onAuthStateChange(()=>refreshAuthUI());
 </script>
 
