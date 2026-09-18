@@ -20,7 +20,29 @@ main{max-width:1000px;margin:auto;padding:22px 16px}.chips{display:flex;gap:8px;
 input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;font-size:15px;margin-top:8px;background:#0f172a;color:#fff}button{border:0;background:#4f46e5;font-weight:700;cursor:pointer}.result{margin-top:10px;color:#a5b4fc;font-weight:700;min-height:22px}
 .about{margin-top:22px;color:#cbd5e1}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.links a{color:#a5b4fc;text-decoration:none}.links a:hover{text-decoration:underline}
 footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1px solid #1f2937;margin-top:20px}
-</style></head>
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How is CGPA converted to percentage?","acceptedAnswer":{"@type":"Answer","text":"A common approximation is CGPA multiplied by 9.5. University conversion rules can differ."}},
+    {"@type":"Question","name":"How do I calculate attendance?","acceptedAnswer":{"@type":"Answer","text":"Attendance percentage equals classes attended divided by total classes, multiplied by 100."}},
+    {"@type":"Question","name":"How do I calculate SGPA?","acceptedAnswer":{"@type":"Answer","text":"SGPA is generally the sum of grade point multiplied by course credits, divided by total credits."}},
+    {"@type":"Question","name":"Are StudentHub calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. StudentHub provides free student calculators and planning tools."}}
+  ]
+}
+</script>
+
+
+<style>
+.guide-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.guide-item:last-child{border-bottom:0}
+.guide-item h3{margin:4px 0 6px}
+.guide-item p{margin:0;line-height:1.6}
+</style>
+
+</head>
 <body>
 <header><h1>🎓 StudentHub</h1><p>Free tools that make student life easier.</p>
 <div class="search"><input id="search" oninput="filterTools()" placeholder="🔎 Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
@@ -59,6 +81,17 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div></section>
 <section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div></section>
 <section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div></section>
+
+
+<section class="card" id="guides">
+<h2>📚 Student Guides & FAQs</h2>
+<p>Quick answers to common student questions.</p>
+<div class="guide-item"><h3>How is CGPA converted to percentage?</h3><p>A common approximation is CGPA × 9.5 = percentage. Check your university's official conversion rule because formulas can differ.</p></div>
+<div class="guide-item"><h3>How do I calculate attendance?</h3><p>Attendance % = (Classes Attended ÷ Total Classes) × 100.</p></div>
+<div class="guide-item"><h3>How do I calculate SGPA?</h3><p>SGPA is generally calculated as the sum of (grade point × course credits) divided by total credits. Use your institution's grading scale.</p></div>
+<div class="guide-item"><h3>How can I plan study hours?</h3><p>List your subjects, set available hours, and divide time according to subject difficulty, exam priority and your current preparation.</p></div>
+<div class="guide-item"><h3>Are StudentHub calculators free?</h3><p>Yes. StudentHub is designed to provide simple, free tools for everyday student calculations and planning.</p></div>
+</section>
 
 <section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
 <div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></div></section>
