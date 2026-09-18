@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="g_9IVsRDD9I6Drl-LeNE9-0l5ZsPraQDjB5qnI3DwuE" />
+<meta name="google-site-verification" content="g_9IVsRDD9I6Drl-LeNE9-0l5ZsPraQDjB5qnI3DwuE" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StudentHub — Free Student Calculators & Study Tools</title>
@@ -94,12 +94,64 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 .progress-bar{height:100%;width:0;background:currentColor}
 </style>
 
+
+<style id="v14-styles">
+:root{--v14-accent:#4f46e5;--v14-card:#111827;--v14-border:#263244;--v14-text:#eef2ff;--v14-muted:#94a3b8}
+body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,body.light .cloud-card,body.light .v10-box,body.light .v14-panel{background:#fff;border-color:#dbe2ea}body.light input,body.light select{background:#fff;color:#172033;border-color:#cbd5e1}body.light .chip{background:#fff;color:#334155;border-color:#cbd5e1}body.light .small-muted,body.light .v14-muted{color:#64748b}
+.v14-top{max-width:1000px;margin:0 auto;padding:0 16px 8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.v14-top button{width:auto;padding:9px 13px;margin:0;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25)}
+.v14-section{margin-top:22px}.v14-panel{background:#111827;border:1px solid #263244;border-radius:18px;padding:20px}.v14-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.v14-panel h2,.v14-panel h3{margin-top:0}.v14-muted{color:#94a3b8;font-size:14px}.v14-stat{font-size:28px;font-weight:800;margin:4px 0}.v14-row{display:flex;gap:8px;flex-wrap:wrap}.v14-row>*{flex:1;min-width:130px}.v14-progress{height:11px;background:rgba(127,127,127,.22);border-radius:99px;overflow:hidden;margin:10px 0}.v14-progress>span{display:block;height:100%;width:0;background:currentColor;border-radius:99px;transition:width .3s}.v14-stars{font-size:27px;letter-spacing:2px;cursor:pointer;user-select:none}.v14-stars button{width:auto;background:transparent;padding:0 3px;margin:0;font-size:26px}.v14-review{padding:12px 0;border-bottom:1px solid rgba(127,127,127,.18)}.v14-review:last-child{border-bottom:0}.v14-review-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.v14-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(79,70,229,.14);font-size:12px;font-weight:700}.v14-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#111827;color:#fff;border:1px solid rgba(255,255,255,.15);padding:11px 15px;border-radius:12px;z-index:10001;transition:.2s}.v14-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.v14-check{display:flex;align-items:center;gap:8px;margin:7px 0}.v14-check input{width:auto;margin:0}.v14-nav{display:flex;gap:8px;overflow:auto;margin:12px 0}.v14-nav a{white-space:nowrap;text-decoration:none;color:inherit;border:1px solid rgba(127,127,127,.25);padding:8px 11px;border-radius:10px}.v14-countdown{font-variant-numeric:tabular-nums}.install-hint{display:none}
+</style>
+
+<style id="v14-home-styles">
+.v14-home{margin:20px 0 4px;padding:22px;border:1px solid var(--v14-border);border-radius:22px;background:linear-gradient(145deg,rgba(79,70,229,.14),rgba(147,51,234,.08)),var(--v14-card);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.v14-home h2{font-size:30px;margin:0 0 6px}.v14-home p{margin:0 0 16px;color:var(--v14-muted)}
+.v14-home-search{display:flex;gap:8px;margin-bottom:16px}.v14-home-search input{flex:1;margin:0;background:rgba(255,255,255,.06)}.v14-home-search button{width:auto;margin:0;padding:12px 15px}
+.v14-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.v14-cat-card{min-height:106px;padding:14px 10px;border:1px solid rgba(127,127,127,.24);border-radius:16px;background:rgba(255,255,255,.025);color:inherit;cursor:pointer;text-align:center;transition:transform .18s,border-color .18s,background .18s}.v14-cat-card:hover{transform:translateY(-2px);border-color:var(--v14-accent);background:rgba(79,70,229,.09)}.v14-cat-icon{font-size:28px;display:block;margin-bottom:7px}.v14-cat-title{font-weight:800;font-size:14px}.v14-cat-sub{font-size:11px;color:var(--v14-muted);margin-top:4px}
+.v14-launch-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:10000;align-items:flex-end;justify-content:center;padding:12px}.v14-launch-modal.show{display:flex}.v14-launch-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:#0f172a;color:#eef2ff;border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.45)}body.light .v14-launch-box{background:#fff;color:#172033;border-color:#dbe2ea}.v14-launch-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.v14-launch-head h3{margin:0}.v14-launch-close{width:auto!important;margin:0!important;background:transparent!important;font-size:24px;padding:4px 9px!important}.v14-launch-list{display:grid;gap:9px;margin-top:14px}.v14-launch-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid rgba(127,127,127,.22);border-radius:14px}.v14-launch-item strong{display:block}.v14-launch-item span{display:block;color:#94a3b8;font-size:12px;margin-top:2px}.v14-launch-item button{width:auto;margin:0;min-width:92px;padding:9px 12px}.v14-note-box{padding:14px;border-radius:14px;border:1px dashed rgba(127,127,127,.35);margin-top:12px}.v14-note-box strong{display:block;margin-bottom:5px}
+@media(max-width:560px){.v14-cat-grid{grid-template-columns:repeat(3,1fr);gap:8px}.v14-cat-card{min-height:94px;padding:11px 6px}.v14-cat-icon{font-size:24px}.v14-cat-title{font-size:12px}.v14-cat-sub{display:none}.v14-home{padding:16px}.v14-home h2{font-size:25px}}
+</style>
+
 </head>
 <body>
 <header><h1>🎓 StudentHub</h1>
 <button class="account-btn" onclick="openAccount()">👤 Login / Sign Up</button>
 <p>Free tools that make student life easier.</p>
 <div class="search"><input id="search" oninput="filterTools()" placeholder="🔎 Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
+<div class="v14-top">
+<button onclick="toggleTheme()">🌙 <span id="themeLabel">Dark Mode</span></button>
+<button onclick="installStudentHub()">📱 Install App</button>
+<button onclick="document.getElementById('v14-productivity').scrollIntoView({behavior:'smooth'})">🚀 Productivity</button>
+<button onclick="document.getElementById('v14-community').scrollIntoView({behavior:'smooth'})">⭐ Ratings & Reviews</button>
+</div>
+
+
+<section class="v14-home" id="v14-home-tools">
+  <h2>🎓 StudentHub Quick Hub</h2>
+  <p>Find notes, subjects, calculators and study tools without endless scrolling.</p>
+  <div class="v14-home-search">
+    <input id="v14QuickSearch" type="search" placeholder="🔎 Search notes, subjects, calculators..." oninput="v14QuickSearch()">
+    <button onclick="v14ClearQuickSearch()">Clear</button>
+  </div>
+  <div class="v14-cat-grid" id="v14CatGrid">
+    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Topics & revision</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Subject-wise tools</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('questions')"><span class="v14-cat-icon">📝</span><span class="v14-cat-title">Important Questions</span><span class="v14-cat-sub">Exam practice</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('exams')"><span class="v14-cat-icon">⏳</span><span class="v14-cat-title">Exam Countdown</span><span class="v14-cat-sub">Never miss a date</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('planner')"><span class="v14-cat-icon">📅</span><span class="v14-cat-title">Study Planner</span><span class="v14-cat-sub">Plan your day</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('gpa')"><span class="v14-cat-icon">📊</span><span class="v14-cat-title">GPA & Attendance</span><span class="v14-cat-sub">Track academics</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('pomodoro')"><span class="v14-cat-icon">⏱️</span><span class="v14-cat-title">Pomodoro</span><span class="v14-cat-sub">Focus sessions</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('goals')"><span class="v14-cat-icon">🎯</span><span class="v14-cat-title">Exam Score Goal</span><span class="v14-cat-sub">Target your marks</span></button>
+  </div>
+</section>
+
+<div class="v14-launch-modal" id="v14LaunchModal" onclick="if(event.target===this)v14CloseCategory()">
+  <div class="v14-launch-box">
+    <div class="v14-launch-head"><h3 id="v14LaunchTitle">StudentHub</h3><button class="v14-launch-close" onclick="v14CloseCategory()">✕</button></div>
+    <div id="v14LaunchList" class="v14-launch-list"></div>
+  </div>
+</div>
+
 <main>
 <div class="chips">
 <button class="chip active" onclick="cat('all',this)">All</button><button class="chip" onclick="cat('marks',this)">📊 Marks</button><button class="chip" onclick="cat('college',this)">🎓 College</button><button class="chip" onclick="cat('study',this)">📚 Study</button><button class="chip" onclick="cat('finance',this)">💰 Finance</button>
@@ -205,6 +257,35 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 </div>
 </div>
 </section>
+
+
+<section class="v14-section" id="v14-productivity">
+<div class="v14-panel">
+<h2>🚀 Student Productivity Pack — V14</h2>
+<p class="v14-muted">Plan your exams, build a study routine, and track progress from your phone.</p>
+<div class="v14-nav"><a href="#v14-exams">⏳ Exams</a><a href="#v14-planner">📅 Planner</a><a href="#v14-progress">📊 Progress</a><a href="#v14-community">⭐ Reviews</a></div>
+<div class="v14-grid">
+<div class="v14-panel" id="v14-exams"><h3>⏳ Exam Countdown</h3><p class="v14-muted">Save an exam date and see the countdown instantly.</p><input id="v14ExamName" placeholder="Exam name (e.g. Maths)"/><input id="v14ExamDate" type="datetime-local"/><button onclick="v14SaveExam()">Save Countdown</button><div id="v14ExamResult" class="result"></div></div>
+<div class="v14-panel" id="v14-planner"><h3>📅 Study Planner</h3><p class="v14-muted">Add a subject/task and mark it complete.</p><input id="v14Task" placeholder="Task (e.g. Unit 2 — Trees)"/><input id="v14TaskDate" type="date"/><button onclick="v14AddTask()">Add Task</button><div id="v14TaskList"></div></div>
+<div class="v14-panel" id="v14-progress"><h3>📊 Daily Progress</h3><p class="v14-muted">Set today's study target and log completed minutes.</p><input id="v14Target" type="number" min="1" placeholder="Target minutes (e.g. 120)"/><input id="v14Done" type="number" min="0" placeholder="Completed minutes"/><button onclick="v14SaveProgress()">Save Progress</button><div class="v14-progress"><span id="v14ProgressBar"></span></div><div id="v14ProgressText" class="result"></div><div class="v14-badge" id="v14Streak">🔥 Study streak: 0 days</div></div>
+<div class="v14-panel"><h3>⚡ Quick Study Boost</h3><div class="v14-check"><input id="v14Focus" type="checkbox"><label for="v14Focus">25-minute focus session completed</label></div><div class="v14-check"><input id="v14Revision" type="checkbox"><label for="v14Revision">Quick revision completed</label></div><div class="v14-check"><input id="v14Questions" type="checkbox"><label for="v14Questions">Practice questions completed</label></div><button onclick="v14SaveBoost()">Save Today's Boost</button><div id="v14Boost" class="result"></div></div>
+</div>
+</div>
+</section>
+
+<section class="v14-section" id="v14-community">
+<div class="v14-panel">
+<h2>⭐ StudentHub Ratings & Reviews</h2>
+<p class="v14-muted">Tell other students what you think. Ratings and reviews are tied to your StudentHub account.</p>
+<div class="v14-grid">
+<div class="v14-panel"><h3>Overall Rating</h3><div class="v14-stat" id="v14AvgRating">—</div><div id="v14RatingStars">☆☆☆☆☆</div><p id="v14RatingCount" class="v14-muted">No ratings yet.</p></div>
+<div class="v14-panel"><h3>Leave a Review</h3><div id="v14ReviewLogin" class="v14-muted">Log in to submit a rating and review.</div><div id="v14ReviewForm" style="display:none"><div class="v14-stars" id="v14StarPicker" aria-label="Choose rating"></div><textarea id="v14ReviewText" maxlength="500" placeholder="What helped you on StudentHub? (optional)" style="width:100%;min-height:100px;margin-top:8px;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff"></textarea><button onclick="v14SubmitReview()">Submit Review</button><p class="v14-muted">Reviews may be moderated before appearing publicly.</p></div></div>
+</div>
+<h3 style="margin-top:18px">💬 Recent Reviews</h3><div id="v14Reviews"><p class="v14-muted">Loading reviews…</p></div>
+</div>
+</section>
+
+<div id="v14Toast" class="v14-toast"></div>
 
 <section class="card" id="guides">
 <h2>📚 Student Guides & FAQs</h2>
@@ -552,4 +633,98 @@ function budgetBreakdown(){
 }
 </script>
 
+
+
+<script id="v14-home-js">
+const v14HomeItems={
+ notes:[
+  ['📚','Study Tools','Open the existing study tools and revision helpers.','study-tools.html'],
+  ['📖','Topic Notes','Subject-wise notes are planned for V15.','v15'],
+  ['⚡','Quick Revision','Use the study planner and progress tracker for revision.','v14-planner']
+ ],
+ subjects:[
+  ['📐','Mathematics','Calculators and academic tools for maths-heavy work.','calculator'],
+  ['🐍','Python & Data Structures','Practice-focused study tools and resources.','study'],
+  ['🌐','Web Technologies','Keep web development study resources together.','study'],
+  ['☁️','Cloud Computing','Cloud study resources can be added to this subject hub.','study']
+ ],
+ calculators:[
+  ['📊','Percentage Calculator','Calculate percentage from marks.','percentage-calculator.html'],
+  ['🎯','CGPA Calculator','Convert CGPA to percentage.','cgpa-calculator.html'],
+  ['🎓','SGPA Calculator','Calculate SGPA from credits and grade points.','sgpa-calculator.html'],
+  ['📅','Attendance Calculator','Check attendance percentage.','attendance-calculator.html'],
+  ['🏆','More Calculators','Jump to all calculators on this page.','tools']
+ ],
+ questions:[
+  ['📝','Marks & Target Tools','Required marks, target marks and grade helpers.','tools'],
+  ['📚','Revision Planner','Turn important topics into study tasks.','v14-planner'],
+  ['🚀','Notes & Question Bank','A dedicated notes/question-bank section is planned for V15.','v15']
+ ],
+ exams:[
+  ['⏳','Save Exam Countdown','Add an exam date and track remaining time.','v14-exams'],
+  ['🎯','Exam Score Goal','Calculate marks needed for your target.','target-marks'],
+  ['📅','Semester Countdown','Track an upcoming semester date.','semester-countdown']
+ ],
+ planner:[
+  ['📅','Study Planner','Add tasks, dates and completion status.','v14-planner'],
+  ['📊','Daily Progress','Track completed study minutes.','v14-progress'],
+  ['🔥','Study Streak','Build a daily study habit.','v14-progress']
+ ],
+ gpa:[
+  ['🎓','CGPA','Open the CGPA calculator.','cgpa-calculator.html'],
+  ['📚','SGPA','Open the SGPA calculator.','sgpa-calculator.html'],
+  ['📅','Attendance','Open the attendance calculator.','attendance-calculator.html']
+ ],
+ pomodoro:[
+  ['⏱️','25-Minute Study Timer','Start a focused session.','study-timer'],
+  ['⚡','Quick Study Boost','Track focus, revision and practice.','v14-boost'],
+  ['🔥','Progress & Streak','Log your study minutes.','v14-progress']
+ ],
+ goals:[
+  ['🎯','Target Marks','Estimate marks needed in remaining exams.','target-marks'],
+  ['🎓','Target CGPA','Estimate the SGPA needed for a target CGPA.','target-cgpa'],
+  ['📊','Required Attendance','Find classes needed to reach a target attendance.','required-attendance']
+ ]
+};
+const v14HomeTitles={notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
+function v14OpenCategory(cat){const modal=document.getElementById('v14LaunchModal');const list=document.getElementById('v14LaunchList');document.getElementById('v14LaunchTitle').textContent=v14HomeTitles[cat]||'StudentHub';list.innerHTML=v14HomeItems[cat].map((x,i)=>'<div class="v14-launch-item"><div><strong>'+x[0]+' '+x[1]+'</strong><span>'+x[2]+'</span></div><button onclick="v14Launch(\''+x[3]+'\')">Open</button></div>').join('');modal.classList.add('show');document.body.style.overflow='hidden'}
+function v14CloseCategory(){document.getElementById('v14LaunchModal').classList.remove('show');document.body.style.overflow=''}
+function v14Launch(target){v14CloseCategory();if(target==='v15'){v14Toast('V15 Notes & Question Bank is coming next. 📚');return}if(target==='tools'){document.querySelectorAll('.tool').forEach(x=>x.style.display='');document.getElementById('search').value='';document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'start'});return}if(target.endsWith('.html')){location.href=target;return}let map={'v14-exams':'v14-exams','v14-planner':'v14-planner','v14-progress':'v14-progress','v14-boost':'v14Boost','study-timer':'timer','target-marks':'targetMarkr','target-cgpa':'tcgr','required-attendance':'reqAttr','semester-countdown':'semr','calculator':'search'};let id=map[target]||target;let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:'smooth',block:'center'});if(['search'].includes(target))document.getElementById('search')?.focus()}}
+function v14QuickSearch(){const q=document.getElementById('v14QuickSearch').value.trim().toLowerCase();document.querySelectorAll('.v14-cat-card').forEach(card=>{card.style.display=(!q||card.innerText.toLowerCase().includes(q))?'':'none'});if(q){document.querySelectorAll('.tool').forEach(x=>x.style.display=(x.dataset.name+' '+x.innerText).toLowerCase().includes(q)?'':'none');document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'nearest'})}}
+function v14ClearQuickSearch(){document.getElementById('v14QuickSearch').value='';document.querySelectorAll('.v14-cat-card').forEach(x=>x.style.display='');showAllTools?.()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')v14CloseCategory()});
+</script>
+
+<script id="v14-js">
+const V14_REVIEW_TABLE='studenthub_reviews';
+let v14SelectedRating=0;
+let v14InstallPrompt=null;
+function v14Toast(msg){const e=document.getElementById('v14Toast');if(!e)return;e.textContent=msg;e.classList.add('show');clearTimeout(window.v14ToastT);window.v14ToastT=setTimeout(()=>e.classList.remove('show'),2200)}
+function toggleTheme(){const light=document.body.classList.toggle('light');localStorage.setItem('studenthub_theme',light?'light':'dark');document.getElementById('themeLabel').textContent=light?'Light Mode':'Dark Mode'}
+function v14LoadTheme(){if(localStorage.getItem('studenthub_theme')==='light'){document.body.classList.add('light');document.getElementById('themeLabel').textContent='Light Mode'}}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();v14InstallPrompt=e});
+async function installStudentHub(){if(v14InstallPrompt){v14InstallPrompt.prompt();await v14InstallPrompt.userChoice;v14InstallPrompt=null}else v14Toast('If your browser supports installation, use its menu → Add to Home screen. 📱')}
+function v14ExamKey(){return 'studenthub_v14_exam'}
+function v14SaveExam(){const name=document.getElementById('v14ExamName').value.trim()||'Exam';const date=document.getElementById('v14ExamDate').value;if(!date){v14Toast('Select an exam date.');return}localStorage.setItem(v14ExamKey(),JSON.stringify({name,date}));v14RenderExam();v14Toast('Exam countdown saved! ⏳');saveCloudData(false)}
+function v14RenderExam(){const out=document.getElementById('v14ExamResult');if(!out)return;const raw=localStorage.getItem(v14ExamKey());if(!raw){out.textContent='No exam countdown saved yet.';return}try{const x=JSON.parse(raw),d=new Date(x.date),now=new Date(),ms=d-now;let text=ms<=0?(ms>-86400000?x.name+' is today! 🎯':x.name+' date has passed.'):(()=>{let total=Math.floor(ms/1000),days=Math.floor(total/86400);total%=86400;let hrs=Math.floor(total/3600);total%=3600;let min=Math.floor(total/60);return x.name+': '+days+'d '+hrs+'h '+min+'m remaining 🚀'})();out.textContent=text}catch{out.textContent='Could not read saved countdown.'}}
+function v14Tasks(){try{return JSON.parse(localStorage.getItem('studenthub_v14_tasks')||'[]')}catch{return []}}
+function v14AddTask(){const text=document.getElementById('v14Task').value.trim(),date=document.getElementById('v14TaskDate').value;if(!text){v14Toast('Enter a task.');return}const a=v14Tasks();a.push({id:Date.now(),text,date,done:false});localStorage.setItem('studenthub_v14_tasks',JSON.stringify(a));document.getElementById('v14Task').value='';v14RenderTasks();v14Toast('Task added! 📅');saveCloudData(false)}
+function v14RenderTasks(){const box=document.getElementById('v14TaskList');if(!box)return;const a=v14Tasks();if(!a.length){box.innerHTML='<p class="v14-muted">No tasks yet.</p>';return}box.innerHTML=a.slice().sort((x,y)=>(x.done?1:0)-(y.done?1:0)).map(x=>'<div class="v14-check"><input type="checkbox" '+(x.done?'checked':'')+' onchange="v14ToggleTask('+x.id+')"><label>'+escapeHtml(x.text)+(x.date?' <span class="v14-muted">('+x.date+')</span>':'')+'</label></div>').join('')+'<button onclick="v14ClearDone()">Clear completed</button>'}
+function v14ToggleTask(id){const a=v14Tasks().map(x=>x.id===id?({...x,done:!x.done}):x);localStorage.setItem('studenthub_v14_tasks',JSON.stringify(a));v14RenderTasks();saveCloudData(false)}
+function v14ClearDone(){localStorage.setItem('studenthub_v14_tasks',JSON.stringify(v14Tasks().filter(x=>!x.done)));v14RenderTasks();saveCloudData(false)}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function v14SaveProgress(){let target=parseInt(document.getElementById('v14Target').value),done=parseInt(document.getElementById('v14Done').value);if(!target||target<1||isNaN(done)||done<0){v14Toast('Enter valid study minutes.');return}done=Math.min(done,target);const today=new Date().toISOString().slice(0,10);const data={target,done,date:today};localStorage.setItem('studenthub_v14_progress',JSON.stringify(data));v14RenderProgress();v14UpdateStreak(done>=target);saveCloudData(false)}
+function v14RenderProgress(){let x;try{x=JSON.parse(localStorage.getItem('studenthub_v14_progress')||'null')}catch{};if(!x)return;document.getElementById('v14Target').value=x.target;document.getElementById('v14Done').value=x.done;let pct=Math.min(100,Math.round(x.done/x.target*100));document.getElementById('v14ProgressBar').style.width=pct+'%';document.getElementById('v14ProgressText').textContent=pct+'% complete — '+x.done+'/'+x.target+' minutes.'}
+function v14UpdateStreak(completedToday=false){let s=JSON.parse(localStorage.getItem('studenthub_v14_streak')||'{"count":0,"last":""}'),today=new Date().toISOString().slice(0,10);if(completedToday&&s.last!==today){let y=new Date();y.setDate(y.getDate()-1);let yd=y.toISOString().slice(0,10);s.count=s.last===yd?s.count+1:1;s.last=today;localStorage.setItem('studenthub_v14_streak',JSON.stringify(s))}document.getElementById('v14Streak').textContent='🔥 Study streak: '+(s.count||0)+' day'+(s.count===1?'':'s')}
+function v14SaveBoost(){const ids=['v14Focus','v14Revision','v14Questions'];const done=ids.filter(id=>document.getElementById(id).checked).length;const today=new Date().toISOString().slice(0,10);localStorage.setItem('studenthub_v14_boost',JSON.stringify({date:today,done}));document.getElementById('v14Boost').textContent=done+'/3 boosts completed today '+(done===3?'🔥 Great job!':'— keep going!');v14UpdateStreak(done===3);saveCloudData(false)}
+function v14SetStars(n){v14SelectedRating=n;const e=document.getElementById('v14StarPicker');e.innerHTML=[1,2,3,4,5].map(i=>'<button type="button" aria-label="'+i+' stars" onclick="v14SetStars('+i+')">'+(i<=n?'★':'☆')+'</button>').join('')}
+function v14AuthState(){return typeof supabaseClient!=='undefined'?supabaseClient.auth.getSession():Promise.resolve({data:{session:null}})}
+async function v14LoadReviews(){const box=document.getElementById('v14Reviews');if(!box||typeof supabaseClient==='undefined')return;const {data,error}=await supabaseClient.from(V14_REVIEW_TABLE).select('rating,review_text,display_name,created_at').eq('approved',true).order('created_at',{ascending:false}).limit(20);if(error){box.innerHTML='<p class="v14-muted">Reviews are temporarily unavailable. Please check the V14 Supabase setup.</p>';return}if(!data.length){box.innerHTML='<p class="v14-muted">No reviews yet. Be the first! ⭐</p>';document.getElementById('v14AvgRating').textContent='—';document.getElementById('v14RatingCount').textContent='No ratings yet.';return}const avg=data.reduce((a,x)=>a+x.rating,0)/data.length;document.getElementById('v14AvgRating').textContent=avg.toFixed(1)+'/5';document.getElementById('v14RatingStars').textContent='★★★★★'.slice(0,Math.round(avg))+'☆☆☆☆☆'.slice(0,5-Math.round(avg));document.getElementById('v14RatingCount').textContent=data.length+' published review'+(data.length===1?'':'s');box.innerHTML=data.map(x=>'<div class="v14-review"><div class="v14-review-head"><strong>'+escapeHtml(x.display_name||'Student')+'</strong><span>★★★★★'.slice(0,x.rating)+'☆☆☆☆☆'.slice(0,5-x.rating)+'</span></div><p>'+escapeHtml(x.review_text||'')+'</p><small class="v14-muted">'+new Date(x.created_at).toLocaleDateString()+'</small></div>').join('')}
+async function v14RefreshReviewForm(){const {data}=await v14AuthState(),user=data.session?.user;const form=document.getElementById('v14ReviewForm'),login=document.getElementById('v14ReviewLogin');if(user){form.style.display='block';login.textContent='You are signed in. Choose a rating below.';v14SetStars(v14SelectedRating||0)}else{form.style.display='none';login.textContent='Log in to submit a rating and review.'}}
+async function v14SubmitReview(){const {data}=await v14AuthState(),user=data.session?.user;if(!user){v14Toast('Please log in first.');openAccount();return}if(!v14SelectedRating){v14Toast('Choose a star rating.');return}const text=document.getElementById('v14ReviewText').value.trim();const name=user.user_metadata?.name||user.email?.split('@')[0]||'Student';const {error}=await supabaseClient.from(V14_REVIEW_TABLE).insert({user_id:user.id,display_name:name,rating:v14SelectedRating,review_text:text});if(error){v14Toast('Review could not be submitted: '+error.message);return}document.getElementById('v14ReviewText').value='';v14SetStars(0);v14SelectedRating=0;v14Toast('Review submitted for moderation. ⭐');v14LoadReviews()}
+document.addEventListener('DOMContentLoaded',()=>{v14LoadTheme();v14RenderExam();v14RenderTasks();v14RenderProgress();v14UpdateStreak(false);const b=JSON.parse(localStorage.getItem('studenthub_v14_boost')||'null');if(b&&b.date===new Date().toISOString().slice(0,10)){document.getElementById('v14Boost').textContent=b.done+'/3 boosts completed today.'}v14LoadReviews();v14RefreshReviewForm()});
+if(typeof supabaseClient!=='undefined')supabaseClient.auth.onAuthStateChange(()=>{v14RefreshReviewForm();v14LoadReviews()});
+</script>
+
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script>
 </body></html>
