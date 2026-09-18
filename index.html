@@ -50,6 +50,16 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div></section>
 <section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div></section>
 
+
+<section class="card tool" data-cat="marks" data-name="cgpa percentage converter"><h2>🔄 CGPA ↔ Percentage</h2><p>Convert CGPA to percentage or percentage to CGPA.</p><input id="convVal" type="number" step=".01" placeholder="Enter value"><input id="convMode" placeholder="Type: CGPA or %"><button onclick="convertCGPA()">Convert</button><div id="convr" class="result"></div></section>
+<section class="card tool" data-cat="college" data-name="required attendance classes"><h2>📅 Required Attendance Classes</h2><p>Find classes needed to reach your target attendance.</p><input id="reqAtt" type="number" placeholder="Current attendance %"><input id="reqTotal" type="number" placeholder="Classes conducted so far"><input id="reqTarget" type="number" placeholder="Target %"><button onclick="requiredAttendance()">Calculate</button><div id="reqAttr" class="result"></div></section>
+<section class="card tool" data-cat="finance" data-name="student budget planner"><h2>💰 Student Budget Planner</h2><p>Plan your monthly student spending and savings.</p><input id="budgetIncome" type="number" placeholder="Monthly income / allowance (₹)"><input id="budgetSpend" type="number" placeholder="Monthly expenses (₹)"><button onclick="budgetCalc()">Calculate</button><div id="budgetr" class="result"></div></section>
+<section class="card tool" data-cat="finance" data-name="emi calculator"><h2>🏦 EMI Calculator</h2><p>Estimate monthly EMI for a student or education loan.</p><input id="emiP" type="number" placeholder="Loan amount (₹)"><input id="emiR" type="number" step=".01" placeholder="Annual interest %"><input id="emiY" type="number" placeholder="Loan period (years)"><button onclick="emiCalc()">Calculate</button><div id="emir" class="result"></div></section>
+<section class="card tool" data-cat="marks" data-name="target marks planner"><h2>🎯 Target Marks Planner</h2><p>Find marks needed in remaining assessments for a target percentage.</p><input id="targetScored" type="number" placeholder="Marks scored so far"><input id="targetTotal" type="number" placeholder="Total marks so far"><input id="targetRemaining" type="number" placeholder="Remaining total marks"><input id="targetPct" type="number" placeholder="Target overall %"><button onclick="targetMarks()">Calculate</button><div id="targetMarkr" class="result"></div></section>
+<section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div></section>
+<section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div></section>
+<section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div></section>
+
 <section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
 <div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></div></section>
 </main>
@@ -80,4 +90,54 @@ function gradeCalc(){let m=v('gradeMark');grader.textContent=isNaN(m)?'Enter mar
 function feeCalc(){let f=v('feeYear'),y=v('feeYears');feer.textContent=f>0&&y>0?'Estimated total: ₹'+(f*y).toLocaleString('en-IN'):'Enter valid values.'}
 function studyPlan(){let h=v('studyHours'),s=v('studySubjects');studyr.textContent=h>0&&s>0?'About '+(h/s).toFixed(2)+' hour(s) per subject.':'Enter valid values.'}
 function passCalc(){let t=v('passTotal'),p=v('passPct'),g=v('passGot');let need=t*p/100-g;passr.textContent=need<=0?'You already reached the pass mark 🎉':'Marks still needed: '+Math.ceil(need)}
+
+function convertCGPA(){
+  let x=v('convVal'),m=document.getElementById('convMode').value.trim().toLowerCase();
+  if(isNaN(x)){convr.textContent='Enter a value.';return}
+  if(m==='cgpa'||m==='cg'){convr.textContent='Percentage ≈ '+(x*9.5).toFixed(2)+'%'}
+  else if(m==='%'||m==='percent'||m==='percentage'){convr.textContent='CGPA ≈ '+(x/9.5).toFixed(2)}
+  else convr.textContent='Type CGPA or % in the second box.'
+}
+function requiredAttendance(){
+  let p=v('reqAtt'),n=v('reqTotal'),t=v('reqTarget');
+  if(p>=0&&p<=100&&n>0&&t>=0&&t<=100){
+    let attended=p*n/100, x=0;
+    while(((attended+x)/(n+x))*100<t && x<100000)x++;
+    reqAttr.textContent=x===0?'Target already reached 🎉':'Attend the next '+x+' class(es) to reach about '+t+'%.'
+  } else reqAttr.textContent='Enter valid values.'
+}
+function budgetCalc(){
+  let i=v('budgetIncome'),s=v('budgetSpend');
+  if(i>=0&&s>=0){let b=i-s;budgetr.textContent=b>=0?'Left after expenses: ₹'+b.toLocaleString('en-IN'):'Over budget by: ₹'+Math.abs(b).toLocaleString('en-IN')}
+  else budgetr.textContent='Enter valid values.'
+}
+function emiCalc(){
+  let p=v('emiP'),r=v('emiR')/1200,n=v('emiY')*12;
+  if(p>0&&n>0&&v('emiR')>=0){
+    let e=r===0?p/n:p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+    emir.textContent='Approx. EMI: ₹'+e.toFixed(2)+' | Total: ₹'+(e*n).toFixed(2)
+  } else emir.textContent='Enter valid values.'
+}
+function targetMarks(){
+  let s=v('targetScored'),t=v('targetTotal'),rem=v('targetRemaining'),p=v('targetPct');
+  let need=(p/100)*(t+rem)-s;
+  if(t>=0&&rem>0&&p>=0&&p<=100){targetMarkr.textContent=need<=0?'Target already reached 🎉':'Need about '+Math.ceil(need)+' marks out of '+rem+' remaining.'}
+  else targetMarkr.textContent='Enter valid values.'
+}
+function makeTimetable(){
+  let h=v('ttHours'),subs=document.getElementById('ttSubjects').value.split(',').map(x=>x.trim()).filter(Boolean);
+  if(h>0&&subs.length){let each=h/subs.length;ttr.innerHTML='Each subject: '+each.toFixed(2)+' hour(s)<br>'+subs.map((s,i)=>(i+1)+'. '+s).join('<br>')}
+  else ttr.textContent='Enter hours and subjects separated by commas.'
+}
+function daysBetween(){
+  let a=new Date(dateA.value),b=new Date(dateB.value);
+  if(dateA.value&&dateB.value){daysr.textContent='Difference: '+Math.abs(Math.round((b-a)/86400000))+' day(s).'}
+  else daysr.textContent='Select both dates.'
+}
+function semesterCountdown(){
+  if(!semDate.value){semr.textContent='Select a date.';return}
+  let d=Math.ceil((new Date(semDate.value+'T00:00:00')-new Date())/86400000);
+  semr.textContent=d>=0?d+' day(s) remaining 🎓':'Date has passed.'
+}
+
 </script></body></html>
