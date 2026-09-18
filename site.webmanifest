@@ -1,9 +1,11 @@
 {
-  "name":"StudentHub",
+  "name":"StudentHub — Free Student Tools",
   "short_name":"StudentHub",
   "start_url":"/studenthub/",
+  "scope":"/studenthub/",
   "display":"standalone",
   "theme_color":"#4f46e5",
   "background_color":"#080b14",
-  "description":"Free student calculators and study tools"
+  "description":"Free student calculators, study planner, exam countdown and study tools",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
