@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudentHub — Free Student Tools</title>
+<meta name="description" content="Free calculators and useful tools for students: CGPA, SGPA, attendance, percentage, marks and exam countdown.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;padding:32px 18px;text-align:center}
+header h1{margin:0 0 8px;font-size:34px}header p{margin:0;opacity:.9}
+.container{max-width:900px;margin:auto;padding:22px 16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:white;border-radius:18px;padding:20px;box-shadow:0 5px 20px #17203312}.card h2{font-size:19px;margin:0 0 8px}.card p{color:#64748b;font-size:14px}
+input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #dbe1ea;font-size:15px;margin-top:8px}
+button{border:0;background:#4f46e5;color:white;font-weight:700;cursor:pointer}button:hover{opacity:.92}
+.result{margin-top:10px;font-weight:700;color:#4f46e5;min-height:22px}.small{font-size:12px;color:#64748b}
+footer{text-align:center;padding:30px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<header><h1>🎓 StudentHub</h1><p>Free tools that make student life easier.</p></header>
+<main class="container">
+<div class="grid">
+
+<section class="card"><h2>📊 Percentage Calculator</h2><p>Find what percentage one number is of another.</p>
+<input id="p1" type="number" placeholder="Your marks">
+<input id="p2" type="number" placeholder="Total marks">
+<button onclick="percentage()">Calculate</button><div id="pr" class="result"></div></section>
+
+<section class="card"><h2>📅 Attendance Calculator</h2><p>Check your current attendance percentage.</p>
+<input id="a1" type="number" placeholder="Classes attended">
+<input id="a2" type="number" placeholder="Total classes">
+<button onclick="attendance()">Calculate</button><div id="ar" class="result"></div></section>
+
+<section class="card"><h2>🎯 CGPA Calculator</h2><p>Convert CGPA to percentage (common 9.5 formula).</p>
+<input id="cg" type="number" step="0.01" placeholder="Enter CGPA">
+<button onclick="cgpa()">Convert</button><div id="cgr" class="result"></div><div class="small">Formula: CGPA × 9.5</div></section>
+
+<section class="card"><h2>📝 Marks Calculator</h2><p>Calculate your average from multiple marks.</p>
+<input id="m1" type="number" placeholder="Mark 1">
+<input id="m2" type="number" placeholder="Mark 2">
+<input id="m3" type="number" placeholder="Mark 3">
+<button onclick="average()">Calculate Average</button><div id="mr" class="result"></div></section>
+
+<section class="card"><h2>⏳ Exam Countdown</h2><p>Set your exam date and see the remaining days.</p>
+<input id="exam" type="date">
+<button onclick="countdown()">Check Countdown</button><div id="er" class="result"></div></section>
+
+<section class="card"><h2>🧮 Simple Interest</h2><p>Calculate simple interest and total amount.</p>
+<input id="siP" type="number" placeholder="Principal">
+<input id="siR" type="number" placeholder="Rate % per year">
+<input id="siT" type="number" placeholder="Time in years">
+<button onclick="interest()">Calculate</button><div id="sir" class="result"></div></section>
+
+</div>
+</main>
+<footer>StudentHub • Free student tools • Built for mobile 📱</footer>
+<script>
+const val=id=>parseFloat(document.getElementById(id).value);
+function percentage(){let a=val('p1'),b=val('p2');document.getElementById('pr').textContent=b>0?((a/b)*100).toFixed(2)+'%':'Enter valid marks.'}
+function attendance(){let a=val('a1'),b=val('a2');document.getElementById('ar').textContent=b>0?((a/b)*100).toFixed(2)+'%':'Enter valid classes.'}
+function cgpa(){let a=val('cg');document.getElementById('cgr').textContent=!isNaN(a)?'≈ '+(a*9.5).toFixed(2)+'%':'Enter CGPA.'}
+function average(){let x=['m1','m2','m3'].map(val).filter(v=>!isNaN(v));document.getElementById('mr').textContent=x.length?'Average: '+(x.reduce((a,b)=>a+b,0)/x.length).toFixed(2):'Enter at least one mark.'}
+function countdown(){let d=document.getElementById('exam').value;if(!d){document.getElementById('er').textContent='Select an exam date.';return}let target=new Date(d+'T00:00:00'),now=new Date();let days=Math.ceil((target-now)/86400000);document.getElementById('er').textContent=days>=0?days+' day(s) remaining 🎯':'Exam date has passed.'}
+function interest(){let p=val('siP'),r=val('siR'),t=val('siT');if(p>0&&r>=0&&t>=0){let i=p*r*t/100;document.getElementById('sir').textContent='Interest: ₹'+i.toFixed(2)+' | Total: ₹'+(p+i).toFixed(2)}else document.getElementById('sir').textContent='Enter valid values.'}
+</script>
+</body>
+</html>
