@@ -42,6 +42,14 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <section class="card tool" data-cat="study" data-name="age calculator"><h2>🎂 Age Calculator</h2><p>Calculate age from birth date.</p><input id="dob" type="date"><button onclick="age()">Calculate Age</button><div id="ager" class="result"></div></section>
 <section class="card tool" data-cat="marks" data-name="ratio"><h2>➗ Ratio Calculator</h2><p>Simplify two numbers into a ratio.</p><input id="rx" type="number" placeholder="First number"><input id="ry" type="number" placeholder="Second number"><button onclick="ratio()">Simplify</button><div id="rratio" class="result"></div></section>
 </div>
+
+<section class="card tool" data-cat="college" data-name="target cgpa"><h2>🎯 Target CGPA</h2><p>Estimate the average SGPA needed for a target CGPA.</p><input id="tcg" type="number" step=".01" placeholder="Current CGPA"><input id="tsem" type="number" placeholder="Semesters completed"><input id="ttarget" type="number" step=".01" placeholder="Target CGPA"><button onclick="targetCGPA()">Calculate</button><div id="tcgr" class="result"></div></section>
+<section class="card tool" data-cat="college" data-name="attendance skip classes"><h2>🏫 Attendance Planner</h2><p>See how many more classes you can miss and stay at your target.</p><input id="attDone" type="number" placeholder="Classes attended"><input id="attTotal" type="number" placeholder="Total classes"><input id="attTarget" type="number" placeholder="Target %"><button onclick="skipClasses()">Calculate</button><div id="skipr" class="result"></div></section>
+<section class="card tool" data-cat="marks" data-name="grade calculator"><h2>📝 Grade Calculator</h2><p>Convert marks into a simple letter grade.</p><input id="gradeMark" type="number" placeholder="Marks %"><button onclick="gradeCalc()">Calculate</button><div id="grader" class="result"></div></section>
+<section class="card tool" data-cat="finance" data-name="college fee calculator"><h2>💸 College Fee Planner</h2><p>Estimate total fees for your course.</p><input id="feeYear" type="number" placeholder="Fee per year (₹)"><input id="feeYears" type="number" placeholder="Number of years"><button onclick="feeCalc()">Calculate</button><div id="feer" class="result"></div></section>
+<section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div></section>
+<section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div></section>
+
 <section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
 <div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></div></section>
 </main>
@@ -65,4 +73,11 @@ let ti;function startTimer(){clearInterval(ti);let s=1500;ti=setInterval(()=>{ti
 function cat(c,b){document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tool').forEach(x=>x.style.display=c==='all'||x.dataset.cat===c?'block':'none');search.value=''}
 function filterTools(){let q=search.value.toLowerCase();document.querySelectorAll('.tool').forEach(x=>x.style.display=(x.dataset.name+' '+x.innerText).toLowerCase().includes(q)?'block':'none')}
 function clearSearch(){search.value='';filterTools()}
+
+function targetCGPA(){let c=v('tcg'),s=v('tsem'),t=v('ttarget');if(s>0){let need=t*(s+1)-c*s;tcgr.textContent='Approx. next SGPA needed: '+need.toFixed(2)}else tcgr.textContent='Enter semesters completed.'}
+function skipClasses(){let a=v('attDone'),t=v('attTotal'),p=v('attTarget');if(t>0&&p>=0&&p<=100){let x=0;while((a/(t+x))*100>=p)x++;skipr.textContent=x>0?'You can miss up to '+(x-1)+' more class(es).':'You cannot miss another class and stay at '+p+'%.'}else skipr.textContent='Enter valid values.'}
+function gradeCalc(){let m=v('gradeMark');grader.textContent=isNaN(m)?'Enter marks %':m>=90?'Grade: A+':m>=80?'Grade: A':m>=70?'Grade: B':m>=60?'Grade: C':m>=50?'Grade: D':'Grade: F'}
+function feeCalc(){let f=v('feeYear'),y=v('feeYears');feer.textContent=f>0&&y>0?'Estimated total: ₹'+(f*y).toLocaleString('en-IN'):'Enter valid values.'}
+function studyPlan(){let h=v('studyHours'),s=v('studySubjects');studyr.textContent=h>0&&s>0?'About '+(h/s).toFixed(2)+' hour(s) per subject.':'Enter valid values.'}
+function passCalc(){let t=v('passTotal'),p=v('passPct'),g=v('passGot');let need=t*p/100-g;passr.textContent=need<=0?'You already reached the pass mark 🎉':'Marks still needed: '+Math.ceil(need)}
 </script></body></html>
