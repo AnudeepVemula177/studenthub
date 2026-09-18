@@ -3,14 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>StudentHub — Free Student Tools & Calculators</title>
-<meta name="description" content="Free student tools and calculators for CGPA, SGPA, attendance, percentage, marks, exams, study time and more.">
-<meta name="robots" content="index,follow">
+<title>StudentHub — Free Student Calculators & Study Tools</title>
+<meta name="description" content="Free student calculators and study tools for CGPA, SGPA, percentage, attendance, marks, exams, GPA, budgeting and study planning.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#4f46e5">
+<meta name="author" content="StudentHub">
+<meta name="keywords" content="student calculators, CGPA calculator, SGPA calculator, attendance calculator, percentage calculator, marks calculator, study planner">
 <link rel="canonical" href="https://anudeepvemula177.github.io/studenthub/">
-<meta property="og:title" content="StudentHub — Free Student Tools">
-<meta property="og:description" content="Free calculators and study tools made for students.">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="StudentHub — Free Student Calculators & Study Tools">
+<meta property="og:description" content="Free calculators and practical study tools for students.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://anudeepvemula177.github.io/studenthub/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StudentHub — Free Student Calculators & Study Tools">
+<meta name="twitter:description" content="Free calculators and study tools for students.">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#080b14;color:#eef2ff}
 header{padding:42px 16px 30px;text-align:center;background:linear-gradient(135deg,#4f46e5,#9333ea)}
@@ -30,12 +37,15 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"How is CGPA converted to percentage?","acceptedAnswer":{"@type":"Answer","text":"A common approximation is CGPA multiplied by 9.5. University conversion rules can differ."}},
-    {"@type":"Question","name":"How do I calculate attendance?","acceptedAnswer":{"@type":"Answer","text":"Attendance percentage equals classes attended divided by total classes, multiplied by 100."}},
-    {"@type":"Question","name":"How do I calculate SGPA?","acceptedAnswer":{"@type":"Answer","text":"SGPA is generally the sum of grade point multiplied by course credits, divided by total credits."}},
-    {"@type":"Question","name":"Are StudentHub calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. StudentHub provides free student calculators and planning tools."}}
+  "@graph":[
+    {"@type":"WebSite","@id":"https://anudeepvemula177.github.io/studenthub/#website","url":"https://anudeepvemula177.github.io/studenthub/","name":"StudentHub","description":"Free student calculators and study tools."},
+    {"@type":"WebPage","@id":"https://anudeepvemula177.github.io/studenthub/#webpage","url":"https://anudeepvemula177.github.io/studenthub/","name":"StudentHub — Free Student Calculators & Study Tools","isPartOf":{"@id":"https://anudeepvemula177.github.io/studenthub/#website"}},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How is CGPA converted to percentage?","acceptedAnswer":{"@type":"Answer","text":"A common approximation is CGPA multiplied by 9.5. University conversion rules can differ."}},
+      {"@type":"Question","name":"How do I calculate attendance?","acceptedAnswer":{"@type":"Answer","text":"Attendance percentage equals classes attended divided by total classes, multiplied by 100."}},
+      {"@type":"Question","name":"How do I calculate SGPA?","acceptedAnswer":{"@type":"Answer","text":"SGPA is generally the sum of grade point multiplied by course credits, divided by total credits."}},
+      {"@type":"Question","name":"Are StudentHub calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. StudentHub provides free student calculators and planning tools."}}
+    ]}
   ]
 }
 </script>
@@ -215,7 +225,23 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
 <div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div></section>
 </main>
-<footer>© 2026 StudentHub • Free student tools 📱</footer>
+<section class="about" id="student-resources">
+<h2>Free Student Calculators & Study Tools</h2>
+<p>StudentHub brings common college calculations and study planning into one mobile-friendly place. Use the <a href="percentage-calculator.html">percentage calculator</a>, <a href="cgpa-calculator.html">CGPA calculator</a>, <a href="sgpa-calculator.html">SGPA calculator</a>, and <a href="attendance-calculator.html">attendance calculator</a> for quick checks, then use the study tools for planning.</p>
+<div class="links">
+<a href="percentage-calculator.html">Percentage Calculator Guide</a>
+<a href="cgpa-calculator.html">CGPA Calculator Guide</a>
+<a href="sgpa-calculator.html">SGPA Calculator Guide</a>
+<a href="attendance-calculator.html">Attendance Calculator Guide</a>
+<a href="study-tools.html">Study Tools Guide</a>
+</div>
+<h3>Quick answers</h3>
+<div class="guide-item"><h3>Percentage</h3><p>Percentage = obtained marks ÷ total marks × 100.</p></div>
+<div class="guide-item"><h3>Attendance</h3><p>Attendance percentage = classes attended ÷ total classes × 100.</p></div>
+<div class="guide-item"><h3>SGPA</h3><p>SGPA commonly uses credit-weighted grade points. Check your university's grading rules for exact conversion.</p></div>
+</section>
+
+<footer><div class="links" style="justify-content:center"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="study-tools.html">Study Tools</a></div>© 2026 StudentHub • Free student tools 📱</footer>
 <script>
 const v=id=>parseFloat(document.getElementById(id).value);
 function percentage(){pr.textContent=v('p2')>0?(v('p1')/v('p2')*100).toFixed(2)+'%':'Enter valid marks.'}

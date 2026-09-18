@@ -1,0 +1,9 @@
+{
+  "name":"StudentHub",
+  "short_name":"StudentHub",
+  "start_url":"/studenthub/",
+  "display":"standalone",
+  "theme_color":"#4f46e5",
+  "background_color":"#080b14",
+  "description":"Free student calculators and study tools"
+}
