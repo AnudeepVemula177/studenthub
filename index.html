@@ -112,18 +112,6 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
 @media(max-width:560px){.v14-cat-grid{grid-template-columns:repeat(3,1fr);gap:8px}.v14-cat-card{min-height:94px;padding:11px 6px}.v14-cat-icon{font-size:24px}.v14-cat-title{font-size:12px}.v14-cat-sub{display:none}.v14-home{padding:16px}.v14-home h2{font-size:25px}}
 </style>
 
-
-<style id="v15-ai-styles">
-.v15-ai-card{position:relative;overflow:hidden;border-color:rgba(129,140,248,.55)!important;background:linear-gradient(145deg,rgba(79,70,229,.25),rgba(147,51,234,.13)),rgba(255,255,255,.025)!important}
-.v15-ai-card:after{content:'NEW';position:absolute;top:8px;right:8px;font-size:9px;font-weight:900;padding:3px 6px;border-radius:999px;background:#4f46e5;color:#fff}
-.v15-ai-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:10020}
-.v15-ai-modal.show{display:flex}
-.v15-ai-shell{width:min(1100px,100%);height:min(92vh,900px);margin:auto;background:#080b14;border:1px solid #334155;border-radius:22px;overflow:hidden;display:flex;box-shadow:0 25px 90px rgba(0,0,0,.6)}
-.v15-ai-side{width:240px;background:#0d1220;border-right:1px solid #263244;padding:14px;display:flex;flex-direction:column;gap:10px}
-.v15-ai-new{width:100%;margin:0;background:#4f46e5}.v15-ai-history{overflow:auto;display:grid;gap:6px}.v15-ai-history button{width:100%;margin:0;text-align:left;background:#111827;border:1px solid transparent;padding:10px;border-radius:10px;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v15-ai-history button.active{border-color:#4f46e5;background:#151b35;color:#fff}
-.v15-ai-main{flex:1;min-width:0;display:flex;flex-direction:column}.v15-ai-head{padding:13px 16px;border-bottom:1px solid #263244;display:flex;align-items:center;justify-content:space-between;gap:10px}.v15-ai-head strong{font-size:16px}.v15-ai-head small{display:block;color:#64748b;font-weight:500;margin-top:2px}.v15-ai-close{width:auto;margin:0;background:transparent;font-size:22px;padding:5px 10px}.v15-ai-chat{flex:1;overflow:auto;padding:18px 18px 130px}.v15-msg{max-width:820px;padding:12px 14px;border-radius:17px;margin:9px 0;line-height:1.55;white-space:pre-wrap}.v15-msg.ai{background:#111827;border:1px solid #263244}.v15-msg.user{background:#4f46e5;margin-left:auto}.v15-welcome{color:#94a3b8;font-size:13px;text-align:center;margin:8px auto 18px;max-width:650px}.v15-compose-wrap{position:relative;padding:10px 14px 14px;border-top:1px solid #263244;background:#0d1220}.v15-compose{max-width:850px;margin:auto;background:#111827;border:1px solid #334155;border-radius:18px;padding:7px}.v15-row{display:flex;gap:7px;align-items:flex-end}.v15-icon{width:44px;height:44px;flex:none;margin:0;padding:0;border-radius:13px;background:#0f172a;border:1px solid #334155;font-size:20px}.v15-text{flex:1;min-height:44px;max-height:120px;resize:none;border:0;outline:0;background:transparent;color:#fff;font:inherit;padding:10px 6px}.v15-send{background:#4f46e5;border:0}.v15-attach{display:none;position:absolute;bottom:72px;left:14px;background:#111827;border:1px solid #334155;border-radius:14px;padding:7px;gap:6px;box-shadow:0 12px 40px #0009}.v15-attach.show{display:flex}.v15-attach label{cursor:pointer}.v15-attach .v15-icon{padding:0 10px;width:auto}.v15-preview{display:none;align-items:center;gap:8px;padding:5px 7px;color:#cbd5e1;font-size:12px}.v15-preview.show{display:flex}.v15-modebar{display:flex;gap:6px;overflow:auto;padding:8px 18px;border-bottom:1px solid rgba(127,127,127,.12)}.v15-mode{width:auto!important;margin:0!important;white-space:nowrap;padding:7px 10px!important;border-radius:999px!important;background:#0f172a!important;border:1px solid #334155!important;color:#cbd5e1!important}.v15-mode.active{background:#4f46e5!important;color:#fff!important;border-color:#4f46e5!important}.v15-status{text-align:center;color:#64748b;font-size:11px;margin-top:5px}
-@media(max-width:700px){.v15-ai-shell{height:100%;width:100%;border-radius:0}.v15-ai-side{display:none}.v15-ai-chat{padding-left:12px;padding-right:12px}.v15-msg{max-width:92%}.v15-ai-head{padding:12px}.v15-compose-wrap{padding-left:8px;padding-right:8px}}
-</style>
 </head>
 <body>
 <header><h1>🎓 StudentHub</h1>
@@ -146,9 +134,9 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
     <button onclick="v14ClearQuickSearch()">Clear</button>
   </div>
   <div class="v14-cat-grid" id="v14CatGrid">
-    <button class="v14-cat-card v15-ai-card" onclick="openStudyBuddy()"><span class="v14-cat-icon">🤖</span><span class="v14-cat-title">AI Study Buddy</span><span class="v14-cat-sub">Ask • Upload • Talk</span></button>
-    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Subjects • Notes</span></button>
-    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Subjects • Notes</span></button>
+    <button class="v14-cat-card" onclick="openStudyBuddy()"><span class="v14-cat-icon">🤖</span><span class="v14-cat-title">AI Study Buddy</span><span class="v14-cat-sub">Doubts • Voice • Uploads</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('questions')"><span class="v14-cat-icon">📝</span><span class="v14-cat-title">Important Questions</span><span class="v14-cat-sub">Exam practice</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('exams')"><span class="v14-cat-icon">⏳</span><span class="v14-cat-title">Exam Countdown</span><span class="v14-cat-sub">Never miss a date</span></button>
@@ -163,28 +151,6 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
   <div class="v14-launch-box">
     <div class="v14-launch-head"><h3 id="v14LaunchTitle">StudentHub</h3><button class="v14-launch-close" onclick="v14CloseCategory()">✕</button></div>
     <div id="v14LaunchList" class="v14-launch-list"></div>
-  </div>
-</div>
-
-<div class="v15-ai-modal" id="v15AiModal" onclick="if(event.target===this)closeStudyBuddy()">
-  <div class="v15-ai-shell">
-    <aside class="v15-ai-side">
-      <button class="v15-ai-new" onclick="newStudyChat()">＋ New chat</button>
-      <div class="v14-muted">💬 Saved chats</div>
-      <div class="v15-ai-history" id="v15AiHistory"></div>
-    </aside>
-    <section class="v15-ai-main">
-      <div class="v15-ai-head"><div><strong>🤖 AI Study Buddy</strong><small>StudentHub • your study companion</small></div><button class="v15-ai-close" onclick="closeStudyBuddy()">✕</button></div>
-      <div class="v15-modebar" id="v15Modes">
-        <button class="v15-mode active" data-mode="Doubt">🧠 Doubt</button><button class="v15-mode" data-mode="Study">📚 Study</button><button class="v15-mode" data-mode="Revision">🔄 Revision</button><button class="v15-mode" data-mode="Quiz">📝 Quiz</button><button class="v15-mode" data-mode="Exam">⏰ Exam</button><button class="v15-mode" data-mode="GK">🌎 GK</button>
-      </div>
-      <div class="v15-ai-chat" id="v15AiChat"></div>
-      <div class="v15-compose-wrap">
-        <div class="v15-attach" id="v15Attach"><label class="v15-icon">📄<input id="v15File" type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.csv" onchange="v15Pick(this)"></label><label class="v15-icon">🖼️<input id="v15Photo" type="file" hidden accept="image/*" onchange="v15Pick(this)"></label><label class="v15-icon">📷<input id="v15Camera" type="file" hidden accept="image/*" capture="environment" onchange="v15Pick(this)"></label></div>
-        <div class="v15-compose"><div class="v15-preview" id="v15Preview">📎 <span id="v15PreviewName"></span> <button class="v15-icon" onclick="v15ClearPick()">✕</button></div><div class="v15-row"><button class="v15-icon" onclick="v15ToggleAttach()">＋</button><textarea class="v15-text" id="v15Text" rows="1" placeholder="Ask your doubt…" oninput="v15Grow(this)" onkeydown="v15Key(event)"></textarea><button class="v15-icon" id="v15Mic" onclick="v15MicToggle()">🎙️</button><button class="v15-icon v15-send" onclick="v15Send()">➤</button></div></div>
-        <div class="v15-status" id="v15Status">Mode: Doubt • “Ardham kaaledu” = explain more simply</div>
-      </div>
-    </section>
   </div>
 </div>
 
@@ -732,36 +698,6 @@ function v14ClearQuickSearch(){document.getElementById('v14QuickSearch').value='
 document.addEventListener('keydown',e=>{if(e.key==='Escape')v14CloseCategory()});
 </script>
 
-
-<script id="v15-ai-js">
-let v15Chats=JSON.parse(localStorage.getItem('studenthub_ai_chats')||'[]');let v15Current=null;let v15Mode='Doubt';let v15PickFile=null;let v15Listening=false;let v15Recognition=null;
-function v15Save(){localStorage.setItem('studenthub_ai_chats',JSON.stringify(v15Chats))}
-function v15NewData(){return {id:Date.now().toString(),title:'New chat',mode:'Doubt',messages:[{who:'ai',text:'Hey! 👋 I’m your StudentHub Study Buddy.
-
-Ask a doubt, upload a photo/file, or tap 🎙️ and talk. I’ll keep explanations simple and student-friendly.
-
-Try: “Explain eigen values simply” or “Give me 5 MCQs on graphs.”'}]}}
-function renderStudyHistory(){const box=document.getElementById('v15AiHistory');if(!box)return;box.innerHTML=v15Chats.length?v15Chats.slice().reverse().map(c=>`<button class="${c.id===v15Current?'active':''}" onclick="openStudyChat('${c.id}')">${escapeHtml(c.title||'New chat')}</button>`).join(''):'<div class="v14-muted" style="padding:8px">No saved chats yet.</div>'}
-function renderStudyChat(){const c=v15Chats.find(x=>x.id===v15Current);const box=document.getElementById('v15AiChat');if(!box||!c)return;box.innerHTML='<div class="v15-welcome">Your chats are saved on this device. Cloud history can be connected later with your StudentHub account.</div>'+c.messages.map(m=>`<div class="v15-msg ${m.who}">${escapeHtml(m.text)}</div>`).join('');box.scrollTop=box.scrollHeight;renderStudyHistory()}
-function openStudyBuddy(){document.getElementById('v15AiModal').classList.add('show');document.body.style.overflow='hidden';if(!v15Current){if(!v15Chats.length){const c=v15NewData();v15Chats.push(c);v15Save()}v15Current=v15Chats[v15Chats.length-1].id}renderStudyChat()}
-function closeStudyBuddy(){document.getElementById('v15AiModal').classList.remove('show');document.body.style.overflow=''}
-function newStudyChat(){const c=v15NewData();v15Chats.push(c);v15Current=c.id;v15Mode='Doubt';document.querySelectorAll('.v15-mode').forEach((b,i)=>b.classList.toggle('active',i===0));document.getElementById('v15Status').textContent='Mode: Doubt • “Ardham kaaledu” = explain more simply';v15Save();renderStudyChat();document.getElementById('v15Text').focus()}
-function openStudyChat(id){v15Current=id;const c=v15Chats.find(x=>x.id===id);if(c)v15Mode=c.mode||'Doubt';document.querySelectorAll('.v15-mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===v15Mode));document.getElementById('v15Status').textContent='Mode: '+v15Mode+' • “Ardham kaaledu” = explain more simply';renderStudyChat()}
-document.querySelectorAll('.v15-mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.v15-mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');v15Mode=b.dataset.mode;const c=v15Chats.find(x=>x.id===v15Current);if(c)c.mode=v15Mode;v15Save();document.getElementById('v15Status').textContent='Mode: '+v15Mode+' • “Ardham kaaledu” = explain more simply'});
-function v15ToggleAttach(){document.getElementById('v15Attach').classList.toggle('show')}
-function v15Pick(i){if(i.files[0]){v15PickFile=i.files[0];document.getElementById('v15PreviewName').textContent=i.files[0].name;document.getElementById('v15Preview').classList.add('show');document.getElementById('v15Attach').classList.remove('show')}}
-function v15ClearPick(){v15PickFile=null;document.getElementById('v15Preview').classList.remove('show');['v15File','v15Photo','v15Camera'].forEach(id=>document.getElementById(id).value='')}
-function v15Grow(e){e.style.height='auto';e.style.height=Math.min(e.scrollHeight,120)+'px'}
-function v15Key(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();v15Send()}}
-function v15Send(){const input=document.getElementById('v15Text'),q=input.value.trim();if(!q&&!v15PickFile)return;let c=v15Chats.find(x=>x.id===v15Current);if(!c){newStudyChat();c=v15Chats.find(x=>x.id===v15Current)}let label=q||('Please help me with this '+(v15PickFile?.type.startsWith('image/')?'photo':'file')+'.');if(v15PickFile)label+=(q?'
-':'')+'📎 Attached: '+v15PickFile.name;c.messages.push({who:'user',text:label});if(c.title==='New chat')c.title=(q||v15PickFile.name).slice(0,38);c.mode=v15Mode;v15Save();input.value='';input.style.height='auto';v15ClearPick();renderStudyChat();setTimeout(()=>{let reply='I’m ready for the real AI connection 🚀
-
-Mode: '+v15Mode+'
-
-This V2 UI is working locally. Next we connect the secure AI backend so I can actually understand your question and uploaded content.';if(q.toLowerCase().includes('ardham kaaledu'))reply='No problem 😄 I’ll explain it in an easier way with a simple example once the AI backend is connected.';c.messages.push({who:'ai',text:reply});v15Save();renderStudyChat()},450)}
-function v15MicToggle(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){document.getElementById('v15Status').textContent='Voice input is not supported in this browser.';return}if(v15Listening){v15Recognition.stop();return}v15Recognition=new SR();v15Recognition.lang='en-IN';v15Recognition.interimResults=true;v15Recognition.continuous=false;v15Recognition.onstart=()=>{v15Listening=true;document.getElementById('v15Mic').textContent='⏹️';document.getElementById('v15Status').textContent='Listening… speak your doubt 🎙️'};v15Recognition.onresult=e=>{let s='';for(let i=e.resultIndex;i<e.results.length;i++)s+=e.results[i][0].transcript;document.getElementById('v15Text').value=s;v15Grow(document.getElementById('v15Text'))};v15Recognition.onend=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Voice captured • Tap ➤ to send'};v15Recognition.onerror=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Could not capture voice. Try again.'};v15Recognition.start()}
-document.addEventListener('click',e=>{if(!e.target.closest('.v15-attach')&&!e.target.closest('.v15-icon'))document.getElementById('v15Attach')?.classList.remove('show')});
-</script>
 <script id="v14-js">
 const V14_REVIEW_TABLE='studenthub_reviews';
 let v14SelectedRating=0;
@@ -794,4 +730,45 @@ if(typeof supabaseClient!=='undefined')supabaseClient.auth.onAuthStateChange(()=
 </script>
 
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script>
+
+<style id="study-buddy-native-css">
+.sb-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:20000;align-items:center;justify-content:center;padding:12px}
+.sb-modal.show{display:flex}.sb-box{width:min(980px,100%);height:min(92vh,780px);background:#0b1120;color:#eef2ff;border:1px solid #334155;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 25px 80px rgba(0,0,0,.55)}
+body.light .sb-box{background:#fff;color:#172033;border-color:#dbe2ea}.sb-head{padding:13px 16px;border-bottom:1px solid #263244;display:flex;align-items:center;gap:10px}.sb-head strong{flex:1}.sb-head button{width:auto;margin:0;background:transparent;font-size:22px;padding:5px 9px}.sb-modes{display:flex;gap:7px;overflow:auto;padding:10px 14px;border-bottom:1px solid #1f2937}.sb-mode{white-space:nowrap;width:auto;margin:0;padding:8px 12px;background:#111827;border:1px solid #334155;color:#cbd5e1;border-radius:999px}.sb-mode.active{background:#4f46e5;color:#fff;border-color:#4f46e5}.sb-chat{flex:1;overflow:auto;padding:15px}.sb-bubble{max-width:82%;padding:12px 14px;border-radius:17px;margin:9px 0;line-height:1.5;white-space:pre-wrap}.sb-ai{background:#111827;border:1px solid #263244}.sb-user{background:#4f46e5;margin-left:auto}.sb-suggest{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.sb-suggest button{width:auto;margin:0;background:#0f172a;border:1px solid #334155;padding:8px 10px}.sb-compose{padding:10px 12px;border-top:1px solid #263244;background:#0d1220}.sb-preview{display:none;align-items:center;gap:8px;padding:5px}.sb-preview.show{display:flex}.sb-preview img{width:42px;height:42px;object-fit:cover;border-radius:8px}.sb-preview span{flex:1;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sb-row{display:flex;gap:7px;align-items:flex-end}.sb-icon{width:44px!important;height:44px;margin:0!important;padding:0!important;flex:none!important;border-radius:13px!important}.sb-text{flex:1;min-height:44px;max-height:120px;resize:none;margin:0!important;background:#0f172a!important}.sb-attach{display:none;gap:7px;padding:7px 0}.sb-attach.show{display:flex}.sb-attach label{flex:1;cursor:pointer;text-align:center;padding:9px;border:1px solid #334155;border-radius:12px;background:#111827}.sb-status{text-align:center;font-size:12px;color:#64748b;margin-top:5px}
+@media(max-width:600px){.sb-box{height:96vh;border-radius:18px}.sb-bubble{max-width:92%}}
+</style>
+<div class="sb-modal" id="sbModal" onclick="if(event.target===this)closeStudyBuddy()">
+ <div class="sb-box">
+  <div class="sb-head"><span>🤖</span><strong>AI Study Buddy <small style="opacity:.55">• StudentHub</small></strong><button onclick="closeStudyBuddy()">✕</button></div>
+  <div class="sb-modes" id="sbModes">
+   <button class="sb-mode active" data-mode="Doubt">🧠 Doubt</button><button class="sb-mode" data-mode="Study">📚 Study</button><button class="sb-mode" data-mode="Revision">🔄 Revision</button><button class="sb-mode" data-mode="Quiz">📝 Quiz</button><button class="sb-mode" data-mode="Exam">⏰ Exam</button><button class="sb-mode" data-mode="GK">🌎 GK</button>
+  </div>
+  <div class="sb-chat" id="sbChat"><div class="sb-bubble sb-ai">Hey! 👋 I'm your StudentHub Study Buddy.
+
+Ask a doubt, upload a question, or use 🎙️ to talk. Tell me “ardham kaaledu” and I’ll explain it more simply.
+   <div class="sb-suggest"><button onclick="sbQuick('Explain this topic in very simple words')">Explain simply</button><button onclick="sbQuick('Give me 5 MCQs for practice')">Make a quiz</button><button onclick="sbQuick('Help me revise this topic')">Revise</button></div></div></div>
+  <div class="sb-compose">
+   <div class="sb-preview" id="sbPreview"><img id="sbPreviewImg"><span id="sbPreviewName"></span><button class="sb-icon" onclick="sbClear()">✕</button></div>
+   <div class="sb-attach" id="sbAttach"><label><input type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.csv" onchange="sbFile(this)">📄 File</label><label><input type="file" hidden accept="image/*" onchange="sbPhoto(this)">🖼️ Photo</label><label><input type="file" hidden accept="image/*" capture="environment" onchange="sbPhoto(this)">📷 Camera</label></div>
+   <div class="sb-row"><button class="sb-icon" onclick="sbToggleAttach()">＋</button><textarea id="sbText" class="sb-text" rows="1" placeholder="Ask your doubt…" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sbSend()}"></textarea><button class="sb-icon" id="sbMic" onclick="sbMicStart()">🎙️</button><button class="sb-icon" onclick="sbSend()">➤</button></div>
+   <div class="sb-status" id="sbStatus">Mode: Doubt • Demo brain for now — real AI backend comes next.</div>
+  </div>
+ </div>
+</div>
+<script id="study-buddy-native-js">
+let sbMode='Doubt',sbAttachment=null,sbRecognition=null,sbListening=false;
+function openStudyBuddy(){document.getElementById('sbModal').classList.add('show');document.body.style.overflow='hidden'}
+function closeStudyBuddy(){document.getElementById('sbModal').classList.remove('show');document.body.style.overflow=''}
+document.querySelectorAll('#sbModes .sb-mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sbModes .sb-mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');sbMode=b.dataset.mode;document.getElementById('sbStatus').textContent='Mode: '+sbMode+' • Demo brain for now — real AI backend comes next.'});
+function sbToggleAttach(){document.getElementById('sbAttach').classList.toggle('show')}
+function sbFile(i){if(i.files[0])sbSet(i.files[0],'file')}
+function sbPhoto(i){if(i.files[0])sbSet(i.files[0],'image')}
+function sbSet(f,type){sbAttachment={file:f,type};document.getElementById('sbPreview').classList.add('show');document.getElementById('sbPreviewName').textContent=f.name;const img=document.getElementById('sbPreviewImg');if(type==='image'){img.style.display='block';const r=new FileReader();r.onload=e=>img.src=e.target.result;r.readAsDataURL(f)}else img.style.display='none';document.getElementById('sbAttach').classList.remove('show')}
+function sbClear(){sbAttachment=null;document.getElementById('sbPreview').classList.remove('show')}
+function sbQuick(q){document.getElementById('sbText').value=q;sbSend()}
+function sbAdd(t,c){const d=document.createElement('div');d.className='sb-bubble '+c;d.textContent=t;document.getElementById('sbChat').appendChild(d);d.scrollIntoView({behavior:'smooth',block:'end'})}
+function sbSend(){const t=document.getElementById('sbText'),q=t.value.trim();if(!q&&!sbAttachment)return;let msg=q||'Please help me with this attachment.';if(sbAttachment)msg+=(q?'\n':'')+'📎 '+sbAttachment.file.name;sbAdd(msg,'sb-user');t.value='';sbClear();setTimeout(()=>sbAdd('I received your question! 🤖\n\nMode: '+sbMode+'\n\nThe StudentHub AI brain will be connected through a secure backend in the next phase.','sb-ai'),350)}
+function sbMicStart(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){document.getElementById('sbStatus').textContent='Voice input is not supported in this browser.';return}if(sbListening){sbRecognition.stop();return}sbRecognition=new SR();sbRecognition.lang='en-IN';sbRecognition.interimResults=true;sbRecognition.continuous=false;sbRecognition.onstart=()=>{sbListening=true;document.getElementById('sbMic').textContent='⏹️';document.getElementById('sbStatus').textContent='Listening… speak your doubt 🎙️'};sbRecognition.onresult=e=>{let s='';for(let i=e.resultIndex;i<e.results.length;i++)s+=e.results[i][0].transcript;document.getElementById('sbText').value=s};sbRecognition.onend=()=>{sbListening=false;document.getElementById('sbMic').textContent='🎙️';document.getElementById('sbStatus').textContent='Voice captured • Tap ➤ to send'};sbRecognition.onerror=()=>{sbListening=false;document.getElementById('sbMic').textContent='🎙️';document.getElementById('sbStatus').textContent='Could not capture voice. Try again.'};sbRecognition.start()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeStudyBuddy()});
+</script>
 </body></html>
