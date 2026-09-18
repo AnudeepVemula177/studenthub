@@ -338,77 +338,58 @@ document.addEventListener('DOMContentLoaded',refreshFavorites)
 <div class="account-box">
 <button class="close" onclick="closeAccount()">✕</button>
 <h2>👤 StudentHub Account</h2>
-<p class="small-muted">Create an account to use StudentHub sign-in securely.</p>
+<p class="small-muted">Optional — calculators remain free without an account.</p>
 <div id="accountForm">
 <input id="accName" placeholder="Your name">
 <input id="accEmail" type="email" placeholder="Email">
-<input id="accPassword" type="password" placeholder="Password (6+ characters)">
 <div class="account-actions">
-<button onclick="signUpStudent()">Create Account</button>
-<button onclick="signInStudent()">Login</button>
+<button onclick="demoSignup()">Create Account</button>
+<button onclick="demoLogin()">Login</button>
 </div>
-<button onclick="resetStudentPassword()" style="margin-top:10px">Forgot password?</button>
-<p id="authMsg" class="small-muted"></p>
+<p class="small-muted">V9 preview: these buttons demonstrate the account flow only. No password or real account is created yet.</p>
 </div>
 <div id="profileCard" class="profile-card">
 <h3>Welcome, <span id="profileName"></span>! 👋</h3>
-<p id="profileEmail"></p>
+<p>You are viewing the StudentHub account dashboard preview.</p>
 <div class="account-actions">
 <button onclick="closeAccount()">Continue to Tools</button>
-<button onclick="signOutStudent()">Log out</button>
+<button onclick="demoLogout()">Log out</button>
 </div>
 </div>
 </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-const SUPABASE_URL = 'https://lgzgawfbdalslsjelnxo.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_WvHe9JDI5j9NhC5QWeoKWw_nV8Zly_F';
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
-});
-function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAuthUI()}
+function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAccount()}
 function closeAccount(){document.getElementById('accountModal').classList.remove('show')}
-function authMessage(msg){document.getElementById('authMsg').textContent=msg||''}
-async function signUpStudent(){
-  const email=document.getElementById('accEmail').value.trim();
-  const password=document.getElementById('accPassword').value;
+function refreshAccount(){
+  const name=localStorage.getItem('studenthub_demo_user');
+  document.getElementById('accountForm').style.display=name?'none':'block';
+  document.getElementById('profileCard').classList.toggle('show',!!name);
+  if(name) document.getElementById('profileName').textContent=name;
+}
+function demoSignup(){
   const name=document.getElementById('accName').value.trim();
-  if(!email||!password){authMessage('Enter email and password.');return}
-  if(password.length<6){authMessage('Password must be at least 6 characters.');return}
-  const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{name},emailRedirectTo:window.location.origin+window.location.pathname}});
-  if(error){authMessage(error.message);return}
-  authMessage(data.session ? 'Account created and you are signed in. 🎉' : 'Account created. Check your email to confirm it. 📩');
-  refreshAuthUI();
-}
-async function signInStudent(){
   const email=document.getElementById('accEmail').value.trim();
-  const password=document.getElementById('accPassword').value;
-  if(!email||!password){authMessage('Enter email and password.');return}
-  const {error}=await supabaseClient.auth.signInWithPassword({email,password});
-  if(error){authMessage(error.message);return}
-  authMessage('Login successful! 🎉');
-  refreshAuthUI();
+  if(!name||!email){alert('Please enter your name and email.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
 }
-async function resetStudentPassword(){
+function demoLogin(){
+  const name=document.getElementById('accName').value.trim()||'Student';
   const email=document.getElementById('accEmail').value.trim();
-  if(!email){authMessage('Enter your email first.');return}
-  const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
-  authMessage(error ? error.message : 'Password reset email sent. 📩');
+  if(!email){alert('Enter your email to continue with this V9 preview.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
 }
-async function signOutStudent(){await supabaseClient.auth.signOut();refreshAuthUI()}
-async function refreshAuthUI(){
-  const {data}=await supabaseClient.auth.getSession();
-  const user=data.session?.user;
-  document.getElementById('accountForm').style.display=user?'none':'block';
-  document.getElementById('profileCard').classList.toggle('show',!!user);
-  if(user){
-    document.getElementById('profileName').textContent=user.user_metadata?.name || user.email?.split('@')[0] || 'Student';
-    document.getElementById('profileEmail').textContent=user.email || '';
-  }
+function demoLogout(){
+  localStorage.removeItem('studenthub_demo_user');
+  localStorage.removeItem('studenthub_demo_email');
+  refreshAccount();
 }
-supabaseClient.auth.onAuthStateChange(()=>refreshAuthUI());
 </script>
 
 
