@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MFCS 1st Semester Notes | StudentHub</title>
+<meta name="description" content="Simple B.Tech 1st semester MFCS notes, formulas, examples, quick revision and important questions for Mathematical Foundations of Computer Science.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#4f46e5">
+<link rel="canonical" href="https://anudeepvemula177.github.io/studenthub/mfcs.html">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080b14;color:#eef2ff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}header{padding:30px 16px;background:linear-gradient(135deg,#4f46e5,#9333ea)}header .wrap,main{max-width:1000px;margin:auto}h1{margin:0 0 6px;font-size:32px}header p{margin:0;color:#e5e7eb}.wrap{padding:0 16px}.nav{display:flex;gap:8px;overflow:auto;padding:12px 0}.nav a{white-space:nowrap;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 12px}.hero,.module,.box{background:#111827;border:1px solid #263244;border-radius:18px;padding:18px;margin:18px 0}.hero{margin-top:22px}.muted{color:#94a3b8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.topic{padding:14px;border:1px solid #2b3648;border-radius:14px;background:#0d1422}.topic h3{margin:0 0 5px;font-size:18px}.topic p{margin:0;color:#cbd5e1}.formula{background:#0b1220;border-left:4px solid #818cf8;padding:10px 12px;border-radius:8px;margin:10px 0}.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#1e1b4b;color:#c7d2fe;font-size:12px;font-weight:700}.question{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}.question:last-child{border:0}.top{position:fixed;right:14px;bottom:16px;width:auto;border:0;border-radius:999px;background:#4f46e5;color:white;padding:10px 14px;font-weight:700}.back{display:inline-block;color:#c7d2fe;text-decoration:none;margin-top:14px}footer{text-align:center;color:#64748b;padding:28px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"B.Tech 1st Semester MFCS Notes","description":"Simple notes and exam revision material for Mathematical Foundations of Computer Science.","provider":{"@type":"Organization","name":"StudentHub"},"url":"https://anudeepvemula177.github.io/studenthub/mfcs.html"}</script>
+</head>
+<body>
+<header><div class="wrap"><span class="tag">V15 • 1st Semester</span><h1>🧠 MFCS Notes</h1><p>Mathematical Foundations of Computer Science — simple, exam-friendly revision.</p><div class="nav"><a href="index.html">🏠 StudentHub</a><a href="#m1">Module I</a><a href="#m2">Module II</a><a href="#m3">Module III</a><a href="#m4">Module IV</a><a href="#m5">Module V</a><a href="#questions">⭐ Questions</a></div></div></header>
+<main class="wrap">
+<section class="hero"><h2>📚 How to use these notes</h2><p class="muted">Follow <b>Module → Topic → Key idea → Example → Quick revision</b>. These notes are intentionally simple and should be used with your university syllabus/textbook for full preparation.</p><div class="formula"><b>Exam tip:</b> For a 5-mark answer, write the definition, 2–4 key points, one suitable example/diagram, and a short conclusion.</div></section>
+
+<section class="module" id="m1"><span class="tag">MODULE I • Mathematical Logic</span><h2>Basic Logic</h2><div class="grid">
+<div class="topic"><h3>Statements & Notations</h3><p>A statement is a declarative sentence that is either true or false, but not both. Usually represented by p, q, r.</p><div class="formula">Example: p: “5 is odd.” → True.</div></div>
+<div class="topic"><h3>Logical Connectives</h3><p>NOT (¬p), AND (p∧q), OR (p∨q), implication (p→q), and biconditional (p↔q).</p><div class="formula">p→q is false only when p is true and q is false.</div></div>
+<div class="topic"><h3>Well-Formed Formula</h3><p>A formula constructed according to the syntax rules of propositional logic is a well-formed formula (WFF).</p></div>
+<div class="topic"><h3>Truth Tables</h3><p>Truth tables list all possible truth-value combinations and the resulting value of a compound proposition.</p></div>
+<div class="topic"><h3>Tautology</h3><p>A compound proposition that is true for every possible assignment of truth values.</p><div class="formula">p∨¬p is a tautology.</div></div>
+<div class="topic"><h3>Logical Equivalence & Implication</h3><p>Two propositions are logically equivalent when they have identical truth values in every row. p logically implies q when p→q is a tautology.</p></div>
+<div class="topic"><h3>Normal Forms</h3><p><b>DNF:</b> OR of AND terms. <b>CNF:</b> AND of OR terms. Principal forms use minterms/maxterms.</p></div>
+</div></section>
+
+<section class="module" id="m2"><span class="tag">MODULE II • Predicate Logic & Relations</span><h2>Predicate Logic</h2><div class="grid">
+<div class="topic"><h3>Inference in Statement Calculus</h3><p>Inference determines whether a conclusion follows from given premises. Truth tables can be used to test validity.</p></div>
+<div class="topic"><h3>Rules of Inference</h3><p>Common rules include Modus Ponens, Modus Tollens, Hypothetical Syllogism and Disjunctive Syllogism.</p><div class="formula">Modus Ponens: p→q, p ⟹ q</div></div>
+<div class="topic"><h3>Consistency & Indirect Proof</h3><p>A set of premises is consistent if there is at least one assignment making all premises true. Indirect proof assumes the opposite and derives a contradiction.</p></div>
+<div class="topic"><h3>Predicates & Quantifiers</h3><p>A predicate contains variables. Universal quantifier: ∀. Existential quantifier: ∃.</p><div class="formula">∀x P(x): P is true for every x. &nbsp; ∃x P(x): P is true for at least one x.</div></div>
+<div class="topic"><h3>Free & Bound Variables</h3><p>A variable controlled by a quantifier is bound. A variable not controlled by a quantifier is free.</p></div>
+<div class="topic"><h3>Universe of Discourse</h3><p>The universe of discourse is the set of objects over which variables in a predicate statement are allowed to range.</p></div>
+<div class="topic"><h3>Binary Relations</h3><p>Study properties such as reflexive, symmetric, antisymmetric and transitive relations, with examples.</p></div>
+<div class="topic"><h3>Equivalence & Partial Order</h3><p>An equivalence relation is reflexive, symmetric and transitive. A partial order is reflexive, antisymmetric and transitive.</p></div>
+<div class="topic"><h3>Transitive Closure & Compatibility</h3><p>Transitive closure adds the pairs needed to make a relation transitive. Compatibility describes preservation of relation structure under the relevant operation/mapping.</p></div>
+<div class="topic"><h3>Hasse Diagram</h3><p>A Hasse diagram represents a finite partially ordered set by omitting loops and transitive edges and using upward edges for larger elements.</p></div>
+<div class="topic"><h3>Lattices</h3><p>A lattice is a partially ordered set in which every pair of elements has a greatest lower bound (meet) and least upper bound (join).</p></div>
+</div></section>
+
+<section class="module" id="m3"><span class="tag">MODULE III • Functions & Algebraic Structures</span><h2>Functions</h2><div class="grid">
+<div class="topic"><h3>Inverse Function</h3><p>An inverse reverses the mapping. A function has an inverse function when it is bijective between the relevant sets.</p><div class="formula">f⁻¹(f(x)) = x and f(f⁻¹(y)) = y.</div></div>
+<div class="topic"><h3>Composition of Functions</h3><p>Composition applies one function after another.</p><div class="formula">(f∘g)(x) = f(g(x)).</div></div>
+<div class="topic"><h3>Recursive Functions</h3><p>A recursive function is defined using smaller instances of itself, together with a base case.</p></div>
+<div class="topic"><h3>Algebraic Systems</h3><p>An algebraic system consists of a non-empty set together with one or more operations defined on it.</p></div>
+<div class="topic"><h3>Semigroup & Monoid</h3><p>A semigroup has an associative binary operation. A monoid is a semigroup with an identity element.</p></div>
+<div class="topic"><h3>Group & Subgroup</h3><p>A group has closure, associativity, identity and inverse for every element. A subgroup is a subset that itself forms a group under the same operation.</p></div>
+<div class="topic"><h3>Homomorphism</h3><p>A homomorphism preserves the operation between algebraic structures.</p><div class="formula">f(a*b) = f(a) * f(b).</div></div>
+<div class="topic"><h3>Isomorphism</h3><p>An isomorphism is a bijective homomorphism. It shows two algebraic structures have the same structure.</p></div>
+</div></section>
+
+<section class="module" id="m4"><span class="tag">MODULE IV • Counting Techniques</span><h2>Counting</h2><div class="grid">
+<div class="topic"><h3>Basic Counting</h3><p>Use the addition rule for alternatives and multiplication rule for successive choices.</p></div>
+<div class="topic"><h3>Permutations</h3><p>Arrangement where order matters.</p><div class="formula">nPr = n!/(n−r)!</div></div>
+<div class="topic"><h3>Combinations</h3><p>Selection where order does not matter.</p><div class="formula">nCr = n!/[r!(n−r)!]</div></div>
+<div class="topic"><h3>Repetitions</h3><p>Counting changes when objects can repeat. Identify whether repetition is unrestricted or constrained before choosing the formula.</p></div>
+<div class="topic"><h3>Binomial Coefficients</h3><p>Coefficients in binomial expansions are written as nCr.</p><div class="formula">(x+y)ⁿ = Σ C(n,r)xⁿ⁻ʳyʳ.</div></div>
+<div class="topic"><h3>Binomial & Multinomial Theorems</h3><p>Binomial expands two terms; multinomial generalizes the expansion to more than two terms.</p></div>
+<div class="topic"><h3>Inclusion–Exclusion</h3><p>Used to avoid double-counting overlapping sets.</p><div class="formula">|A∪B| = |A|+|B|−|A∩B|.</div></div>
+<div class="topic"><h3>Pigeonhole Principle</h3><p>If more objects are placed into fewer boxes, at least one box contains more than one object.</p></div>
+</div></section>
+
+<section class="module" id="m5"><span class="tag">MODULE V • Graph Theory</span><h2>Graphs & Trees</h2><div class="grid">
+<div class="topic"><h3>Basic Concepts</h3><p>A graph consists of vertices and edges. Know degree, adjacency, paths, cycles and connectedness.</p></div>
+<div class="topic"><h3>Isomorphism & Subgraphs</h3><p>Graph isomorphism preserves adjacency structure. A subgraph is formed using selected vertices and/or edges of a graph.</p></div>
+<div class="topic"><h3>Trees & Properties</h3><p>A tree is a connected graph with no cycles. A tree with n vertices has n−1 edges.</p></div>
+<div class="topic"><h3>Spanning Trees</h3><p>A spanning tree contains all vertices of a connected graph and is itself a tree.</p></div>
+<div class="topic"><h3>Directed & Binary Trees</h3><p>Directed trees use oriented edges. A binary tree has at most two children for each node.</p></div>
+<div class="topic"><h3>Planar Graphs & Euler Formula</h3><p>For a connected planar graph, Euler's formula is V−E+F=2.</p></div>
+<div class="topic"><h3>Multigraphs & Euler Circuits</h3><p>A multigraph may contain multiple edges between the same vertices. An Euler circuit uses every edge exactly once and returns to its start.</p></div>
+<div class="topic"><h3>Hamiltonian Graphs</h3><p>A Hamiltonian cycle visits every vertex exactly once and returns to the starting vertex.</p></div>
+<div class="topic"><h3>Chromatic Numbers</h3><p>The chromatic number is the minimum number of colors needed to color vertices so adjacent vertices receive different colors.</p></div>
+</div></section>
+
+<section class="box" id="questions"><span class="tag">EXAM PRACTICE</span><h2>⭐ Important Questions</h2>
+<div class="question"><b>Module I:</b> Construct truth tables; prove tautology and logical equivalence; convert propositions into normal forms.</div>
+<div class="question"><b>Module II:</b> Test validity using rules of inference; solve quantifier/predicate problems; identify relation properties; draw Hasse diagrams and solve lattice problems.</div>
+<div class="question"><b>Module III:</b> Find inverse/composition of functions; solve recursive-function problems; verify algebraic structures; prove subgroup/homomorphism/isomorphism properties.</div>
+<div class="question"><b>Module IV:</b> Solve permutation and combination problems; handle repetition/constrained repetition; apply binomial/multinomial theorem; solve inclusion–exclusion and pigeonhole problems.</div>
+<div class="question"><b>Module V:</b> Identify graph properties; solve tree/spanning-tree problems; use Euler formula; determine Euler/Hamiltonian properties and chromatic numbers.</div>
+</section>
+<section class="box"><h2>⚡ Quick Revision</h2><p><b>Logic:</b> p→q is false only for T→F. <b>Relations:</b> equivalence = reflexive + symmetric + transitive. <b>Group:</b> associative + identity + inverse + closure. <b>Counting:</b> order matters → permutation; order doesn't matter → combination. <b>Tree:</b> connected + acyclic, E=V−1. <b>Planar connected graph:</b> V−E+F=2.</p><a class="back" href="index.html">← Back to StudentHub</a></section>
+</main><button class="top" onclick="scrollTo({top:0,behavior:'smooth'})">↑ Top</button><footer>© 2026 StudentHub • MFCS 1st Semester</footer>
+</body></html>

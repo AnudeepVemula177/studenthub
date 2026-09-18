@@ -133,8 +133,8 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
     <button onclick="v14ClearQuickSearch()">Clear</button>
   </div>
   <div class="v14-cat-grid" id="v14CatGrid">
-    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Topics & revision</span></button>
-    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Subject-wise tools</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">1st Sem • MFCS</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('questions')"><span class="v14-cat-icon">📝</span><span class="v14-cat-title">Important Questions</span><span class="v14-cat-sub">Exam practice</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('exams')"><span class="v14-cat-icon">⏳</span><span class="v14-cat-title">Exam Countdown</span><span class="v14-cat-sub">Never miss a date</span></button>
@@ -316,6 +316,7 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
 <a href="sgpa-calculator.html">SGPA Calculator Guide</a>
 <a href="attendance-calculator.html">Attendance Calculator Guide</a>
 <a href="study-tools.html">Study Tools Guide</a>
+<a href="mfcs.html">MFCS 1st Sem Notes</a>
 </div>
 <h3>Quick answers</h3>
 <div class="guide-item"><h3>Percentage</h3><p>Percentage = obtained marks ÷ total marks × 100.</p></div>
@@ -639,14 +640,13 @@ function budgetBreakdown(){
 const v14HomeItems={
  notes:[
   ['📚','Study Tools','Open the existing study tools and revision helpers.','study-tools.html'],
-  ['📖','Topic Notes','Subject-wise notes are planned for V15.','v15'],
+  ['🧠','MFCS Notes','1st Semester Mathematical Foundations of Computer Science.','mfcs.html'],
   ['⚡','Quick Revision','Use the study planner and progress tracker for revision.','v14-planner']
  ],
  subjects:[
-  ['📐','Mathematics','Calculators and academic tools for maths-heavy work.','calculator'],
-  ['🐍','Python & Data Structures','Practice-focused study tools and resources.','study'],
-  ['🌐','Web Technologies','Keep web development study resources together.','study'],
-  ['☁️','Cloud Computing','Cloud study resources can be added to this subject hub.','study']
+  ['🧠','MFCS — 1st Semester','Mathematical Foundations of Computer Science.','mfcs.html'],
+  ['📚','MFCS Modules','Logic, relations, functions, counting and graph theory.','mfcs.html'],
+  ['📝','MFCS Important Questions','Module-wise exam practice questions.','mfcs.html#questions']
  ],
  calculators:[
   ['📊','Percentage Calculator','Calculate percentage from marks.','percentage-calculator.html'],
@@ -658,7 +658,7 @@ const v14HomeItems={
  questions:[
   ['📝','Marks & Target Tools','Required marks, target marks and grade helpers.','tools'],
   ['📚','Revision Planner','Turn important topics into study tasks.','v14-planner'],
-  ['🚀','Notes & Question Bank','A dedicated notes/question-bank section is planned for V15.','v15']
+  ['📝','MFCS Question Bank','Important questions from all 5 MFCS modules.','mfcs.html#questions']
  ],
  exams:[
   ['⏳','Save Exam Countdown','Add an exam date and track remaining time.','v14-exams'],
