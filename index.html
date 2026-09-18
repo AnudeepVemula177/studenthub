@@ -51,9 +51,37 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 .v8-note{font-size:.9rem;opacity:.8;margin-top:8px}
 </style>
 
+
+<style>
+.account-btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.account-box{width:min(420px,100%);padding:24px;border-radius:18px;background:inherit;border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.account-box input{width:100%;box-sizing:border-box;margin:7px 0;padding:12px;border-radius:10px}
+.account-box .close{float:right;border:0;background:transparent;font-size:22px;cursor:pointer}
+.account-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.account-actions button{flex:1;min-width:130px}
+.profile-card{display:none}
+.profile-card.show{display:block}
+.small-muted{font-size:.88rem;opacity:.75}
+</style>
+
+
+<style>
+.v10-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.v10-box{padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:14px}
+.v10-box input,.v10-box select{width:100%;box-sizing:border-box;margin:6px 0;padding:11px;border-radius:9px}
+.v10-box button{margin-top:7px}
+.v10-list{margin:8px 0 0;padding-left:20px}
+.progress-wrap{height:10px;border-radius:10px;background:rgba(127,127,127,.25);overflow:hidden;margin-top:8px}
+.progress-bar{height:100%;width:0;background:currentColor}
+</style>
+
 </head>
 <body>
-<header><h1>🎓 StudentHub</h1><p>Free tools that make student life easier.</p>
+<header><h1>🎓 StudentHub</h1>
+<button class="account-btn" onclick="openAccount()">👤 Login / Sign Up</button>
+<p>Free tools that make student life easier.</p>
 <div class="search"><input id="search" oninput="filterTools()" placeholder="🔎 Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
 <main>
 <div class="chips">
@@ -103,6 +131,63 @@ footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1p
 <section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
 <section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
 
+
+
+<section class="card" id="powerpack">
+<h2>⚡ Student Power Pack</h2>
+<p>Extra planning tools for exams, subjects and daily study.</p>
+<div class="v10-grid">
+<div class="v10-box">
+<h3>📊 Semester GPA Tracker</h3>
+<input id="gpa1" type="number" step=".01" placeholder="Semester 1 GPA">
+<input id="gpa2" type="number" step=".01" placeholder="Semester 2 GPA">
+<input id="gpa3" type="number" step=".01" placeholder="Semester 3 GPA">
+<button onclick="gpaTrack()">Calculate Average</button>
+<div id="gpar" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⚠️ Attendance Risk Checker</h3>
+<input id="riskAtt" type="number" step=".01" placeholder="Current attendance %">
+<input id="riskTarget" type="number" step=".01" placeholder="Minimum target %">
+<button onclick="attendanceRisk()">Check Risk</button>
+<div id="riskr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>🎯 Exam Score Goal</h3>
+<input id="goalCurrent" type="number" placeholder="Marks scored">
+<input id="goalTotal" type="number" placeholder="Total marks so far">
+<input id="goalRemaining" type="number" placeholder="Remaining total marks">
+<input id="goalPercent" type="number" placeholder="Target overall %">
+<button onclick="examGoal()">Calculate</button>
+<div id="goalr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>📚 Subject Priority Planner</h3>
+<input id="subNames" placeholder="Subjects: Maths, Python, Cloud">
+<input id="subDays" type="number" placeholder="Days available">
+<button onclick="subjectPriority()">Plan</button>
+<div id="subr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⏱️ Pomodoro Timer</h3>
+<p id="pomoDisplay">25:00</p>
+<button onclick="startPomo()">▶ Start</button>
+<button onclick="pausePomo()">⏸ Pause</button>
+<button onclick="resetPomo()">↻ Reset</button>
+<div id="pomor" class="small-muted"></div>
+</div>
+<div class="v10-box">
+<h3>💰 Budget Breakdown</h3>
+<input id="bbIncome" type="number" placeholder="Monthly income (₹)">
+<input id="bbFood" type="number" placeholder="Food (₹)">
+<input id="bbTravel" type="number" placeholder="Travel (₹)">
+<input id="bbStudy" type="number" placeholder="Study/college (₹)">
+<input id="bbOther" type="number" placeholder="Other (₹)">
+<button onclick="budgetBreakdown()">Calculate</button>
+<div id="bbr" class="result"></div>
+</div>
+</div>
+</section>
 
 <section class="card" id="guides">
 <h2>📚 Student Guides & FAQs</h2>
@@ -246,6 +331,109 @@ async function shareSite(){
   else{try{await navigator.clipboard.writeText(data.url);dashMsg.textContent='Site link copied! 📋'}catch(e){dashMsg.textContent=data.url}}
 }
 document.addEventListener('DOMContentLoaded',refreshFavorites)
+</script>
+
+
+<div id="accountModal" class="modal" onclick="if(event.target===this)closeAccount()">
+<div class="account-box">
+<button class="close" onclick="closeAccount()">✕</button>
+<h2>👤 StudentHub Account</h2>
+<p class="small-muted">Optional — calculators remain free without an account.</p>
+<div id="accountForm">
+<input id="accName" placeholder="Your name">
+<input id="accEmail" type="email" placeholder="Email">
+<div class="account-actions">
+<button onclick="demoSignup()">Create Account</button>
+<button onclick="demoLogin()">Login</button>
+</div>
+<p class="small-muted">V9 preview: these buttons demonstrate the account flow only. No password or real account is created yet.</p>
+</div>
+<div id="profileCard" class="profile-card">
+<h3>Welcome, <span id="profileName"></span>! 👋</h3>
+<p>You are viewing the StudentHub account dashboard preview.</p>
+<div class="account-actions">
+<button onclick="closeAccount()">Continue to Tools</button>
+<button onclick="demoLogout()">Log out</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAccount()}
+function closeAccount(){document.getElementById('accountModal').classList.remove('show')}
+function refreshAccount(){
+  const name=localStorage.getItem('studenthub_demo_user');
+  document.getElementById('accountForm').style.display=name?'none':'block';
+  document.getElementById('profileCard').classList.toggle('show',!!name);
+  if(name) document.getElementById('profileName').textContent=name;
+}
+function demoSignup(){
+  const name=document.getElementById('accName').value.trim();
+  const email=document.getElementById('accEmail').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
+}
+function demoLogin(){
+  const name=document.getElementById('accName').value.trim()||'Student';
+  const email=document.getElementById('accEmail').value.trim();
+  if(!email){alert('Enter your email to continue with this V9 preview.');return}
+  localStorage.setItem('studenthub_demo_user',name);
+  localStorage.setItem('studenthub_demo_email',email);
+  refreshAccount();
+}
+function demoLogout(){
+  localStorage.removeItem('studenthub_demo_user');
+  localStorage.removeItem('studenthub_demo_email');
+  refreshAccount();
+}
+</script>
+
+
+<script>
+function num(id){return parseFloat(document.getElementById(id).value)}
+function gpaTrack(){
+  let a=[num('gpa1'),num('gpa2'),num('gpa3')].filter(x=>!isNaN(x));
+  gpar.textContent=a.length?'Average GPA: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter at least one GPA.'
+}
+function attendanceRisk(){
+  let a=num('riskAtt'),t=num('riskTarget');
+  if(a>=0&&a<=100&&t>=0&&t<=100){
+    riskr.textContent=a<t?'⚠️ Below target by '+(t-a).toFixed(2)+' percentage points.':'✅ Above target by '+(a-t).toFixed(2)+' percentage points.'
+  }else riskr.textContent='Enter valid percentages.'
+}
+function examGoal(){
+  let s=num('goalCurrent'),t=num('goalTotal'),r=num('goalRemaining'),p=num('goalPercent');
+  let need=(p/100)*(t+r)-s;
+  if(t>=0&&r>0&&p>=0&&p<=100){
+    goalr.textContent=need<=0?'🎉 Target already reached.':'Need '+Math.ceil(need)+' / '+r+' remaining marks ('+((need/r)*100).toFixed(1)+'%).'
+  }else goalr.textContent='Enter valid values.'
+}
+function subjectPriority(){
+  let names=document.getElementById('subNames').value.split(',').map(x=>x.trim()).filter(Boolean),d=num('subDays');
+  if(names.length&&d>0){
+    subr.innerHTML='<ol class="v10-list">'+names.map((x,i)=>'<li>'+x+' — '+Math.max(1,Math.ceil(d/names.length))+' day(s) focus</li>').join('')+'</ol>'
+  }else subr.textContent='Enter subjects and available days.'
+}
+let pomoSeconds=1500,pomoTimer=null;
+function renderPomo(){let m=Math.floor(pomoSeconds/60),sec=pomoSeconds%60;pomoDisplay.textContent=String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')}
+function startPomo(){
+  if(pomoTimer)return;
+  pomor.textContent='Focus time running 🔥';
+  pomoTimer=setInterval(()=>{if(pomoSeconds>0){pomoSeconds--;renderPomo()}else{clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Time is up! Take a short break 🎉'}},1000)
+}
+function pausePomo(){clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Paused.'}
+function resetPomo(){pausePomo();pomoSeconds=1500;renderPomo();pomor.textContent='Ready for 25 minutes.'}
+function budgetBreakdown(){
+  let i=num('bbIncome'),items=['bbFood','bbTravel','bbStudy','bbOther'].map(num);
+  if(i>=0&&items.every(x=>x>=0)){
+    let total=items.reduce((a,b)=>a+b,0),left=i-total;
+    bbr.innerHTML='Total expenses: ₹'+total.toLocaleString('en-IN')+'<br>'+ (left>=0?'Remaining: ₹'+left.toLocaleString('en-IN'):'Over budget: ₹'+Math.abs(left).toLocaleString('en-IN'))
+  }else bbr.textContent='Enter valid values.'
+}
 </script>
 
 </body></html>
