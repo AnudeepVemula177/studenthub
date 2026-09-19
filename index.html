@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="g_9IVsRDD9I6Drl-LeNE9-0l5ZsPraQDjB5qnI3DwuE" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudentHub — Free Student Calculators & Study Tools</title>
+<meta name="description" content="Free student calculators and study tools for CGPA, SGPA, percentage, attendance, marks, exams, GPA, budgeting and study planning.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#4f46e5">
+<meta name="author" content="StudentHub">
+<meta name="keywords" content="student calculators, CGPA calculator, SGPA calculator, attendance calculator, percentage calculator, marks calculator, study planner">
+<link rel="canonical" href="https://anudeepvemula177.github.io/studenthub/">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="StudentHub — Free Student Calculators & Study Tools">
+<meta property="og:description" content="Free calculators and practical study tools for students.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anudeepvemula177.github.io/studenthub/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StudentHub — Free Student Calculators & Study Tools">
+<meta name="twitter:description" content="Free calculators and study tools for students.">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#080b14;color:#eef2ff}
+header{padding:42px 16px 30px;text-align:center;background:linear-gradient(135deg,#4f46e5,#9333ea)}
+h1{font-size:38px;margin:0 0 8px}header p{color:#eee;margin:0 auto 20px}.search{max-width:620px;margin:auto;display:flex;background:#fff;border-radius:14px;padding:5px}.search input{flex:1;border:0;outline:0;padding:12px;font-size:15px;color:#111;background:#fff}.search input::placeholder{color:#64748b;opacity:1}.search button{width:auto;margin:0}
+main{max-width:1000px;margin:auto;padding:22px 16px}.chips{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.chip{white-space:nowrap;border:1px solid #334155;background:#111827;color:#cbd5e1;padding:9px 14px;border-radius:999px;cursor:pointer}.active{background:#4f46e5;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card,.about{background:#111827;border:1px solid #263244;border-radius:18px;padding:20px}.card h2{font-size:19px;margin:0 0 7px}.card p{color:#94a3b8;font-size:14px;min-height:38px}
+input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;font-size:15px;margin-top:8px;background:#0f172a;color:#fff}button{border:0;background:#4f46e5;font-weight:700;cursor:pointer}.result{margin-top:10px;color:#a5b4fc;font-weight:700;min-height:22px}
+.about{margin-top:22px;color:#cbd5e1}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.links a{color:#a5b4fc;text-decoration:none}.links a:hover{text-decoration:underline}
+footer{text-align:center;padding:28px;color:#64748b;font-size:13px;border-top:1px solid #1f2937;margin-top:20px}
+
+.cloud-card{margin-top:16px;padding:16px;border:1px solid #343a55;border-radius:16px;background:#111326}
+.cloud-card h3{margin:0 0 8px}
+.cloud-status{font-size:14px;color:#bfc5d8;margin:8px 0 12px}
+.cloud-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cloud-actions button{flex:1;min-width:140px}
+.v14-launch-open{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebSite","@id":"https://anudeepvemula177.github.io/studenthub/#website","url":"https://anudeepvemula177.github.io/studenthub/","name":"StudentHub","description":"Free student calculators and study tools."},
+    {"@type":"WebPage","@id":"https://anudeepvemula177.github.io/studenthub/#webpage","url":"https://anudeepvemula177.github.io/studenthub/","name":"StudentHub — Free Student Calculators & Study Tools","isPartOf":{"@id":"https://anudeepvemula177.github.io/studenthub/#website"}},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How is CGPA converted to percentage?","acceptedAnswer":{"@type":"Answer","text":"A common approximation is CGPA multiplied by 9.5. University conversion rules can differ."}},
+      {"@type":"Question","name":"How do I calculate attendance?","acceptedAnswer":{"@type":"Answer","text":"Attendance percentage equals classes attended divided by total classes, multiplied by 100."}},
+      {"@type":"Question","name":"How do I calculate SGPA?","acceptedAnswer":{"@type":"Answer","text":"SGPA is generally the sum of grade point multiplied by course credits, divided by total credits."}},
+      {"@type":"Question","name":"Are StudentHub calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. StudentHub provides free student calculators and planning tools."}}
+    ]}
+  ]
+}
+</script>
+
+
+<style>
+.guide-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.guide-item:last-child{border-bottom:0}
+.guide-item h3{margin:4px 0 6px}
+.guide-item p{margin:0;line-height:1.6}
+</style>
+
+
+<style>
+.v8-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.v8-actions button{flex:1;min-width:110px}
+.fav-btn{cursor:pointer}
+.tool.fav{outline:2px solid currentColor}
+.v8-note{font-size:.9rem;opacity:.8;margin-top:8px}
+</style>
+
+
+<style>
+.account-btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.account-box{width:min(420px,100%);padding:24px;border-radius:18px;background:inherit;border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.account-box input{width:100%;box-sizing:border-box;margin:7px 0;padding:12px;border-radius:10px}
+.account-box .close{float:right;border:0;background:transparent;font-size:22px;cursor:pointer}
+.account-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.account-actions button{flex:1;min-width:130px}
+.profile-card{display:none}
+.profile-card.show{display:block}
+.small-muted{font-size:.88rem;opacity:.75}
+</style>
+
+
+<style>
+.v10-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.v10-box{padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:14px}
+.v10-box input,.v10-box select{width:100%;box-sizing:border-box;margin:6px 0;padding:11px;border-radius:9px}
+.v10-box button{margin-top:7px}
+.v10-list{margin:8px 0 0;padding-left:20px}
+.progress-wrap{height:10px;border-radius:10px;background:rgba(127,127,127,.25);overflow:hidden;margin-top:8px}
+.progress-bar{height:100%;width:0;background:currentColor}
+</style>
+
+
+<style id="v14-styles">
+:root{--v14-accent:#4f46e5;--v14-card:#111827;--v14-border:#263244;--v14-text:#eef2ff;--v14-muted:#94a3b8}
+body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,body.light .cloud-card,body.light .v10-box,body.light .v14-panel{background:#fff;border-color:#dbe2ea}body.light input,body.light select{background:#fff;color:#172033;border-color:#cbd5e1}body.light .chip{background:#fff;color:#334155;border-color:#cbd5e1}body.light .small-muted,body.light .v14-muted{color:#64748b}
+.v14-top{max-width:1000px;margin:0 auto;padding:0 16px 8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.v14-top button{width:auto;padding:9px 13px;margin:0;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25)}
+.v14-section{margin-top:22px}.v14-panel{background:#111827;border:1px solid #263244;border-radius:18px;padding:20px}.v14-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.v14-panel h2,.v14-panel h3{margin-top:0}.v14-muted{color:#94a3b8;font-size:14px}.v14-stat{font-size:28px;font-weight:800;margin:4px 0}.v14-row{display:flex;gap:8px;flex-wrap:wrap}.v14-row>*{flex:1;min-width:130px}.v14-progress{height:11px;background:rgba(127,127,127,.22);border-radius:99px;overflow:hidden;margin:10px 0}.v14-progress>span{display:block;height:100%;width:0;background:currentColor;border-radius:99px;transition:width .3s}.v14-stars{font-size:27px;letter-spacing:2px;cursor:pointer;user-select:none}.v14-stars button{width:auto;background:transparent;padding:0 3px;margin:0;font-size:26px}.v14-review{padding:12px 0;border-bottom:1px solid rgba(127,127,127,.18)}.v14-review:last-child{border-bottom:0}.v14-review-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.v14-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(79,70,229,.14);font-size:12px;font-weight:700}.v14-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#111827;color:#fff;border:1px solid rgba(255,255,255,.15);padding:11px 15px;border-radius:12px;z-index:10001;transition:.2s}.v14-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.v14-check{display:flex;align-items:center;gap:8px;margin:7px 0}.v14-check input{width:auto;margin:0}.v14-nav{display:flex;gap:8px;overflow:auto;margin:12px 0}.v14-nav a{white-space:nowrap;text-decoration:none;color:inherit;border:1px solid rgba(127,127,127,.25);padding:8px 11px;border-radius:10px}.v14-countdown{font-variant-numeric:tabular-nums}.install-hint{display:none}
+</style>
+
+<style id="v14-home-styles">
+.v14-home{margin:20px 0 4px;padding:22px;border:1px solid var(--v14-border);border-radius:22px;background:linear-gradient(145deg,rgba(79,70,229,.14),rgba(147,51,234,.08)),var(--v14-card);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.v14-home h2{font-size:30px;margin:0 0 6px}.v14-home p{margin:0 0 16px;color:var(--v14-muted)}
+.v14-home-search{display:flex;gap:8px;margin-bottom:16px}.v14-home-search input{flex:1;margin:0;background:rgba(255,255,255,.06);color:#fff;border-color:#334155}.v14-home-search input::placeholder{color:#94a3b8;opacity:1}.v14-home-search button{width:auto;margin:0;padding:12px 15px}
+.v14-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.v14-cat-card{min-height:106px;padding:14px 10px;border:1px solid rgba(127,127,127,.24);border-radius:16px;background:rgba(255,255,255,.025);color:inherit;cursor:pointer;text-align:center;transition:transform .18s,border-color .18s,background .18s}.v14-cat-card:hover{transform:translateY(-2px);border-color:var(--v14-accent);background:rgba(79,70,229,.09)}.v14-cat-icon{font-size:28px;display:block;margin-bottom:7px}.v14-cat-title{font-weight:800;font-size:14px}.v14-cat-sub{font-size:11px;color:var(--v14-muted);margin-top:4px}
+.v14-launch-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:10000;align-items:flex-end;justify-content:center;padding:12px}.v14-launch-modal.show{display:flex}.v14-launch-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:#0f172a;color:#eef2ff;border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.45)}body.light .v14-launch-box{background:#fff;color:#172033;border-color:#dbe2ea}.v14-launch-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.v14-launch-head h3{margin:0}.v14-launch-close{width:auto!important;margin:0!important;background:transparent!important;font-size:24px;padding:4px 9px!important}.v14-launch-list{display:grid;gap:9px;margin-top:14px}.v14-launch-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid rgba(127,127,127,.22);border-radius:14px}.v14-launch-item strong{display:block}.v14-launch-item span{display:block;color:#94a3b8;font-size:12px;margin-top:2px}.v14-launch-item button{width:auto;margin:0;min-width:92px;padding:9px 12px}.v14-note-box{padding:14px;border-radius:14px;border:1px dashed rgba(127,127,127,.35);margin-top:12px}.v14-note-box strong{display:block;margin-bottom:5px}
+@media(max-width:560px){.v14-cat-grid{grid-template-columns:repeat(3,1fr);gap:8px}.v14-cat-card{min-height:94px;padding:11px 6px}.v14-cat-icon{font-size:24px}.v14-cat-title{font-size:12px}.v14-cat-sub{display:none}.v14-home{padding:16px}.v14-home h2{font-size:25px}}
+</style>
+
+
+<style id="studenthub-ui-fix">
+/* Search readability */
+.search input:focus,.v14-home-search input:focus{box-shadow:none}
+body.light .search{background:#fff}
+body.light .search input{background:#fff;color:#172033}
+body.light .search input::placeholder{color:#64748b}
+body.light .v14-home-search input{background:#fff;color:#172033;border-color:#cbd5e1}
+body.light .v14-home-search input::placeholder{color:#64748b}
+body.light .v15-ai-entry{background:linear-gradient(145deg,rgba(79,70,229,.10),rgba(147,51,234,.06)),#fff;border-color:#dbe2ea}
+body.light .v15-ai-entry p{color:#64748b}
+body.light .v15-ai-entry-tags span{background:#eef2ff;color:#4338ca;border-color:#c7d2fe}
+body.light .v15-ai-entry-icon{background:#eef2ff}
+
+/* Standalone AI Study Buddy entry */
+.v15-ai-entry{margin:20px 0 6px;padding:20px;border:1px solid rgba(129,140,248,.45);border-radius:22px;background:linear-gradient(145deg,rgba(79,70,229,.18),rgba(147,51,234,.08)),#0f172a;display:flex;align-items:center;gap:16px;box-shadow:0 10px 32px rgba(0,0,0,.16)}
+.v15-ai-entry-icon{width:58px;height:58px;flex:none;border-radius:17px;display:grid;place-items:center;font-size:31px;background:rgba(99,102,241,.16)}
+.v15-ai-entry-copy{flex:1;min-width:0}.v15-ai-entry-copy h2{margin:0 0 5px;font-size:22px}.v15-ai-entry-copy p{margin:0;color:#aab4c8;font-size:14px;line-height:1.55}.v15-ai-entry-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.v15-ai-entry-tags span{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(127,127,127,.22);color:#cbd5e1}.v15-ai-entry-btn{width:auto;flex:none;margin:0;padding:12px 16px;border-radius:12px;background:#4f46e5;color:#fff;border:0;font-weight:800}
+@media(max-width:650px){.v15-ai-entry{align-items:flex-start;flex-wrap:wrap}.v15-ai-entry-icon{width:50px;height:50px;font-size:27px}.v15-ai-entry-copy{flex-basis:calc(100% - 66px)}.v15-ai-entry-btn{width:100%}}
+</style>
+
+<style id="v15-ai-styles">
+.v15-ai-card{position:relative;overflow:hidden;border-color:rgba(129,140,248,.55)!important;background:linear-gradient(145deg,rgba(79,70,229,.25),rgba(147,51,234,.13)),rgba(255,255,255,.025)!important}
+.v15-ai-card:after{content:'NEW';position:absolute;top:8px;right:8px;font-size:9px;font-weight:900;padding:3px 6px;border-radius:999px;background:#4f46e5;color:#fff}
+.v15-ai-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:10020}
+.v15-ai-modal.show{display:flex}
+.v15-ai-shell{width:min(1100px,100%);height:min(92vh,900px);margin:auto;background:#080b14;border:1px solid #334155;border-radius:22px;overflow:hidden;display:flex;box-shadow:0 25px 90px rgba(0,0,0,.6)}
+.v15-ai-side{width:240px;background:#0d1220;border-right:1px solid #263244;padding:14px;display:flex;flex-direction:column;gap:10px}
+.v15-ai-new{width:100%;margin:0;background:#4f46e5}.v15-ai-history{overflow:auto;display:grid;gap:6px}.v15-ai-history button{width:100%;margin:0;text-align:left;background:#111827;border:1px solid transparent;padding:10px;border-radius:10px;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v15-ai-history button.active{border-color:#4f46e5;background:#151b35;color:#fff}
+.v15-ai-main{flex:1;min-width:0;display:flex;flex-direction:column}.v15-ai-head{padding:13px 16px;border-bottom:1px solid #263244;display:flex;align-items:center;justify-content:space-between;gap:10px}.v15-ai-head strong{font-size:16px}.v15-ai-head small{display:block;color:#64748b;font-weight:500;margin-top:2px}.v15-ai-close{width:auto;margin:0;background:transparent;font-size:22px;padding:5px 10px}.v15-ai-chat{flex:1;overflow:auto;padding:18px 18px 130px}.v15-msg{max-width:820px;padding:12px 14px;border-radius:17px;margin:9px 0;line-height:1.55;white-space:pre-wrap}.v15-msg.ai{background:#111827;border:1px solid #263244}.v15-msg.user{background:#4f46e5;margin-left:auto}.v15-welcome{color:#94a3b8;font-size:13px;text-align:center;margin:8px auto 18px;max-width:650px}.v15-compose-wrap{position:relative;padding:10px 14px 14px;border-top:1px solid #263244;background:#0d1220}.v15-compose{max-width:850px;margin:auto;background:#111827;border:1px solid #334155;border-radius:18px;padding:7px}.v15-row{display:flex;gap:7px;align-items:flex-end}.v15-icon{width:44px;height:44px;flex:none;margin:0;padding:0;border-radius:13px;background:#0f172a;border:1px solid #334155;font-size:20px}.v15-text{flex:1;min-height:44px;max-height:120px;resize:none;border:0;outline:0;background:transparent;color:#fff;font:inherit;padding:10px 6px}.v15-send{background:#4f46e5;border:0}.v15-attach{display:none;position:absolute;bottom:72px;left:14px;background:#111827;border:1px solid #334155;border-radius:14px;padding:7px;gap:6px;box-shadow:0 12px 40px #0009}.v15-attach.show{display:flex}.v15-attach label{cursor:pointer}.v15-attach .v15-icon{padding:0 10px;width:auto}.v15-preview{display:none;align-items:center;gap:8px;padding:5px 7px;color:#cbd5e1;font-size:12px}.v15-preview.show{display:flex}.v15-modebar{display:flex;gap:6px;overflow:auto;padding:8px 18px;border-bottom:1px solid rgba(127,127,127,.12)}.v15-mode{width:auto!important;margin:0!important;white-space:nowrap;padding:7px 10px!important;border-radius:999px!important;background:#0f172a!important;border:1px solid #334155!important;color:#cbd5e1!important}.v15-mode.active{background:#4f46e5!important;color:#fff!important;border-color:#4f46e5!important}.v15-status{text-align:center;color:#64748b;font-size:11px;margin-top:5px}
+@media(max-width:700px){.v15-ai-shell{height:100%;width:100%;border-radius:0}.v15-ai-side{display:none}.v15-ai-chat{padding-left:12px;padding-right:12px}.v15-msg{max-width:92%}.v15-ai-head{padding:12px}.v15-compose-wrap{padding-left:8px;padding-right:8px}}
+</style>
+</head>
+<body>
+<header><h1>🎓 StudentHub</h1>
+<button class="account-btn" onclick="openAccount()">👤 Login / Sign Up</button>
+<p>Free tools that make student life easier.</p>
+<div class="search"><input id="search" oninput="filterTools()" placeholder="🔎 Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
+<div class="v14-top">
+<button onclick="toggleTheme()">🌙 <span id="themeLabel">Dark Mode</span></button>
+<button onclick="installStudentHub()">📱 Install App</button>
+<button onclick="document.getElementById('v14-productivity').scrollIntoView({behavior:'smooth'})">🚀 Productivity</button>
+<button onclick="document.getElementById('v14-community').scrollIntoView({behavior:'smooth'})">⭐ Ratings & Reviews</button>
+</div>
+
+
+<section class="v14-home" id="v14-home-tools">
+  <h2>🎓 StudentHub Quick Hub</h2>
+  <p>Find notes, subjects, calculators and study tools without endless scrolling.</p>
+  <div class="v14-home-search">
+    <input id="v14QuickSearch" type="search" placeholder="🔎 Search notes, subjects, calculators..." oninput="v14QuickSearch()">
+    <button onclick="v14ClearQuickSearch()">Clear</button>
+  </div>
+  <div class="v14-cat-grid" id="v14CatGrid">
+    <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Subjects • Notes</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Subjects • Notes</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('questions')"><span class="v14-cat-icon">📝</span><span class="v14-cat-title">Important Questions</span><span class="v14-cat-sub">Exam practice</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('exams')"><span class="v14-cat-icon">⏳</span><span class="v14-cat-title">Exam Countdown</span><span class="v14-cat-sub">Never miss a date</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('planner')"><span class="v14-cat-icon">📅</span><span class="v14-cat-title">Study Planner</span><span class="v14-cat-sub">Plan your day</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('gpa')"><span class="v14-cat-icon">📊</span><span class="v14-cat-title">GPA & Attendance</span><span class="v14-cat-sub">Track academics</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('pomodoro')"><span class="v14-cat-icon">⏱️</span><span class="v14-cat-title">Pomodoro</span><span class="v14-cat-sub">Focus sessions</span></button>
+    <button class="v14-cat-card" onclick="v14OpenCategory('goals')"><span class="v14-cat-icon">🎯</span><span class="v14-cat-title">Exam Score Goal</span><span class="v14-cat-sub">Target your marks</span></button>
+  </div>
+</section>
+
+<section class="v15-ai-entry" aria-label="AI Study Buddy">
+  <div class="v15-ai-entry-icon">🤖</div>
+  <div class="v15-ai-entry-copy">
+    <h2>AI Study Buddy</h2>
+    <p>Ask doubts, study, revise, take quizzes, practice for exams, or just talk to your AI study companion.</p>
+    <div class="v15-ai-entry-tags"><span>🧠 Doubts</span><span>📚 Study</span><span>📝 Quiz</span><span>🌎 GK</span></div>
+  </div>
+  <button class="v15-ai-entry-btn" onclick="openStudyBuddy()">Open AI Buddy →</button>
+</section>
+
+<div class="v14-launch-modal" id="v14LaunchModal" onclick="if(event.target===this)v14CloseCategory()">
+  <div class="v14-launch-box">
+    <div class="v14-launch-head"><h3 id="v14LaunchTitle">StudentHub</h3><button class="v14-launch-close" onclick="v14CloseCategory()">✕</button></div>
+    <div id="v14LaunchList" class="v14-launch-list"></div>
+  </div>
+</div>
+
+<div class="v15-ai-modal" id="v15AiModal" onclick="if(event.target===this)closeStudyBuddy()">
+  <div class="v15-ai-shell">
+    <aside class="v15-ai-side">
+      <button class="v15-ai-new" onclick="newStudyChat()">＋ New chat</button>
+      <div class="v14-muted">💬 Saved chats</div>
+      <div class="v15-ai-history" id="v15AiHistory"></div>
+    </aside>
+    <section class="v15-ai-main">
+      <div class="v15-ai-head"><div><strong>🤖 AI Study Buddy</strong><small>StudentHub • your study companion</small></div><button class="v15-ai-close" onclick="closeStudyBuddy()">✕</button></div>
+      <div class="v15-modebar" id="v15Modes">
+        <button class="v15-mode active" data-mode="Doubt">🧠 Doubt</button><button class="v15-mode" data-mode="Study">📚 Study</button><button class="v15-mode" data-mode="Revision">🔄 Revision</button><button class="v15-mode" data-mode="Quiz">📝 Quiz</button><button class="v15-mode" data-mode="Exam">⏰ Exam</button><button class="v15-mode" data-mode="GK">🌎 GK</button>
+      </div>
+      <div class="v15-ai-chat" id="v15AiChat"></div>
+      <div class="v15-compose-wrap">
+        <div class="v15-attach" id="v15Attach"><label class="v15-icon">📄<input id="v15File" type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.csv" onchange="v15Pick(this)"></label><label class="v15-icon">🖼️<input id="v15Photo" type="file" hidden accept="image/*" onchange="v15Pick(this)"></label><label class="v15-icon">📷<input id="v15Camera" type="file" hidden accept="image/*" capture="environment" onchange="v15Pick(this)"></label></div>
+        <div class="v15-compose"><div class="v15-preview" id="v15Preview">📎 <span id="v15PreviewName"></span> <button class="v15-icon" onclick="v15ClearPick()">✕</button></div><div class="v15-row"><button class="v15-icon" onclick="v15ToggleAttach()">＋</button><textarea class="v15-text" id="v15Text" rows="1" placeholder="Ask your doubt…" oninput="v15Grow(this)" onkeydown="v15Key(event)"></textarea><button class="v15-icon" id="v15Mic" onclick="v15MicToggle()">🎙️</button><button class="v15-icon v15-send" onclick="v15Send()">➤</button></div></div>
+        <div class="v15-status" id="v15Status">Mode: Doubt • “Ardham kaaledu” = explain more simply</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<main>
+<div class="chips">
+<button class="chip active" onclick="cat('all',this)">All</button><button class="chip" onclick="cat('marks',this)">📊 Marks</button><button class="chip" onclick="cat('college',this)">🎓 College</button><button class="chip" onclick="cat('study',this)">📚 Study</button><button class="chip" onclick="cat('finance',this)">💰 Finance</button>
+</div>
+<div class="grid">
+
+<section class="card" id="dashboard">
+<h2>⭐ My StudentHub</h2>
+<p>Quick controls for your favorite tools and results.</p>
+<div class="v8-actions">
+<button onclick="showFavorites()">⭐ Favorites</button>
+<button onclick="showAllTools()">🔄 Show All</button>
+<button onclick="shareSite()">📤 Share StudentHub</button>
+</div>
+<p id="dashMsg" class="v8-note">Tip: tap ⭐ on any tool to save it on this device.</p>
+</section>
+
+<section class="card tool" data-cat="marks" data-name="percentage"><h2>📊 Percentage Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find percentage from obtained and total marks.</p><input id="p1" type="number" placeholder="Obtained marks"><input id="p2" type="number" placeholder="Total marks"><button onclick="percentage()">Calculate</button><div id="pr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance"><h2>📅 Attendance Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Check your current attendance percentage.</p><input id="a1" type="number" placeholder="Classes attended"><input id="a2" type="number" placeholder="Total classes"><button onclick="attendance()">Calculate</button><div id="ar" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="cgpa"><h2>🎯 CGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage using the common 9.5 formula.</p><input id="cg" type="number" step=".01" placeholder="Enter CGPA"><button onclick="cgpa()">Convert</button><div id="cgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="sgpa"><h2>🎓 SGPA Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate SGPA from credits and grade points.</p><input id="credits" placeholder="Credits: 3,3,4"><input id="grades" placeholder="Grade points: 8,9,10"><button onclick="sgpa()">Calculate</button><div id="sgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="average marks"><h2>📝 Marks Average</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Average multiple marks at once.</p><input id="marks" placeholder="Marks: 80,75,90"><button onclick="avg()">Calculate</button><div id="mr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="exam countdown"><h2>⏳ Exam Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many days remain until your exam.</p><input id="exam" type="date"><button onclick="countdown()">Check Countdown</button><div id="er" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="required marks"><h2>🏆 Required Marks</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed for a target percentage.</p><input id="rt" type="number" placeholder="Total marks"><input id="rp" type="number" placeholder="Target %"><button onclick="required()">Calculate</button><div id="rr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="discount"><h2>🏷️ Discount Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find savings and final sale price.</p><input id="price" type="number" placeholder="Original price"><input id="disc" type="number" placeholder="Discount %"><button onclick="discount()">Calculate</button><div id="dr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="simple interest"><h2>💰 Simple Interest</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate interest and total amount.</p><input id="sp" type="number" placeholder="Principal"><input id="sr" type="number" placeholder="Rate %"><input id="st" type="number" placeholder="Time in years"><button onclick="interest()">Calculate</button><div id="sir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timer"><h2>⏱️ Study Timer</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simple 25-minute focus timer.</p><button onclick="startTimer()">Start 25 Minutes</button><button onclick="stopTimer()">Stop</button><div id="timer" class="result">25:00</div></section>
+<section class="card tool" data-cat="study" data-name="age calculator"><h2>🎂 Age Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate age from birth date.</p><input id="dob" type="date"><button onclick="age()">Calculate Age</button><div id="ager" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="ratio"><h2>➗ Ratio Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Simplify two numbers into a ratio.</p><input id="rx" type="number" placeholder="First number"><input id="ry" type="number" placeholder="Second number"><button onclick="ratio()">Simplify</button><div id="rratio" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+</div>
+
+<section class="card tool" data-cat="college" data-name="target cgpa"><h2>🎯 Target CGPA</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate the average SGPA needed for a target CGPA.</p><input id="tcg" type="number" step=".01" placeholder="Current CGPA"><input id="tsem" type="number" placeholder="Semesters completed"><input id="ttarget" type="number" step=".01" placeholder="Target CGPA"><button onclick="targetCGPA()">Calculate</button><div id="tcgr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="attendance skip classes"><h2>🏫 Attendance Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>See how many more classes you can miss and stay at your target.</p><input id="attDone" type="number" placeholder="Classes attended"><input id="attTotal" type="number" placeholder="Total classes"><input id="attTarget" type="number" placeholder="Target %"><button onclick="skipClasses()">Calculate</button><div id="skipr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="grade calculator"><h2>📝 Grade Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert marks into a simple letter grade.</p><input id="gradeMark" type="number" placeholder="Marks %"><button onclick="gradeCalc()">Calculate</button><div id="grader" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="college fee calculator"><h2>💸 College Fee Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate total fees for your course.</p><input id="feeYear" type="number" placeholder="Fee per year (₹)"><input id="feeYears" type="number" placeholder="Number of years"><button onclick="feeCalc()">Calculate</button><div id="feer" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study hours"><h2>📚 Study Hours Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Split your available study time across subjects.</p><input id="studyHours" type="number" step=".5" placeholder="Total hours"><input id="studySubjects" type="number" placeholder="Number of subjects"><button onclick="studyPlan()">Calculate</button><div id="studyr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="pass marks"><h2>✅ Pass Marks Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks required to reach a passing percentage.</p><input id="passTotal" type="number" placeholder="Total marks"><input id="passPct" type="number" placeholder="Pass %"><input id="passGot" type="number" placeholder="Marks already scored"><button onclick="passCalc()">Calculate</button><div id="passr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+
+
+<section class="card tool" data-cat="marks" data-name="cgpa percentage converter"><h2>🔄 CGPA ↔ Percentage</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Convert CGPA to percentage or percentage to CGPA.</p><input id="convVal" type="number" step=".01" placeholder="Enter value"><input id="convMode" placeholder="Type: CGPA or %"><button onclick="convertCGPA()">Convert</button><div id="convr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="required attendance classes"><h2>📅 Required Attendance Classes</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find classes needed to reach your target attendance.</p><input id="reqAtt" type="number" placeholder="Current attendance %"><input id="reqTotal" type="number" placeholder="Classes conducted so far"><input id="reqTarget" type="number" placeholder="Target %"><button onclick="requiredAttendance()">Calculate</button><div id="reqAttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="student budget planner"><h2>💰 Student Budget Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Plan your monthly student spending and savings.</p><input id="budgetIncome" type="number" placeholder="Monthly income / allowance (₹)"><input id="budgetSpend" type="number" placeholder="Monthly expenses (₹)"><button onclick="budgetCalc()">Calculate</button><div id="budgetr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="finance" data-name="emi calculator"><h2>🏦 EMI Calculator</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Estimate monthly EMI for a student or education loan.</p><input id="emiP" type="number" placeholder="Loan amount (₹)"><input id="emiR" type="number" step=".01" placeholder="Annual interest %"><input id="emiY" type="number" placeholder="Loan period (years)"><button onclick="emiCalc()">Calculate</button><div id="emir" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="marks" data-name="target marks planner"><h2>🎯 Target Marks Planner</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Find marks needed in remaining assessments for a target percentage.</p><input id="targetScored" type="number" placeholder="Marks scored so far"><input id="targetTotal" type="number" placeholder="Total marks so far"><input id="targetRemaining" type="number" placeholder="Remaining total marks"><input id="targetPct" type="number" placeholder="Target overall %"><button onclick="targetMarks()">Calculate</button><div id="targetMarkr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="study timetable generator"><h2>🗓️ Study Timetable</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Create a simple equal-time plan for your subjects.</p><input id="ttHours" type="number" step=".5" placeholder="Available hours"><input id="ttSubjects" placeholder="Subjects: Maths, Python, Web"><button onclick="makeTimetable()">Generate</button><div id="ttr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="study" data-name="days between dates"><h2>📆 Days Between Dates</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Calculate the number of days between two dates.</p><input id="dateA" type="date"><input id="dateB" type="date"><button onclick="daysBetween()">Calculate</button><div id="daysr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+<section class="card tool" data-cat="college" data-name="semester countdown"><h2>🎓 Semester Countdown</h2><button class="fav-btn" onclick="toggleFavorite(this)">☆ Favorite</button><p>Count days until your semester/exam deadline.</p><input id="semDate" type="date"><button onclick="semesterCountdown()">Check</button><div id="semr" class="result"></div><div class="v8-actions"><button onclick="copyResult(this)">📋 Copy</button><button onclick="shareResult(this)">📤 Share</button></div></section>
+
+
+
+<section class="card" id="powerpack">
+<h2>⚡ Student Power Pack</h2>
+<p>Extra planning tools for exams, subjects and daily study.</p>
+<div class="v10-grid">
+<div class="v10-box">
+<h3>📊 Semester GPA Tracker</h3>
+<input id="gpa1" type="number" step=".01" placeholder="Semester 1 GPA">
+<input id="gpa2" type="number" step=".01" placeholder="Semester 2 GPA">
+<input id="gpa3" type="number" step=".01" placeholder="Semester 3 GPA">
+<button onclick="gpaTrack()">Calculate Average</button>
+<div id="gpar" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⚠️ Attendance Risk Checker</h3>
+<input id="riskAtt" type="number" step=".01" placeholder="Current attendance %">
+<input id="riskTarget" type="number" step=".01" placeholder="Minimum target %">
+<button onclick="attendanceRisk()">Check Risk</button>
+<div id="riskr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>🎯 Exam Score Goal</h3>
+<input id="goalCurrent" type="number" placeholder="Marks scored">
+<input id="goalTotal" type="number" placeholder="Total marks so far">
+<input id="goalRemaining" type="number" placeholder="Remaining total marks">
+<input id="goalPercent" type="number" placeholder="Target overall %">
+<button onclick="examGoal()">Calculate</button>
+<div id="goalr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>📚 Subject Priority Planner</h3>
+<input id="subNames" placeholder="Subjects: Maths, Python, Cloud">
+<input id="subDays" type="number" placeholder="Days available">
+<button onclick="subjectPriority()">Plan</button>
+<div id="subr" class="result"></div>
+</div>
+<div class="v10-box">
+<h3>⏱️ Pomodoro Timer</h3>
+<p id="pomoDisplay">25:00</p>
+<button onclick="startPomo()">▶ Start</button>
+<button onclick="pausePomo()">⏸ Pause</button>
+<button onclick="resetPomo()">↻ Reset</button>
+<div id="pomor" class="small-muted"></div>
+</div>
+<div class="v10-box">
+<h3>💰 Budget Breakdown</h3>
+<input id="bbIncome" type="number" placeholder="Monthly income (₹)">
+<input id="bbFood" type="number" placeholder="Food (₹)">
+<input id="bbTravel" type="number" placeholder="Travel (₹)">
+<input id="bbStudy" type="number" placeholder="Study/college (₹)">
+<input id="bbOther" type="number" placeholder="Other (₹)">
+<button onclick="budgetBreakdown()">Calculate</button>
+<div id="bbr" class="result"></div>
+</div>
+</div>
+</section>
+
+
+<section class="v14-section" id="v14-productivity">
+<div class="v14-panel">
+<h2>🚀 Student Productivity Pack — V14</h2>
+<p class="v14-muted">Plan your exams, build a study routine, and track progress from your phone.</p>
+<div class="v14-nav"><a href="#v14-exams">⏳ Exams</a><a href="#v14-planner">📅 Planner</a><a href="#v14-progress">📊 Progress</a><a href="#v14-community">⭐ Reviews</a></div>
+<div class="v14-grid">
+<div class="v14-panel" id="v14-exams"><h3>⏳ Exam Countdown</h3><p class="v14-muted">Save an exam date and see the countdown instantly.</p><input id="v14ExamName" placeholder="Exam name (e.g. Maths)"/><input id="v14ExamDate" type="datetime-local"/><button onclick="v14SaveExam()">Save Countdown</button><div id="v14ExamResult" class="result"></div></div>
+<div class="v14-panel" id="v14-planner"><h3>📅 Study Planner</h3><p class="v14-muted">Add a subject/task and mark it complete.</p><input id="v14Task" placeholder="Task (e.g. Unit 2 — Trees)"/><input id="v14TaskDate" type="date"/><button onclick="v14AddTask()">Add Task</button><div id="v14TaskList"></div></div>
+<div class="v14-panel" id="v14-progress"><h3>📊 Daily Progress</h3><p class="v14-muted">Set today's study target and log completed minutes.</p><input id="v14Target" type="number" min="1" placeholder="Target minutes (e.g. 120)"/><input id="v14Done" type="number" min="0" placeholder="Completed minutes"/><button onclick="v14SaveProgress()">Save Progress</button><div class="v14-progress"><span id="v14ProgressBar"></span></div><div id="v14ProgressText" class="result"></div><div class="v14-badge" id="v14Streak">🔥 Study streak: 0 days</div></div>
+<div class="v14-panel"><h3>⚡ Quick Study Boost</h3><div class="v14-check"><input id="v14Focus" type="checkbox"><label for="v14Focus">25-minute focus session completed</label></div><div class="v14-check"><input id="v14Revision" type="checkbox"><label for="v14Revision">Quick revision completed</label></div><div class="v14-check"><input id="v14Questions" type="checkbox"><label for="v14Questions">Practice questions completed</label></div><button onclick="v14SaveBoost()">Save Today's Boost</button><div id="v14Boost" class="result"></div></div>
+</div>
+</div>
+</section>
+
+<section class="v14-section" id="v14-community">
+<div class="v14-panel">
+<h2>⭐ StudentHub Ratings & Reviews</h2>
+<p class="v14-muted">Tell other students what you think. Ratings and reviews are tied to your StudentHub account.</p>
+<div class="v14-grid">
+<div class="v14-panel"><h3>Overall Rating</h3><div class="v14-stat" id="v14AvgRating">—</div><div id="v14RatingStars">☆☆☆☆☆</div><p id="v14RatingCount" class="v14-muted">No ratings yet.</p></div>
+<div class="v14-panel"><h3>Leave a Review</h3><div id="v14ReviewLogin" class="v14-muted">Log in to submit a rating and review.</div><div id="v14ReviewForm" style="display:none"><div class="v14-stars" id="v14StarPicker" aria-label="Choose rating"></div><textarea id="v14ReviewText" maxlength="500" placeholder="What helped you on StudentHub? (optional)" style="width:100%;min-height:100px;margin-top:8px;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff"></textarea><button onclick="v14SubmitReview()">Submit Review</button><p class="v14-muted">Reviews may be moderated before appearing publicly.</p></div></div>
+</div>
+<h3 style="margin-top:18px">💬 Recent Reviews</h3><div id="v14Reviews"><p class="v14-muted">Loading reviews…</p></div>
+</div>
+</section>
+
+<div id="v14Toast" class="v14-toast"></div>
+
+<section class="card" id="guides">
+<h2>📚 Student Guides & FAQs</h2>
+<p>Quick answers to common student questions.</p>
+<div class="guide-item"><h3>How is CGPA converted to percentage?</h3><p>A common approximation is CGPA × 9.5 = percentage. Check your university's official conversion rule because formulas can differ.</p></div>
+<div class="guide-item"><h3>How do I calculate attendance?</h3><p>Attendance % = (Classes Attended ÷ Total Classes) × 100.</p></div>
+<div class="guide-item"><h3>How do I calculate SGPA?</h3><p>SGPA is generally calculated as the sum of (grade point × course credits) divided by total credits. Use your institution's grading scale.</p></div>
+<div class="guide-item"><h3>How can I plan study hours?</h3><p>List your subjects, set available hours, and divide time according to subject difficulty, exam priority and your current preparation.</p></div>
+<div class="guide-item"><h3>Are StudentHub calculators free?</h3><p>Yes. StudentHub is designed to provide simple, free tools for everyday student calculations and planning.</p></div>
+</section>
+
+
+<section class="card" id="disclosure">
+<h2>💡 About StudentHub</h2>
+<p>StudentHub provides free calculators and planning tools for students. Results are estimates for general educational use; always follow your college or university's official rules where applicable.</p>
+<p>StudentHub may use third-party advertising in the future to help support the free service. Advertising will not change calculator results or educational information.</p>
+</section>
+
+<section class="about"><h2>✨ About StudentHub</h2><p>Free, mobile-friendly tools for everyday student calculations and study planning.</p>
+<div class="links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div></section>
+</main>
+<section class="about" id="student-resources">
+<h2>Free Student Calculators & Study Tools</h2>
+<p>StudentHub brings common college calculations and study planning into one mobile-friendly place. Use the <a href="percentage-calculator.html">percentage calculator</a>, <a href="cgpa-calculator.html">CGPA calculator</a>, <a href="sgpa-calculator.html">SGPA calculator</a>, and <a href="attendance-calculator.html">attendance calculator</a> for quick checks, then use the study tools for planning.</p>
+<div class="links">
+<a href="percentage-calculator.html">Percentage Calculator Guide</a>
+<a href="cgpa-calculator.html">CGPA Calculator Guide</a>
+<a href="sgpa-calculator.html">SGPA Calculator Guide</a>
+<a href="attendance-calculator.html">Attendance Calculator Guide</a>
+<a href="study-tools.html">Study Tools Guide</a>
+<a href="mfcs.html">MFCS 1st Sem Notes</a>
+</div>
+<h3>Quick answers</h3>
+<div class="guide-item"><h3>Percentage</h3><p>Percentage = obtained marks ÷ total marks × 100.</p></div>
+<div class="guide-item"><h3>Attendance</h3><p>Attendance percentage = classes attended ÷ total classes × 100.</p></div>
+<div class="guide-item"><h3>SGPA</h3><p>SGPA commonly uses credit-weighted grade points. Check your university's grading rules for exact conversion.</p></div>
+</section>
+
+<footer><div class="links" style="justify-content:center"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="study-tools.html">Study Tools</a></div>© 2026 StudentHub • Free student tools 📱</footer>
+<script>
+const v=id=>parseFloat(document.getElementById(id).value);
+function percentage(){pr.textContent=v('p2')>0?(v('p1')/v('p2')*100).toFixed(2)+'%':'Enter valid marks.'}
+function attendance(){ar.textContent=v('a2')>0?(v('a1')/v('a2')*100).toFixed(2)+'%':'Enter valid classes.'}
+function cgpa(){cgr.textContent=!isNaN(v('cg'))?'≈ '+(v('cg')*9.5).toFixed(2)+'%':'Enter CGPA.'}
+function nums(id){return document.getElementById(id).value.split(',').map(Number).filter(x=>!isNaN(x))}
+function sgpa(){let c=nums('credits'),g=nums('grades');sgr.textContent=c.length&&c.length==g.length?'SGPA: '+(c.reduce((s,x,i)=>s+x*g[i],0)/c.reduce((s,x)=>s+x,0)).toFixed(2):'Enter matching values.'}
+function avg(){let a=nums('marks');mr.textContent=a.length?'Average: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter marks.'}
+function countdown(){if(!exam.value){er.textContent='Select a date.';return}let d=Math.ceil((new Date(exam.value+'T00:00:00')-new Date())/86400000);er.textContent=d>=0?d+' day(s) remaining 🎯':'Exam date has passed.'}
+function required(){rr.textContent=v('rt')>0?'Marks needed: '+(v('rt')*v('rp')/100).toFixed(0):'Enter valid values.'}
+function discount(){dr.textContent='You save: ₹'+(v('price')*v('disc')/100).toFixed(2)+' | Sale price: ₹'+(v('price')*(1-v('disc')/100)).toFixed(2)}
+function interest(){let i=v('sp')*v('sr')*v('st')/100;sir.textContent='Interest: ₹'+i.toFixed(2)+' | Total: ₹'+(v('sp')+i).toFixed(2)}
+function age(){let d=new Date(dob.value),n=new Date(),y=n.getFullYear()-d.getFullYear();if(n<new Date(n.getFullYear(),d.getMonth(),d.getDate()))y--;ager.textContent='Age: '+y+' years'}
+function gcd(a,b){return b?gcd(b,a%b):Math.abs(a)}
+function ratio(){let a=v('rx'),b=v('ry');if(a&&b){let g=gcd(a,b);rratio.textContent='Ratio: '+a/g+':'+b/g}else rratio.textContent='Enter two numbers.'}
+let ti;function startTimer(){clearInterval(ti);let s=1500;ti=setInterval(()=>{timer.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');if(!s--)clearInterval(ti)},1000)}function stopTimer(){clearInterval(ti)}
+function cat(c,b){document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tool').forEach(x=>x.style.display=c==='all'||x.dataset.cat===c?'block':'none');search.value=''}
+function filterTools(){let q=search.value.toLowerCase();document.querySelectorAll('.tool').forEach(x=>x.style.display=(x.dataset.name+' '+x.innerText).toLowerCase().includes(q)?'block':'none')}
+function clearSearch(){search.value='';filterTools()}
+
+function targetCGPA(){let c=v('tcg'),s=v('tsem'),t=v('ttarget');if(s>0){let need=t*(s+1)-c*s;tcgr.textContent='Approx. next SGPA needed: '+need.toFixed(2)}else tcgr.textContent='Enter semesters completed.'}
+function skipClasses(){let a=v('attDone'),t=v('attTotal'),p=v('attTarget');if(t>0&&p>=0&&p<=100){let x=0;while((a/(t+x))*100>=p)x++;skipr.textContent=x>0?'You can miss up to '+(x-1)+' more class(es).':'You cannot miss another class and stay at '+p+'%.'}else skipr.textContent='Enter valid values.'}
+function gradeCalc(){let m=v('gradeMark');grader.textContent=isNaN(m)?'Enter marks %':m>=90?'Grade: A+':m>=80?'Grade: A':m>=70?'Grade: B':m>=60?'Grade: C':m>=50?'Grade: D':'Grade: F'}
+function feeCalc(){let f=v('feeYear'),y=v('feeYears');feer.textContent=f>0&&y>0?'Estimated total: ₹'+(f*y).toLocaleString('en-IN'):'Enter valid values.'}
+function studyPlan(){let h=v('studyHours'),s=v('studySubjects');studyr.textContent=h>0&&s>0?'About '+(h/s).toFixed(2)+' hour(s) per subject.':'Enter valid values.'}
+function passCalc(){let t=v('passTotal'),p=v('passPct'),g=v('passGot');let need=t*p/100-g;passr.textContent=need<=0?'You already reached the pass mark 🎉':'Marks still needed: '+Math.ceil(need)}
+
+function convertCGPA(){
+  let x=v('convVal'),m=document.getElementById('convMode').value.trim().toLowerCase();
+  if(isNaN(x)){convr.textContent='Enter a value.';return}
+  if(m==='cgpa'||m==='cg'){convr.textContent='Percentage ≈ '+(x*9.5).toFixed(2)+'%'}
+  else if(m==='%'||m==='percent'||m==='percentage'){convr.textContent='CGPA ≈ '+(x/9.5).toFixed(2)}
+  else convr.textContent='Type CGPA or % in the second box.'
+}
+function requiredAttendance(){
+  let p=v('reqAtt'),n=v('reqTotal'),t=v('reqTarget');
+  if(p>=0&&p<=100&&n>0&&t>=0&&t<=100){
+    let attended=p*n/100, x=0;
+    while(((attended+x)/(n+x))*100<t && x<100000)x++;
+    reqAttr.textContent=x===0?'Target already reached 🎉':'Attend the next '+x+' class(es) to reach about '+t+'%.'
+  } else reqAttr.textContent='Enter valid values.'
+}
+function budgetCalc(){
+  let i=v('budgetIncome'),s=v('budgetSpend');
+  if(i>=0&&s>=0){let b=i-s;budgetr.textContent=b>=0?'Left after expenses: ₹'+b.toLocaleString('en-IN'):'Over budget by: ₹'+Math.abs(b).toLocaleString('en-IN')}
+  else budgetr.textContent='Enter valid values.'
+}
+function emiCalc(){
+  let p=v('emiP'),r=v('emiR')/1200,n=v('emiY')*12;
+  if(p>0&&n>0&&v('emiR')>=0){
+    let e=r===0?p/n:p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+    emir.textContent='Approx. EMI: ₹'+e.toFixed(2)+' | Total: ₹'+(e*n).toFixed(2)
+  } else emir.textContent='Enter valid values.'
+}
+function targetMarks(){
+  let s=v('targetScored'),t=v('targetTotal'),rem=v('targetRemaining'),p=v('targetPct');
+  let need=(p/100)*(t+rem)-s;
+  if(t>=0&&rem>0&&p>=0&&p<=100){targetMarkr.textContent=need<=0?'Target already reached 🎉':'Need about '+Math.ceil(need)+' marks out of '+rem+' remaining.'}
+  else targetMarkr.textContent='Enter valid values.'
+}
+function makeTimetable(){
+  let h=v('ttHours'),subs=document.getElementById('ttSubjects').value.split(',').map(x=>x.trim()).filter(Boolean);
+  if(h>0&&subs.length){let each=h/subs.length;ttr.innerHTML='Each subject: '+each.toFixed(2)+' hour(s)<br>'+subs.map((s,i)=>(i+1)+'. '+s).join('<br>')}
+  else ttr.textContent='Enter hours and subjects separated by commas.'
+}
+function daysBetween(){
+  let a=new Date(dateA.value),b=new Date(dateB.value);
+  if(dateA.value&&dateB.value){daysr.textContent='Difference: '+Math.abs(Math.round((b-a)/86400000))+' day(s).'}
+  else daysr.textContent='Select both dates.'
+}
+function semesterCountdown(){
+  if(!semDate.value){semr.textContent='Select a date.';return}
+  let d=Math.ceil((new Date(semDate.value+'T00:00:00')-new Date())/86400000);
+  semr.textContent=d>=0?d+' day(s) remaining 🎓':'Date has passed.'
+}
+
+</script>
+<script>
+function toolCards(){return Array.from(document.querySelectorAll('.tool'))}
+function keyFor(card){return 'studenthub_fav_'+(card.getAttribute('data-name')||card.querySelector('h2')?.textContent||'tool').toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+function toggleFavorite(btn){
+  const card=btn.closest('.tool'), key=keyFor(card), fav=localStorage.getItem(key)==='1';
+  if(fav){localStorage.removeItem(key);btn.textContent='☆ Favorite';card.classList.remove('fav')}
+  else{localStorage.setItem(key,'1');btn.textContent='★ Favorite';card.classList.add('fav')}
+  if(typeof saveCloudData==='function') saveCloudData(false);
+}
+function refreshFavorites(){
+  toolCards().forEach(card=>{
+    const btn=card.querySelector('.fav-btn');
+    if(btn&&localStorage.getItem(keyFor(card))==='1'){btn.textContent='★ Favorite';card.classList.add('fav')}
+  })
+}
+function showFavorites(){
+  let n=0;
+  toolCards().forEach(card=>{let yes=localStorage.getItem(keyFor(card))==='1';card.style.display=yes?'':'none';if(yes)n++});
+  dashMsg.textContent=n?n+' favorite tool(s) shown.':'No favorites yet — tap ☆ Favorite on a tool.'
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+function showAllTools(){
+  toolCards().forEach(card=>card.style.display='');
+  dashMsg.textContent='All tools are shown.'
+}
+async function copyResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied! 📋'}
+  catch(e){dashMsg.textContent='Copy is not available in this browser.'}
+}
+async function shareResult(btn){
+  const result=btn.parentElement.previousElementSibling;
+  const text=result?.innerText?.trim();
+  if(!text){dashMsg.textContent='Calculate a result first.';return}
+  if(navigator.share){try{await navigator.share({title:'StudentHub Result',text:text,url:location.href})}catch(e){}}
+  else{try{await navigator.clipboard.writeText(text);dashMsg.textContent='Result copied. Share it anywhere! 📋'}catch(e){dashMsg.textContent='Sharing is not available.'}}
+}
+async function shareSite(){
+  const data={title:'StudentHub',text:'Free student calculators and study tools',url:'https://anudeepvemula177.github.io/studenthub/'};
+  if(navigator.share){try{await navigator.share(data)}catch(e){}}
+  else{try{await navigator.clipboard.writeText(data.url);dashMsg.textContent='Site link copied! 📋'}catch(e){dashMsg.textContent=data.url}}
+}
+document.addEventListener('DOMContentLoaded',refreshFavorites)
+</script>
+
+
+<div id="accountModal" class="modal" onclick="if(event.target===this)closeAccount()">
+<div class="account-box">
+<button class="close" onclick="closeAccount()">✕</button>
+<h2>👤 StudentHub Account</h2>
+<p class="small-muted">Create an account to use StudentHub sign-in securely.</p>
+<div id="accountForm">
+<input id="accName" placeholder="Your name">
+<input id="accEmail" type="email" placeholder="Email">
+<input id="accPassword" type="password" placeholder="Password (6+ characters)">
+<div class="account-actions">
+<button onclick="signUpStudent()">Create Account</button>
+<button onclick="signInStudent()">Login</button>
+</div>
+<button onclick="resetStudentPassword()" style="margin-top:10px">Forgot password?</button>
+<p id="authMsg" class="small-muted"></p>
+</div>
+<div id="profileCard" class="profile-card">
+<h3>Welcome, <span id="profileName"></span>! 👋</h3>
+<p id="profileEmail"></p>
+<div class="cloud-card">
+<h3>☁️ My StudentHub Cloud</h3>
+<p id="cloudStatus" class="cloud-status">Your favorites and Student Power Pack can sync across devices.</p>
+<div class="cloud-actions">
+<button onclick="saveCloudData(true)">☁️ Save to Cloud</button>
+<button onclick="loadCloudData(true)">🔄 Load from Cloud</button>
+</div>
+</div>
+<div class="account-actions">
+<button onclick="closeAccount()">Continue to Tools</button>
+<button onclick="signOutStudent()">Log out</button>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = 'https://lgzgawfbdalslsjelnxo.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_WvHe9JDI5j9NhC5QWeoKWw_nV8Zly_F';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+});
+function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAuthUI()}
+function closeAccount(){document.getElementById('accountModal').classList.remove('show')}
+function authMessage(msg){document.getElementById('authMsg').textContent=msg||''}
+async function signUpStudent(){
+  const email=document.getElementById('accEmail').value.trim();
+  const password=document.getElementById('accPassword').value;
+  const name=document.getElementById('accName').value.trim();
+  if(!email||!password){authMessage('Enter email and password.');return}
+  if(password.length<6){authMessage('Password must be at least 6 characters.');return}
+  const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{name},emailRedirectTo:window.location.origin+window.location.pathname}});
+  if(error){authMessage(error.message);return}
+  authMessage(data.session ? 'Account created and you are signed in. 🎉' : 'Account created. Check your email to confirm it. 📩');
+  refreshAuthUI();
+}
+async function signInStudent(){
+  const email=document.getElementById('accEmail').value.trim();
+  const password=document.getElementById('accPassword').value;
+  if(!email||!password){authMessage('Enter email and password.');return}
+  const {error}=await supabaseClient.auth.signInWithPassword({email,password});
+  if(error){authMessage(error.message);return}
+  authMessage('Login successful! 🎉');
+  refreshAuthUI();
+}
+async function resetStudentPassword(){
+  const email=document.getElementById('accEmail').value.trim();
+  if(!email){authMessage('Enter your email first.');return}
+  const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
+  authMessage(error ? error.message : 'Password reset email sent. 📩');
+}
+async function signOutStudent(){await supabaseClient.auth.signOut();refreshAuthUI()}
+async function refreshAuthUI(){
+  const {data}=await supabaseClient.auth.getSession();
+  const user=data.session?.user;
+  document.getElementById('accountForm').style.display=user?'none':'block';
+  document.getElementById('profileCard').classList.toggle('show',!!user);
+  if(user){
+    document.getElementById('profileName').textContent=user.user_metadata?.name || user.email?.split('@')[0] || 'Student';
+    document.getElementById('profileEmail').textContent=user.email || '';
+    cloudMessage('☁️ Loading your cloud data...');
+    loadCloudData(false);
+  } else {
+    cloudMessage('Log in to sync favorites and Student Power Pack across devices.');
+  }
+}
+async function currentStudent(){
+  const {data}=await supabaseClient.auth.getSession();
+  return data.session?.user || null;
+}
+function cloudMessage(msg){
+  const el=document.getElementById('cloudStatus');
+  if(el) el.textContent=msg;
+}
+function collectPowerPack(){
+  const ids=['gpa1','gpa2','gpa3','riskAtt','riskTarget','goalCurrent','goalTotal','goalRemaining','goalPercent','subNames','subDays','bbIncome','bbFood','bbTravel','bbStudy','bbOther'];
+  const out={};
+  ids.forEach(id=>{const el=document.getElementById(id);if(el) out[id]=el.value});
+  return out;
+}
+function applyPowerPack(data){
+  if(!data)return;
+  Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val ?? ''});
+}
+function collectFavorites(){
+  return toolCards().filter(card=>localStorage.getItem(keyFor(card))==='1').map(card=>keyFor(card));
+}
+function applyFavorites(keys){
+  if(!Array.isArray(keys))return;
+  const wanted=new Set(keys);
+  toolCards().forEach(card=>{
+    const key=keyFor(card),btn=card.querySelector('.fav-btn');
+    if(wanted.has(key)){localStorage.setItem(key,'1');if(btn)btn.textContent='★ Favorite';card.classList.add('fav')}
+  });
+}
+async function saveCloudData(manual=false){
+  const user=await currentStudent();
+  if(!user){if(manual)cloudMessage('Please log in first.');return false}
+  const payload={user_id:user.id,display_name:user.user_metadata?.name || user.email?.split('@')[0] || 'Student',favorites:collectFavorites(),dashboard:collectPowerPack(),updated_at:new Date().toISOString()};
+  const {error}=await supabaseClient.from('student_cloud').upsert(payload,{onConflict:'user_id'});
+  if(error){cloudMessage('Cloud save failed: '+error.message);return false}
+  cloudMessage('☁️ Saved to cloud just now.');
+  return true;
+}
+async function loadCloudData(manual=false){
+  const user=await currentStudent();
+  if(!user){if(manual)cloudMessage('Please log in first.');return false}
+  const {data,error}=await supabaseClient.from('student_cloud').select('favorites,dashboard,updated_at').eq('user_id',user.id).maybeSingle();
+  if(error){cloudMessage('Cloud load failed: '+error.message);return false}
+  if(!data){cloudMessage('No cloud data yet. Tap Save to Cloud.');return true}
+  applyFavorites(data.favorites||[]);
+  applyPowerPack(data.dashboard||{});
+  refreshFavorites();
+  cloudMessage('☁️ Loaded from cloud'+(data.updated_at?' • '+new Date(data.updated_at).toLocaleString():'')+'.');
+  return true;
+}
+
+supabaseClient.auth.onAuthStateChange(()=>refreshAuthUI());
+</script>
+
+
+<script>
+function num(id){return parseFloat(document.getElementById(id).value)}
+function gpaTrack(){
+  let a=[num('gpa1'),num('gpa2'),num('gpa3')].filter(x=>!isNaN(x));
+  gpar.textContent=a.length?'Average GPA: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter at least one GPA.'
+}
+function attendanceRisk(){
+  let a=num('riskAtt'),t=num('riskTarget');
+  if(a>=0&&a<=100&&t>=0&&t<=100){
+    riskr.textContent=a<t?'⚠️ Below target by '+(t-a).toFixed(2)+' percentage points.':'✅ Above target by '+(a-t).toFixed(2)+' percentage points.'
+  }else riskr.textContent='Enter valid percentages.'
+}
+function examGoal(){
+  let s=num('goalCurrent'),t=num('goalTotal'),r=num('goalRemaining'),p=num('goalPercent');
+  let need=(p/100)*(t+r)-s;
+  if(t>=0&&r>0&&p>=0&&p<=100){
+    goalr.textContent=need<=0?'🎉 Target already reached.':'Need '+Math.ceil(need)+' / '+r+' remaining marks ('+((need/r)*100).toFixed(1)+'%).'
+  }else goalr.textContent='Enter valid values.'
+}
+function subjectPriority(){
+  let names=document.getElementById('subNames').value.split(',').map(x=>x.trim()).filter(Boolean),d=num('subDays');
+  if(names.length&&d>0){
+    subr.innerHTML='<ol class="v10-list">'+names.map((x,i)=>'<li>'+x+' — '+Math.max(1,Math.ceil(d/names.length))+' day(s) focus</li>').join('')+'</ol>'
+  }else subr.textContent='Enter subjects and available days.'
+}
+let pomoSeconds=1500,pomoTimer=null;
+function renderPomo(){let m=Math.floor(pomoSeconds/60),sec=pomoSeconds%60;pomoDisplay.textContent=String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')}
+function startPomo(){
+  if(pomoTimer)return;
+  pomor.textContent='Focus time running 🔥';
+  pomoTimer=setInterval(()=>{if(pomoSeconds>0){pomoSeconds--;renderPomo()}else{clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Time is up! Take a short break 🎉'}},1000)
+}
+function pausePomo(){clearInterval(pomoTimer);pomoTimer=null;pomor.textContent='Paused.'}
+function resetPomo(){pausePomo();pomoSeconds=1500;renderPomo();pomor.textContent='Ready for 25 minutes.'}
+function budgetBreakdown(){
+  let i=num('bbIncome'),items=['bbFood','bbTravel','bbStudy','bbOther'].map(num);
+  if(i>=0&&items.every(x=>x>=0)){
+    let total=items.reduce((a,b)=>a+b,0),left=i-total;
+    bbr.innerHTML='Total expenses: ₹'+total.toLocaleString('en-IN')+'<br>'+ (left>=0?'Remaining: ₹'+left.toLocaleString('en-IN'):'Over budget: ₹'+Math.abs(left).toLocaleString('en-IN'))
+  }else bbr.textContent='Enter valid values.'
+}
+</script>
+
+
+
+<script id="v14-home-js">
+const v14HomeItems={
+ notes:[
+  ['📚','Study Tools','Open the existing study tools and revision helpers.','study-tools.html'],
+  ['🧠','MFCS Notes','1st Semester Mathematical Foundations of Computer Science.','mfcs.html'],
+  ['⚡','Quick Revision','Use the study planner and progress tracker for revision.','v14-planner']
+ ],
+ subjects:[
+  ['📐','Mathematics — MFCS 1st Semester','Mathematical Foundations of Computer Science.','mfcs.html'],
+  ['🧠','MFCS Modules','Logic, relations, functions, counting and graph theory.','mfcs.html'],
+  ['📝','MFCS Important Questions','Module-wise exam practice questions.','mfcs.html#questions']
+ ],
+ calculators:[
+  ['📊','Percentage Calculator','Calculate percentage from marks.','percentage-calculator.html'],
+  ['🎯','CGPA Calculator','Convert CGPA to percentage.','cgpa-calculator.html'],
+  ['🎓','SGPA Calculator','Calculate SGPA from credits and grade points.','sgpa-calculator.html'],
+  ['📅','Attendance Calculator','Check attendance percentage.','attendance-calculator.html'],
+  ['🏆','More Calculators','Jump to all calculators on this page.','tools']
+ ],
+ questions:[
+  ['📝','Marks & Target Tools','Required marks, target marks and grade helpers.','tools'],
+  ['📚','Revision Planner','Turn important topics into study tasks.','v14-planner'],
+  ['📝','MFCS Question Bank','Important questions from all 5 MFCS modules.','mfcs.html#questions']
+ ],
+ exams:[
+  ['⏳','Save Exam Countdown','Add an exam date and track remaining time.','v14-exams'],
+  ['🎯','Exam Score Goal','Calculate marks needed for your target.','target-marks'],
+  ['📅','Semester Countdown','Track an upcoming semester date.','semester-countdown']
+ ],
+ planner:[
+  ['📅','Study Planner','Add tasks, dates and completion status.','v14-planner'],
+  ['📊','Daily Progress','Track completed study minutes.','v14-progress'],
+  ['🔥','Study Streak','Build a daily study habit.','v14-progress']
+ ],
+ gpa:[
+  ['🎓','CGPA','Open the CGPA calculator.','cgpa-calculator.html'],
+  ['📚','SGPA','Open the SGPA calculator.','sgpa-calculator.html'],
+  ['📅','Attendance','Open the attendance calculator.','attendance-calculator.html']
+ ],
+ pomodoro:[
+  ['⏱️','25-Minute Study Timer','Start a focused session.','study-timer'],
+  ['⚡','Quick Study Boost','Track focus, revision and practice.','v14-boost'],
+  ['🔥','Progress & Streak','Log your study minutes.','v14-progress']
+ ],
+ goals:[
+  ['🎯','Target Marks','Estimate marks needed in remaining exams.','target-marks'],
+  ['🎓','Target CGPA','Estimate the SGPA needed for a target CGPA.','target-cgpa'],
+  ['📊','Required Attendance','Find classes needed to reach a target attendance.','required-attendance']
+ ]
+};
+const v14HomeTitles={notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
+function v14OpenCategory(cat){const modal=document.getElementById('v14LaunchModal');const list=document.getElementById('v14LaunchList');document.getElementById('v14LaunchTitle').textContent=v14HomeTitles[cat]||'StudentHub';list.innerHTML=v14HomeItems[cat].map((x,i)=>{const isPage=x[3].endsWith(".html");return '<div class="v14-launch-item"><div><strong>'+x[0]+' '+x[1]+'</strong><span>'+x[2]+'</span></div>'+(isPage?'<a class="v14-launch-open" href="./'+x[3]+'">Open</a>':'<button onclick="v14Launch(\''+x[3]+'\')">Open</button>')+'</div>';}).join('');modal.classList.add('show');document.body.style.overflow='hidden'}
+function v14CloseCategory(){document.getElementById('v14LaunchModal').classList.remove('show');document.body.style.overflow=''}
+function v14Launch(target){v14CloseCategory();if(target==='mfcs.html'){window.location.href='./mfcs.html';return}if(target==='v15'){v14Toast('V15 Notes & Question Bank is coming next. 📚');return}if(target==='tools'){document.querySelectorAll('.tool').forEach(x=>x.style.display='');document.getElementById('search').value='';document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'start'});return}if(target.endsWith('.html')){location.href=target;return}let map={'v14-exams':'v14-exams','v14-planner':'v14-planner','v14-progress':'v14-progress','v14-boost':'v14Boost','study-timer':'timer','target-marks':'targetMarkr','target-cgpa':'tcgr','required-attendance':'reqAttr','semester-countdown':'semr','calculator':'search'};let id=map[target]||target;let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:'smooth',block:'center'});if(['search'].includes(target))document.getElementById('search')?.focus()}}
+function v14QuickSearch(){const q=document.getElementById('v14QuickSearch').value.trim().toLowerCase();document.querySelectorAll('.v14-cat-card').forEach(card=>{card.style.display=(!q||card.innerText.toLowerCase().includes(q))?'':'none'});if(q){document.querySelectorAll('.tool').forEach(x=>x.style.display=(x.dataset.name+' '+x.innerText).toLowerCase().includes(q)?'':'none');document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'nearest'})}}
+function v14ClearQuickSearch(){document.getElementById('v14QuickSearch').value='';document.querySelectorAll('.v14-cat-card').forEach(x=>x.style.display='');showAllTools?.()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')v14CloseCategory()});
+</script>
+
+
+<script id="v15-ai-js">
+let v15Chats=JSON.parse(localStorage.getItem('studenthub_ai_chats')||'[]');let v15Current=null;let v15Mode='Doubt';let v15PickFile=null;let v15Listening=false;let v15Recognition=null;
+function v15Save(){localStorage.setItem('studenthub_ai_chats',JSON.stringify(v15Chats))}
+function v15NewData(){return {id:Date.now().toString(),title:'New chat',mode:'Doubt',messages:[{who:'ai',text:'Hey! 👋 I’m your StudentHub Study Buddy.
+
+Ask a doubt, upload a photo/file, or tap 🎙️ and talk. I’ll keep explanations simple and student-friendly.
+
+Try: “Explain eigen values simply” or “Give me 5 MCQs on graphs.”'}]}}
+function renderStudyHistory(){const box=document.getElementById('v15AiHistory');if(!box)return;box.innerHTML=v15Chats.length?v15Chats.slice().reverse().map(c=>`<button class="${c.id===v15Current?'active':''}" onclick="openStudyChat('${c.id}')">${escapeHtml(c.title||'New chat')}</button>`).join(''):'<div class="v14-muted" style="padding:8px">No saved chats yet.</div>'}
+function renderStudyChat(){const c=v15Chats.find(x=>x.id===v15Current);const box=document.getElementById('v15AiChat');if(!box||!c)return;box.innerHTML='<div class="v15-welcome">Your chats are saved on this device. Cloud history can be connected later with your StudentHub account.</div>'+c.messages.map(m=>`<div class="v15-msg ${m.who}">${escapeHtml(m.text)}</div>`).join('');box.scrollTop=box.scrollHeight;renderStudyHistory()}
+function openStudyBuddy(){document.getElementById('v15AiModal').classList.add('show');document.body.style.overflow='hidden';if(!v15Current){if(!v15Chats.length){const c=v15NewData();v15Chats.push(c);v15Save()}v15Current=v15Chats[v15Chats.length-1].id}renderStudyChat()}
+function closeStudyBuddy(){document.getElementById('v15AiModal').classList.remove('show');document.body.style.overflow=''}
+function newStudyChat(){const c=v15NewData();v15Chats.push(c);v15Current=c.id;v15Mode='Doubt';document.querySelectorAll('.v15-mode').forEach((b,i)=>b.classList.toggle('active',i===0));document.getElementById('v15Status').textContent='Mode: Doubt • “Ardham kaaledu” = explain more simply';v15Save();renderStudyChat();document.getElementById('v15Text').focus()}
+function openStudyChat(id){v15Current=id;const c=v15Chats.find(x=>x.id===id);if(c)v15Mode=c.mode||'Doubt';document.querySelectorAll('.v15-mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===v15Mode));document.getElementById('v15Status').textContent='Mode: '+v15Mode+' • “Ardham kaaledu” = explain more simply';renderStudyChat()}
+document.querySelectorAll('.v15-mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.v15-mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');v15Mode=b.dataset.mode;const c=v15Chats.find(x=>x.id===v15Current);if(c)c.mode=v15Mode;v15Save();document.getElementById('v15Status').textContent='Mode: '+v15Mode+' • “Ardham kaaledu” = explain more simply'});
+function v15ToggleAttach(){document.getElementById('v15Attach').classList.toggle('show')}
+function v15Pick(i){if(i.files[0]){v15PickFile=i.files[0];document.getElementById('v15PreviewName').textContent=i.files[0].name;document.getElementById('v15Preview').classList.add('show');document.getElementById('v15Attach').classList.remove('show')}}
+function v15ClearPick(){v15PickFile=null;document.getElementById('v15Preview').classList.remove('show');['v15File','v15Photo','v15Camera'].forEach(id=>document.getElementById(id).value='')}
+function v15Grow(e){e.style.height='auto';e.style.height=Math.min(e.scrollHeight,120)+'px'}
+function v15Key(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();v15Send()}}
+async function v15Send(){
+  const input=document.getElementById('v15Text'),q=input.value.trim();
+  if(!q&&!v15PickFile)return;
+
+  let c=v15Chats.find(x=>x.id===v15Current);
+  if(!c){newStudyChat();c=v15Chats.find(x=>x.id===v15Current)}
+
+  const file=v15PickFile;
+  let label=q||('Please help me with this '+(file?.type?.startsWith('image/')?'photo':'file')+'.');
+  if(file) label+=(q?'\n':'')+'📎 Attached: '+file.name;
+
+  c.messages.push({who:'user',text:label});
+  if(c.title==='New chat') c.title=(q||file?.name||'New chat').slice(0,38);
+  c.mode=v15Mode;
+  v15Save();
+
+  input.value='';
+  input.style.height='auto';
+  v15ClearPick();
+  renderStudyChat();
+
+  const status=document.getElementById('v15Status');
+  status.textContent='Thinking… 🧠';
+
+  try{
+    let imageData=null, fileText=null;
+
+    if(file){
+      if(file.type && file.type.startsWith('image/')){
+        imageData=await new Promise((resolve,reject)=>{
+          const r=new FileReader();
+          r.onload=()=>resolve(r.result);
+          r.onerror=reject;
+          r.readAsDataURL(file);
+        });
+      }else if(file.type==='text/plain' || file.name.toLowerCase().endsWith('.md')){
+        fileText=await file.text();
+      }
+    }
+
+    const payloadMessages=c.messages
+      .filter(m=>m.who==='user'||m.who==='ai')
+      .slice(-12)
+      .map(m=>({role:m.who==='user'?'user':'assistant',content:m.text}));
+
+    const res=await fetch('https://lgzgawfbdalslsjelnxo.supabase.co/functions/v1/study-buddy',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        mode:v15Mode,
+        messages:payloadMessages,
+        imageData:imageData,
+        fileName:file?.name||null,
+        fileText:fileText
+      })
+    });
+
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok) throw new Error(data.error||'AI backend request failed.');
+
+    const reply=(data.reply||'I could not generate a response. Please try again.').trim();
+    c.messages.push({who:'ai',text:reply});
+    v15Save();
+    renderStudyChat();
+    status.textContent='Mode: '+v15Mode+' • AI connected 🧠';
+  }catch(err){
+    c.messages.push({
+      who:'ai',
+      text:'⚠️ I could not reach the AI brain right now.\n\n'+(err?.message||'Please try again in a moment.')
+    });
+    v15Save();
+    renderStudyChat();
+    status.textContent='AI connection error • check backend setup';
+  }
+}
+function v15MicToggle(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){document.getElementById('v15Status').textContent='Voice input is not supported in this browser.';return}if(v15Listening){v15Recognition.stop();return}v15Recognition=new SR();v15Recognition.lang='en-IN';v15Recognition.interimResults=true;v15Recognition.continuous=false;v15Recognition.onstart=()=>{v15Listening=true;document.getElementById('v15Mic').textContent='⏹️';document.getElementById('v15Status').textContent='Listening… speak your doubt 🎙️'};v15Recognition.onresult=e=>{let s='';for(let i=e.resultIndex;i<e.results.length;i++)s+=e.results[i][0].transcript;document.getElementById('v15Text').value=s;v15Grow(document.getElementById('v15Text'))};v15Recognition.onend=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Voice captured • Tap ➤ to send'};v15Recognition.onerror=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Could not capture voice. Try again.'};v15Recognition.start()}
+document.addEventListener('click',e=>{if(!e.target.closest('.v15-attach')&&!e.target.closest('.v15-icon'))document.getElementById('v15Attach')?.classList.remove('show')});
+</script>
+<script id="v14-js">
+const V14_REVIEW_TABLE='studenthub_reviews';
+let v14SelectedRating=0;
+let v14InstallPrompt=null;
+function v14Toast(msg){const e=document.getElementById('v14Toast');if(!e)return;e.textContent=msg;e.classList.add('show');clearTimeout(window.v14ToastT);window.v14ToastT=setTimeout(()=>e.classList.remove('show'),2200)}
+function toggleTheme(){const light=document.body.classList.toggle('light');localStorage.setItem('studenthub_theme',light?'light':'dark');document.getElementById('themeLabel').textContent=light?'Light Mode':'Dark Mode'}
+function v14LoadTheme(){if(localStorage.getItem('studenthub_theme')==='light'){document.body.classList.add('light');document.getElementById('themeLabel').textContent='Light Mode'}}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();v14InstallPrompt=e});
+async function installStudentHub(){if(v14InstallPrompt){v14InstallPrompt.prompt();await v14InstallPrompt.userChoice;v14InstallPrompt=null}else v14Toast('If your browser supports installation, use its menu → Add to Home screen. 📱')}
+function v14ExamKey(){return 'studenthub_v14_exam'}
+function v14SaveExam(){const name=document.getElementById('v14ExamName').value.trim()||'Exam';const date=document.getElementById('v14ExamDate').value;if(!date){v14Toast('Select an exam date.');return}localStorage.setItem(v14ExamKey(),JSON.stringify({name,date}));v14RenderExam();v14Toast('Exam countdown saved! ⏳');saveCloudData(false)}
+function v14RenderExam(){const out=document.getElementById('v14ExamResult');if(!out)return;const raw=localStorage.getItem(v14ExamKey());if(!raw){out.textContent='No exam countdown saved yet.';return}try{const x=JSON.parse(raw),d=new Date(x.date),now=new Date(),ms=d-now;let text=ms<=0?(ms>-86400000?x.name+' is today! 🎯':x.name+' date has passed.'):(()=>{let total=Math.floor(ms/1000),days=Math.floor(total/86400);total%=86400;let hrs=Math.floor(total/3600);total%=3600;let min=Math.floor(total/60);return x.name+': '+days+'d '+hrs+'h '+min+'m remaining 🚀'})();out.textContent=text}catch{out.textContent='Could not read saved countdown.'}}
+function v14Tasks(){try{return JSON.parse(localStorage.getItem('studenthub_v14_tasks')||'[]')}catch{return []}}
+function v14AddTask(){const text=document.getElementById('v14Task').value.trim(),date=document.getElementById('v14TaskDate').value;if(!text){v14Toast('Enter a task.');return}const a=v14Tasks();a.push({id:Date.now(),text,date,done:false});localStorage.setItem('studenthub_v14_tasks',JSON.stringify(a));document.getElementById('v14Task').value='';v14RenderTasks();v14Toast('Task added! 📅');saveCloudData(false)}
+function v14RenderTasks(){const box=document.getElementById('v14TaskList');if(!box)return;const a=v14Tasks();if(!a.length){box.innerHTML='<p class="v14-muted">No tasks yet.</p>';return}box.innerHTML=a.slice().sort((x,y)=>(x.done?1:0)-(y.done?1:0)).map(x=>'<div class="v14-check"><input type="checkbox" '+(x.done?'checked':'')+' onchange="v14ToggleTask('+x.id+')"><label>'+escapeHtml(x.text)+(x.date?' <span class="v14-muted">('+x.date+')</span>':'')+'</label></div>').join('')+'<button onclick="v14ClearDone()">Clear completed</button>'}
+function v14ToggleTask(id){const a=v14Tasks().map(x=>x.id===id?({...x,done:!x.done}):x);localStorage.setItem('studenthub_v14_tasks',JSON.stringify(a));v14RenderTasks();saveCloudData(false)}
+function v14ClearDone(){localStorage.setItem('studenthub_v14_tasks',JSON.stringify(v14Tasks().filter(x=>!x.done)));v14RenderTasks();saveCloudData(false)}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function v14SaveProgress(){let target=parseInt(document.getElementById('v14Target').value),done=parseInt(document.getElementById('v14Done').value);if(!target||target<1||isNaN(done)||done<0){v14Toast('Enter valid study minutes.');return}done=Math.min(done,target);const today=new Date().toISOString().slice(0,10);const data={target,done,date:today};localStorage.setItem('studenthub_v14_progress',JSON.stringify(data));v14RenderProgress();v14UpdateStreak(done>=target);saveCloudData(false)}
+function v14RenderProgress(){let x;try{x=JSON.parse(localStorage.getItem('studenthub_v14_progress')||'null')}catch{};if(!x)return;document.getElementById('v14Target').value=x.target;document.getElementById('v14Done').value=x.done;let pct=Math.min(100,Math.round(x.done/x.target*100));document.getElementById('v14ProgressBar').style.width=pct+'%';document.getElementById('v14ProgressText').textContent=pct+'% complete — '+x.done+'/'+x.target+' minutes.'}
+function v14UpdateStreak(completedToday=false){let s=JSON.parse(localStorage.getItem('studenthub_v14_streak')||'{"count":0,"last":""}'),today=new Date().toISOString().slice(0,10);if(completedToday&&s.last!==today){let y=new Date();y.setDate(y.getDate()-1);let yd=y.toISOString().slice(0,10);s.count=s.last===yd?s.count+1:1;s.last=today;localStorage.setItem('studenthub_v14_streak',JSON.stringify(s))}document.getElementById('v14Streak').textContent='🔥 Study streak: '+(s.count||0)+' day'+(s.count===1?'':'s')}
+function v14SaveBoost(){const ids=['v14Focus','v14Revision','v14Questions'];const done=ids.filter(id=>document.getElementById(id).checked).length;const today=new Date().toISOString().slice(0,10);localStorage.setItem('studenthub_v14_boost',JSON.stringify({date:today,done}));document.getElementById('v14Boost').textContent=done+'/3 boosts completed today '+(done===3?'🔥 Great job!':'— keep going!');v14UpdateStreak(done===3);saveCloudData(false)}
+function v14SetStars(n){v14SelectedRating=n;const e=document.getElementById('v14StarPicker');e.innerHTML=[1,2,3,4,5].map(i=>'<button type="button" aria-label="'+i+' stars" onclick="v14SetStars('+i+')">'+(i<=n?'★':'☆')+'</button>').join('')}
+function v14AuthState(){return typeof supabaseClient!=='undefined'?supabaseClient.auth.getSession():Promise.resolve({data:{session:null}})}
+async function v14LoadReviews(){const box=document.getElementById('v14Reviews');if(!box||typeof supabaseClient==='undefined')return;const {data,error}=await supabaseClient.from(V14_REVIEW_TABLE).select('rating,review_text,display_name,created_at').eq('approved',true).order('created_at',{ascending:false}).limit(20);if(error){box.innerHTML='<p class="v14-muted">Reviews are temporarily unavailable. Please check the V14 Supabase setup.</p>';return}if(!data.length){box.innerHTML='<p class="v14-muted">No reviews yet. Be the first! ⭐</p>';document.getElementById('v14AvgRating').textContent='—';document.getElementById('v14RatingCount').textContent='No ratings yet.';return}const avg=data.reduce((a,x)=>a+x.rating,0)/data.length;document.getElementById('v14AvgRating').textContent=avg.toFixed(1)+'/5';document.getElementById('v14RatingStars').textContent='★★★★★'.slice(0,Math.round(avg))+'☆☆☆☆☆'.slice(0,5-Math.round(avg));document.getElementById('v14RatingCount').textContent=data.length+' published review'+(data.length===1?'':'s');box.innerHTML=data.map(x=>'<div class="v14-review"><div class="v14-review-head"><strong>'+escapeHtml(x.display_name||'Student')+'</strong><span>★★★★★'.slice(0,x.rating)+'☆☆☆☆☆'.slice(0,5-x.rating)+'</span></div><p>'+escapeHtml(x.review_text||'')+'</p><small class="v14-muted">'+new Date(x.created_at).toLocaleDateString()+'</small></div>').join('')}
+async function v14RefreshReviewForm(){const {data}=await v14AuthState(),user=data.session?.user;const form=document.getElementById('v14ReviewForm'),login=document.getElementById('v14ReviewLogin');if(user){form.style.display='block';login.textContent='You are signed in. Choose a rating below.';v14SetStars(v14SelectedRating||0)}else{form.style.display='none';login.textContent='Log in to submit a rating and review.'}}
+async function v14SubmitReview(){const {data}=await v14AuthState(),user=data.session?.user;if(!user){v14Toast('Please log in first.');openAccount();return}if(!v14SelectedRating){v14Toast('Choose a star rating.');return}const text=document.getElementById('v14ReviewText').value.trim();const name=user.user_metadata?.name||user.email?.split('@')[0]||'Student';const {error}=await supabaseClient.from(V14_REVIEW_TABLE).insert({user_id:user.id,display_name:name,rating:v14SelectedRating,review_text:text});if(error){v14Toast('Review could not be submitted: '+error.message);return}document.getElementById('v14ReviewText').value='';v14SetStars(0);v14SelectedRating=0;v14Toast('Review submitted for moderation. ⭐');v14LoadReviews()}
+document.addEventListener('DOMContentLoaded',()=>{v14LoadTheme();v14RenderExam();v14RenderTasks();v14RenderProgress();v14UpdateStreak(false);const b=JSON.parse(localStorage.getItem('studenthub_v14_boost')||'null');if(b&&b.date===new Date().toISOString().slice(0,10)){document.getElementById('v14Boost').textContent=b.done+'/3 boosts completed today.'}v14LoadReviews();v14RefreshReviewForm()});
+if(typeof supabaseClient!=='undefined')supabaseClient.auth.onAuthStateChange(()=>{v14RefreshReviewForm();v14LoadReviews()});
+</script>
+
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script>
+</body></html>
