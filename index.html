@@ -738,9 +738,9 @@ let v15Chats=JSON.parse(localStorage.getItem('studenthub_ai_chats')||'[]');let v
 function v15Save(){localStorage.setItem('studenthub_ai_chats',JSON.stringify(v15Chats))}
 function v15NewData(){return {id:Date.now().toString(),title:'New chat',mode:'Doubt',messages:[{who:'ai',text:'Hey! 👋 I’m your StudentHub Study Buddy.
 
-Ask a doubt, upload a photo/file, or tap 🎙️ and talk. I’ll keep explanations simple and student-friendly.
 
-Try: “Explain eigen values simply” or “Give me 5 MCQs on graphs.”'}]}}
+
+'}]}}
 function renderStudyHistory(){const box=document.getElementById('v15AiHistory');if(!box)return;box.innerHTML=v15Chats.length?v15Chats.slice().reverse().map(c=>`<button class="${c.id===v15Current?'active':''}" onclick="openStudyChat('${c.id}')">${escapeHtml(c.title||'New chat')}</button>`).join(''):'<div class="v14-muted" style="padding:8px">No saved chats yet.</div>'}
 function renderStudyChat(){const c=v15Chats.find(x=>x.id===v15Current);const box=document.getElementById('v15AiChat');if(!box||!c)return;box.innerHTML='<div class="v15-welcome">Your chats are saved on this device. Cloud history can be connected later with your StudentHub account.</div>'+c.messages.map(m=>`<div class="v15-msg ${m.who}">${escapeHtml(m.text)}</div>`).join('');box.scrollTop=box.scrollHeight;renderStudyHistory()}
 function openStudyBuddy(){document.getElementById('v15AiModal').classList.add('show');document.body.style.overflow='hidden';if(!v15Current){if(!v15Chats.length){const c=v15NewData();v15Chats.push(c);v15Save()}v15Current=v15Chats[v15Chats.length-1].id}renderStudyChat()}
