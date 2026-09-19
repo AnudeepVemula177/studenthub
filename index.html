@@ -22,7 +22,7 @@
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#080b14;color:#eef2ff}
 header{padding:42px 16px 30px;text-align:center;background:linear-gradient(135deg,#4f46e5,#9333ea)}
-h1{font-size:38px;margin:0 0 8px}header p{color:#eee;margin:0 auto 20px}.search{max-width:620px;margin:auto;display:flex;background:#fff;border-radius:14px;padding:5px}.search input{flex:1;border:0;outline:0;padding:12px;font-size:15px;color:#111;background:#fff}.search input::placeholder{color:#64748b;opacity:1}.search button{width:auto;margin:0}
+h1{font-size:38px;margin:0 0 8px}header p{color:#eee;margin:0 auto 20px}.search{max-width:620px;margin:auto;display:flex;background:#fff;border-radius:14px;padding:5px}.search input{flex:1;border:0;outline:0;padding:12px;font-size:15px;color:#111}.search button{width:auto;margin:0}
 main{max-width:1000px;margin:auto;padding:22px 16px}.chips{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.chip{white-space:nowrap;border:1px solid #334155;background:#111827;color:#cbd5e1;padding:9px 14px;border-radius:999px;cursor:pointer}.active{background:#4f46e5;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card,.about{background:#111827;border:1px solid #263244;border-radius:18px;padding:20px}.card h2{font-size:19px;margin:0 0 7px}.card p{color:#94a3b8;font-size:14px;min-height:38px}
 input,button{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;font-size:15px;margin-top:8px;background:#0f172a;color:#fff}button{border:0;background:#4f46e5;font-weight:700;cursor:pointer}.result{margin-top:10px;color:#a5b4fc;font-weight:700;min-height:22px}
@@ -106,32 +106,12 @@ body.light{background:#f5f7fb;color:#172033}body.light .card,body.light .about,b
 <style id="v14-home-styles">
 .v14-home{margin:20px 0 4px;padding:22px;border:1px solid var(--v14-border);border-radius:22px;background:linear-gradient(145deg,rgba(79,70,229,.14),rgba(147,51,234,.08)),var(--v14-card);box-shadow:0 12px 35px rgba(0,0,0,.18)}
 .v14-home h2{font-size:30px;margin:0 0 6px}.v14-home p{margin:0 0 16px;color:var(--v14-muted)}
-.v14-home-search{display:flex;gap:8px;margin-bottom:16px}.v14-home-search input{flex:1;margin:0;background:rgba(255,255,255,.06);color:#fff;border-color:#334155}.v14-home-search input::placeholder{color:#94a3b8;opacity:1}.v14-home-search button{width:auto;margin:0;padding:12px 15px}
+.v14-home-search{display:flex;gap:8px;margin-bottom:16px}.v14-home-search input{flex:1;margin:0;background:rgba(255,255,255,.06)}.v14-home-search button{width:auto;margin:0;padding:12px 15px}
 .v14-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.v14-cat-card{min-height:106px;padding:14px 10px;border:1px solid rgba(127,127,127,.24);border-radius:16px;background:rgba(255,255,255,.025);color:inherit;cursor:pointer;text-align:center;transition:transform .18s,border-color .18s,background .18s}.v14-cat-card:hover{transform:translateY(-2px);border-color:var(--v14-accent);background:rgba(79,70,229,.09)}.v14-cat-icon{font-size:28px;display:block;margin-bottom:7px}.v14-cat-title{font-weight:800;font-size:14px}.v14-cat-sub{font-size:11px;color:var(--v14-muted);margin-top:4px}
 .v14-launch-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:10000;align-items:flex-end;justify-content:center;padding:12px}.v14-launch-modal.show{display:flex}.v14-launch-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:#0f172a;color:#eef2ff;border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.45)}body.light .v14-launch-box{background:#fff;color:#172033;border-color:#dbe2ea}.v14-launch-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.v14-launch-head h3{margin:0}.v14-launch-close{width:auto!important;margin:0!important;background:transparent!important;font-size:24px;padding:4px 9px!important}.v14-launch-list{display:grid;gap:9px;margin-top:14px}.v14-launch-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid rgba(127,127,127,.22);border-radius:14px}.v14-launch-item strong{display:block}.v14-launch-item span{display:block;color:#94a3b8;font-size:12px;margin-top:2px}.v14-launch-item button{width:auto;margin:0;min-width:92px;padding:9px 12px}.v14-note-box{padding:14px;border-radius:14px;border:1px dashed rgba(127,127,127,.35);margin-top:12px}.v14-note-box strong{display:block;margin-bottom:5px}
 @media(max-width:560px){.v14-cat-grid{grid-template-columns:repeat(3,1fr);gap:8px}.v14-cat-card{min-height:94px;padding:11px 6px}.v14-cat-icon{font-size:24px}.v14-cat-title{font-size:12px}.v14-cat-sub{display:none}.v14-home{padding:16px}.v14-home h2{font-size:25px}}
 </style>
 
-
-<style id="studenthub-ui-fix">
-/* Search readability */
-.search input:focus,.v14-home-search input:focus{box-shadow:none}
-body.light .search{background:#fff}
-body.light .search input{background:#fff;color:#172033}
-body.light .search input::placeholder{color:#64748b}
-body.light .v14-home-search input{background:#fff;color:#172033;border-color:#cbd5e1}
-body.light .v14-home-search input::placeholder{color:#64748b}
-body.light .v15-ai-entry{background:linear-gradient(145deg,rgba(79,70,229,.10),rgba(147,51,234,.06)),#fff;border-color:#dbe2ea}
-body.light .v15-ai-entry p{color:#64748b}
-body.light .v15-ai-entry-tags span{background:#eef2ff;color:#4338ca;border-color:#c7d2fe}
-body.light .v15-ai-entry-icon{background:#eef2ff}
-
-/* Standalone AI Study Buddy entry */
-.v15-ai-entry{margin:20px 0 6px;padding:20px;border:1px solid rgba(129,140,248,.45);border-radius:22px;background:linear-gradient(145deg,rgba(79,70,229,.18),rgba(147,51,234,.08)),#0f172a;display:flex;align-items:center;gap:16px;box-shadow:0 10px 32px rgba(0,0,0,.16)}
-.v15-ai-entry-icon{width:58px;height:58px;flex:none;border-radius:17px;display:grid;place-items:center;font-size:31px;background:rgba(99,102,241,.16)}
-.v15-ai-entry-copy{flex:1;min-width:0}.v15-ai-entry-copy h2{margin:0 0 5px;font-size:22px}.v15-ai-entry-copy p{margin:0;color:#aab4c8;font-size:14px;line-height:1.55}.v15-ai-entry-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.v15-ai-entry-tags span{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(127,127,127,.22);color:#cbd5e1}.v15-ai-entry-btn{width:auto;flex:none;margin:0;padding:12px 16px;border-radius:12px;background:#4f46e5;color:#fff;border:0;font-weight:800}
-@media(max-width:650px){.v15-ai-entry{align-items:flex-start;flex-wrap:wrap}.v15-ai-entry-icon{width:50px;height:50px;font-size:27px}.v15-ai-entry-copy{flex-basis:calc(100% - 66px)}.v15-ai-entry-btn{width:100%}}
-</style>
 
 <style id="v15-ai-styles">
 .v15-ai-card{position:relative;overflow:hidden;border-color:rgba(129,140,248,.55)!important;background:linear-gradient(145deg,rgba(79,70,229,.25),rgba(147,51,234,.13)),rgba(255,255,255,.025)!important}
@@ -166,6 +146,7 @@ body.light .v15-ai-entry-icon{background:#eef2ff}
     <button onclick="v14ClearQuickSearch()">Clear</button>
   </div>
   <div class="v14-cat-grid" id="v14CatGrid">
+    <button class="v14-cat-card v15-ai-card" onclick="openStudyBuddy()"><span class="v14-cat-icon">🤖</span><span class="v14-cat-title">AI Study Buddy</span><span class="v14-cat-sub">Ask • Upload • Talk</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('notes')"><span class="v14-cat-icon">📚</span><span class="v14-cat-title">Notes</span><span class="v14-cat-sub">Subjects • Notes</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('subjects')"><span class="v14-cat-icon">📖</span><span class="v14-cat-title">Subjects</span><span class="v14-cat-sub">Subjects • Notes</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('calculators')"><span class="v14-cat-icon">🧮</span><span class="v14-cat-title">Calculators</span><span class="v14-cat-sub">Marks & GPA</span></button>
@@ -176,16 +157,6 @@ body.light .v15-ai-entry-icon{background:#eef2ff}
     <button class="v14-cat-card" onclick="v14OpenCategory('pomodoro')"><span class="v14-cat-icon">⏱️</span><span class="v14-cat-title">Pomodoro</span><span class="v14-cat-sub">Focus sessions</span></button>
     <button class="v14-cat-card" onclick="v14OpenCategory('goals')"><span class="v14-cat-icon">🎯</span><span class="v14-cat-title">Exam Score Goal</span><span class="v14-cat-sub">Target your marks</span></button>
   </div>
-</section>
-
-<section class="v15-ai-entry" aria-label="AI Study Buddy">
-  <div class="v15-ai-entry-icon">🤖</div>
-  <div class="v15-ai-entry-copy">
-    <h2>AI Study Buddy</h2>
-    <p>Ask doubts, study, revise, take quizzes, practice for exams, or just talk to your AI study companion.</p>
-    <div class="v15-ai-entry-tags"><span>🧠 Doubts</span><span>📚 Study</span><span>📝 Quiz</span><span>🌎 GK</span></div>
-  </div>
-  <button class="v15-ai-entry-btn" onclick="openStudyBuddy()">Open AI Buddy →</button>
 </section>
 
 <div class="v14-launch-modal" id="v14LaunchModal" onclick="if(event.target===this)v14CloseCategory()">
@@ -703,6 +674,7 @@ function budgetBreakdown(){
 
 <script id="v14-home-js">
 const v14HomeItems={
+ studybuddy:[['🤖','AI Study Buddy','Ask doubts, upload files/photos, use your voice and practice with AI.','ai-study-buddy.html']],
  notes:[
   ['📚','Study Tools','Open the existing study tools and revision helpers.','study-tools.html'],
   ['🧠','MFCS Notes','1st Semester Mathematical Foundations of Computer Science.','mfcs.html'],
@@ -751,7 +723,7 @@ const v14HomeItems={
   ['📊','Required Attendance','Find classes needed to reach a target attendance.','required-attendance']
  ]
 };
-const v14HomeTitles={notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
+const v14HomeTitles={studybuddy:'🤖 AI Study Buddy',notes:'📚 Notes',subjects:'📖 Subjects',calculators:'🧮 Calculators',questions:'📝 Important Questions',exams:'⏳ Exam Countdown',planner:'📅 Study Planner',gpa:'📊 GPA & Attendance',pomodoro:'⏱️ Pomodoro',goals:'🎯 Exam Score Goal'};
 function v14OpenCategory(cat){const modal=document.getElementById('v14LaunchModal');const list=document.getElementById('v14LaunchList');document.getElementById('v14LaunchTitle').textContent=v14HomeTitles[cat]||'StudentHub';list.innerHTML=v14HomeItems[cat].map((x,i)=>{const isPage=x[3].endsWith(".html");return '<div class="v14-launch-item"><div><strong>'+x[0]+' '+x[1]+'</strong><span>'+x[2]+'</span></div>'+(isPage?'<a class="v14-launch-open" href="./'+x[3]+'">Open</a>':'<button onclick="v14Launch(\''+x[3]+'\')">Open</button>')+'</div>';}).join('');modal.classList.add('show');document.body.style.overflow='hidden'}
 function v14CloseCategory(){document.getElementById('v14LaunchModal').classList.remove('show');document.body.style.overflow=''}
 function v14Launch(target){v14CloseCategory();if(target==='mfcs.html'){window.location.href='./mfcs.html';return}if(target==='v15'){v14Toast('V15 Notes & Question Bank is coming next. 📚');return}if(target==='tools'){document.querySelectorAll('.tool').forEach(x=>x.style.display='');document.getElementById('search').value='';document.querySelector('.grid')?.scrollIntoView({behavior:'smooth',block:'start'});return}if(target.endsWith('.html')){location.href=target;return}let map={'v14-exams':'v14-exams','v14-planner':'v14-planner','v14-progress':'v14-progress','v14-boost':'v14Boost','study-timer':'timer','target-marks':'targetMarkr','target-cgpa':'tcgr','required-attendance':'reqAttr','semester-countdown':'semr','calculator':'search'};let id=map[target]||target;let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:'smooth',block:'center'});if(['search'].includes(target))document.getElementById('search')?.focus()}}
@@ -781,81 +753,12 @@ function v15Pick(i){if(i.files[0]){v15PickFile=i.files[0];document.getElementByI
 function v15ClearPick(){v15PickFile=null;document.getElementById('v15Preview').classList.remove('show');['v15File','v15Photo','v15Camera'].forEach(id=>document.getElementById(id).value='')}
 function v15Grow(e){e.style.height='auto';e.style.height=Math.min(e.scrollHeight,120)+'px'}
 function v15Key(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();v15Send()}}
-async function v15Send(){
-  const input=document.getElementById('v15Text'),q=input.value.trim();
-  if(!q&&!v15PickFile)return;
+function v15Send(){const input=document.getElementById('v15Text'),q=input.value.trim();if(!q&&!v15PickFile)return;let c=v15Chats.find(x=>x.id===v15Current);if(!c){newStudyChat();c=v15Chats.find(x=>x.id===v15Current)}let label=q||('Please help me with this '+(v15PickFile?.type.startsWith('image/')?'photo':'file')+'.');if(v15PickFile)label+=(q?'
+':'')+'📎 Attached: '+v15PickFile.name;c.messages.push({who:'user',text:label});if(c.title==='New chat')c.title=(q||v15PickFile.name).slice(0,38);c.mode=v15Mode;v15Save();input.value='';input.style.height='auto';v15ClearPick();renderStudyChat();setTimeout(()=>{let reply='I’m ready for the real AI connection 🚀
 
-  let c=v15Chats.find(x=>x.id===v15Current);
-  if(!c){newStudyChat();c=v15Chats.find(x=>x.id===v15Current)}
+Mode: '+v15Mode+'
 
-  const file=v15PickFile;
-  let label=q||('Please help me with this '+(file?.type?.startsWith('image/')?'photo':'file')+'.');
-  if(file) label+=(q?'\n':'')+'📎 Attached: '+file.name;
-
-  c.messages.push({who:'user',text:label});
-  if(c.title==='New chat') c.title=(q||file?.name||'New chat').slice(0,38);
-  c.mode=v15Mode;
-  v15Save();
-
-  input.value='';
-  input.style.height='auto';
-  v15ClearPick();
-  renderStudyChat();
-
-  const status=document.getElementById('v15Status');
-  status.textContent='Thinking… 🧠';
-
-  try{
-    let imageData=null, fileText=null;
-
-    if(file){
-      if(file.type && file.type.startsWith('image/')){
-        imageData=await new Promise((resolve,reject)=>{
-          const r=new FileReader();
-          r.onload=()=>resolve(r.result);
-          r.onerror=reject;
-          r.readAsDataURL(file);
-        });
-      }else if(file.type==='text/plain' || file.name.toLowerCase().endsWith('.md')){
-        fileText=await file.text();
-      }
-    }
-
-    const payloadMessages=c.messages
-      .filter(m=>m.who==='user'||m.who==='ai')
-      .slice(-12)
-      .map(m=>({role:m.who==='user'?'user':'assistant',content:m.text}));
-
-    const res=await fetch('https://lgzgawfbdalslsjelnxo.supabase.co/functions/v1/study-buddy',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        mode:v15Mode,
-        messages:payloadMessages,
-        imageData:imageData,
-        fileName:file?.name||null,
-        fileText:fileText
-      })
-    });
-
-    const data=await res.json().catch(()=>({}));
-    if(!res.ok) throw new Error(data.error||'AI backend request failed.');
-
-    const reply=(data.reply||'I could not generate a response. Please try again.').trim();
-    c.messages.push({who:'ai',text:reply});
-    v15Save();
-    renderStudyChat();
-    status.textContent='Mode: '+v15Mode+' • AI connected 🧠';
-  }catch(err){
-    c.messages.push({
-      who:'ai',
-      text:'⚠️ I could not reach the AI brain right now.\n\n'+(err?.message||'Please try again in a moment.')
-    });
-    v15Save();
-    renderStudyChat();
-    status.textContent='AI connection error • check backend setup';
-  }
-}
+This V2 UI is working locally. Next we connect the secure AI backend so I can actually understand your question and uploaded content.';if(q.toLowerCase().includes('ardham kaaledu'))reply='No problem 😄 I’ll explain it in an easier way with a simple example once the AI backend is connected.';c.messages.push({who:'ai',text:reply});v15Save();renderStudyChat()},450)}
 function v15MicToggle(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){document.getElementById('v15Status').textContent='Voice input is not supported in this browser.';return}if(v15Listening){v15Recognition.stop();return}v15Recognition=new SR();v15Recognition.lang='en-IN';v15Recognition.interimResults=true;v15Recognition.continuous=false;v15Recognition.onstart=()=>{v15Listening=true;document.getElementById('v15Mic').textContent='⏹️';document.getElementById('v15Status').textContent='Listening… speak your doubt 🎙️'};v15Recognition.onresult=e=>{let s='';for(let i=e.resultIndex;i<e.results.length;i++)s+=e.results[i][0].transcript;document.getElementById('v15Text').value=s;v15Grow(document.getElementById('v15Text'))};v15Recognition.onend=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Voice captured • Tap ➤ to send'};v15Recognition.onerror=()=>{v15Listening=false;document.getElementById('v15Mic').textContent='🎙️';document.getElementById('v15Status').textContent='Could not capture voice. Try again.'};v15Recognition.start()}
 document.addEventListener('click',e=>{if(!e.target.closest('.v15-attach')&&!e.target.closest('.v15-icon'))document.getElementById('v15Attach')?.classList.remove('show')});
 </script>
