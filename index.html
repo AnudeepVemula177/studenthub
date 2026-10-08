@@ -361,10 +361,10 @@ body.light .premium-ai-feature{background:linear-gradient(135deg,#eef0ff,#f7fbff
 <section class="v14-section" id="v14-community">
 <div class="v14-panel">
 <h2>⭐ StudentHub Ratings & Reviews</h2>
-<p class="v14-muted">Tell other students what you think. Ratings and reviews are tied to your StudentHub account.</p>
+<p class="v14-muted">Published ratings and reviews are visible to everyone. Only confirmed StudentHub accounts can submit a rating or review.</p>
 <div class="v14-grid">
 <div class="v14-panel"><h3>Overall Rating</h3><div class="v14-stat" id="v14AvgRating">—</div><div id="v14RatingStars">☆☆☆☆☆</div><p id="v14RatingCount" class="v14-muted">No ratings yet.</p></div>
-<div class="v14-panel"><h3>Leave a Review</h3><div id="v14ReviewLogin" class="v14-muted">Log in to submit a rating and review.</div><div id="v14ReviewForm" style="display:none"><div class="v14-stars" id="v14StarPicker" aria-label="Choose rating"></div><textarea id="v14ReviewText" maxlength="500" placeholder="What helped you on StudentHub? (optional)" style="width:100%;min-height:100px;margin-top:8px;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff"></textarea><button onclick="v14SubmitReview()">Submit Review</button><p class="v14-muted">Reviews may be moderated before appearing publicly.</p></div></div>
+<div class="v14-panel"><h3>Leave a Review</h3><div id="v14ReviewLogin" class="v14-muted">Log in to submit a rating and review.<br><button type="button" onclick="v14StartReviewLogin()" style="margin-top:10px">Login to Rate &amp; Review</button></div><div id="v14ReviewForm" style="display:none"><div class="v14-stars" id="v14StarPicker" aria-label="Choose rating"></div><textarea id="v14ReviewText" maxlength="500" placeholder="What helped you on StudentHub? (optional)" style="width:100%;min-height:100px;margin-top:8px;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff"></textarea><button onclick="v14SubmitReview()">Submit Review</button><p class="v14-muted">Reviews may be moderated before appearing publicly.</p></div></div>
 </div>
 <h3 style="margin-top:18px">💬 Recent Reviews</h3><div id="v14Reviews"><p class="v14-muted">Loading reviews…</p></div>
 </div>
@@ -551,6 +551,16 @@ document.addEventListener('DOMContentLoaded',refreshFavorites)
 <button onclick="resetStudentPassword()" style="margin-top:10px">Forgot password?</button>
 <p id="authMsg" class="small-muted"></p>
 </div>
+<div id="verifyCard" class="profile-card">
+<h3>Check your email</h3>
+<p class="small-muted">We created your StudentHub account. Confirm your email to finish signup.</p>
+<p id="verifyEmail" class="small-muted"></p>
+<div class="account-actions">
+<button onclick="resendSignupEmail()">Resend confirmation</button>
+<button onclick="showAccountForm()">Back to login</button>
+</div>
+<p id="verifyMsg" class="small-muted"></p>
+</div>
 <div id="profileCard" class="profile-card">
 <h3>Welcome, <span id="profileName"></span>! 👋</h3>
 <p id="profileEmail"></p>
@@ -577,9 +587,21 @@ const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_WvHe9JDI5j9NhC5QWeoKWw_nV8Zly_F
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
 });
+let studenthubReviewLoginPending=false;
 function openAccount(){document.getElementById('accountModal').classList.add('show');refreshAuthUI()}
 function closeAccount(){document.getElementById('accountModal').classList.remove('show')}
 function authMessage(msg){document.getElementById('authMsg').textContent=msg||''}
+function showVerifyCard(email){
+  document.getElementById('accountForm').style.display='none';
+  document.getElementById('verifyCard').classList.add('show');
+  document.getElementById('verifyEmail').textContent=email ? `Confirmation sent to ${email}` : '';
+  document.getElementById('verifyMsg').textContent='Check your inbox and Spam/Promotions folders. After confirming, return here and log in.';
+}
+function showAccountForm(){
+  document.getElementById('verifyCard').classList.remove('show');
+  document.getElementById('accountForm').style.display='block';
+  document.getElementById('verifyMsg').textContent='';
+}
 async function signUpStudent(){
   const email=document.getElementById('accEmail').value.trim();
   const password=document.getElementById('accPassword').value;
@@ -588,29 +610,65 @@ async function signUpStudent(){
   if(password.length<6){authMessage('Password must be at least 6 characters.');return}
   const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{name},emailRedirectTo:window.location.origin+window.location.pathname}});
   if(error){authMessage(error.message);return}
-  authMessage(data.session ? 'Account created and you are signed in. 🎉' : 'Account created. Check your email to confirm it. 📩');
-  refreshAuthUI();
+  if(data.session){
+    authMessage('Account created. You are signed in.');
+    await refreshAuthUI();
+  }else{
+    showVerifyCard(email);
+  }
 }
+async function resendSignupEmail(){
+  const email=document.getElementById('accEmail').value.trim() || document.getElementById('verifyEmail').textContent.replace(/^Confirmation sent to\s*/,'').trim();
+  if(!email){document.getElementById('verifyMsg').textContent='Enter your email first.';return}
+  const {error}=await supabaseClient.auth.resend({
+    type:'signup',
+    email,
+    options:{emailRedirectTo:window.location.origin+window.location.pathname}
+  });
+  document.getElementById('verifyMsg').textContent=error
+    ? error.message
+    : 'Confirmation email sent again. Check your inbox and Spam/Promotions.';
+}
+
 async function signInStudent(){
   const email=document.getElementById('accEmail').value.trim();
   const password=document.getElementById('accPassword').value;
   if(!email||!password){authMessage('Enter email and password.');return}
   const {error}=await supabaseClient.auth.signInWithPassword({email,password});
-  if(error){authMessage(error.message);return}
-  authMessage('Login successful! 🎉');
-  refreshAuthUI();
+  if(error){
+    const msg=(error.message||'').toLowerCase();
+    if(msg.includes('email not confirmed')){
+      showVerifyCard(email);
+      document.getElementById('verifyMsg').textContent='Please confirm your email first, then come back and log in. You can resend the confirmation email below.';
+    }else{
+      authMessage(error.message);
+    }
+    return;
+  }
+  await refreshAuthUI();
+  if(studenthubReviewLoginPending){
+    studenthubReviewLoginPending=false;
+    closeAccount();
+    document.getElementById('v14-community')?.scrollIntoView({behavior:'smooth',block:'start'});
+    v14Toast('You are logged in. You can now rate and review StudentHub.');
+  }else{
+    authMessage('Login successful.');
+  }
 }
 async function resetStudentPassword(){
   const email=document.getElementById('accEmail').value.trim();
   if(!email){authMessage('Enter your email first.');return}
   const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
-  authMessage(error ? error.message : 'Password reset email sent. 📩');
+  authMessage(error ? error.message : 'Password reset email sent. Check your inbox.');
 }
 async function signOutStudent(){await supabaseClient.auth.signOut();refreshAuthUI()}
 async function refreshAuthUI(){
   const {data}=await supabaseClient.auth.getSession();
   const user=data.session?.user;
+  const accountBtn=document.querySelector('.account-btn');
+  if(accountBtn)accountBtn.textContent=user?'My Account':'Login / Sign Up';
   document.getElementById('accountForm').style.display=user?'none':'block';
+  document.getElementById('verifyCard').classList.remove('show');
   document.getElementById('profileCard').classList.toggle('show',!!user);
   if(user){
     document.getElementById('profileName').textContent=user.user_metadata?.name || user.email?.split('@')[0] || 'Student';
@@ -898,14 +956,108 @@ function v14SaveProgress(){let target=parseInt(document.getElementById('v14Targe
 function v14RenderProgress(){let x;try{x=JSON.parse(localStorage.getItem('studenthub_v14_progress')||'null')}catch{};if(!x)return;document.getElementById('v14Target').value=x.target;document.getElementById('v14Done').value=x.done;let pct=Math.min(100,Math.round(x.done/x.target*100));document.getElementById('v14ProgressBar').style.width=pct+'%';document.getElementById('v14ProgressText').textContent=pct+'% complete — '+x.done+'/'+x.target+' minutes.'}
 function v14UpdateStreak(completedToday=false){let s=JSON.parse(localStorage.getItem('studenthub_v14_streak')||'{"count":0,"last":""}'),today=new Date().toISOString().slice(0,10);if(completedToday&&s.last!==today){let y=new Date();y.setDate(y.getDate()-1);let yd=y.toISOString().slice(0,10);s.count=s.last===yd?s.count+1:1;s.last=today;localStorage.setItem('studenthub_v14_streak',JSON.stringify(s))}document.getElementById('v14Streak').textContent='🔥 Study streak: '+(s.count||0)+' day'+(s.count===1?'':'s')}
 function v14SaveBoost(){const ids=['v14Focus','v14Revision','v14Questions'];const done=ids.filter(id=>document.getElementById(id).checked).length;const today=new Date().toISOString().slice(0,10);localStorage.setItem('studenthub_v14_boost',JSON.stringify({date:today,done}));document.getElementById('v14Boost').textContent=done+'/3 boosts completed today '+(done===3?'🔥 Great job!':'— keep going!');v14UpdateStreak(done===3);saveCloudData(false)}
+function v14StartReviewLogin(){
+  studenthubReviewLoginPending=true;
+  openAccount();
+}
 function v14SetStars(n){v14SelectedRating=n;const e=document.getElementById('v14StarPicker');e.innerHTML=[1,2,3,4,5].map(i=>'<button type="button" aria-label="'+i+' stars" onclick="v14SetStars('+i+')">'+(i<=n?'★':'☆')+'</button>').join('')}
 function v14AuthState(){return typeof supabaseClient!=='undefined'?supabaseClient.auth.getSession():Promise.resolve({data:{session:null}})}
 async function v14LoadReviews(){const box=document.getElementById('v14Reviews');if(!box||typeof supabaseClient==='undefined')return;const {data,error}=await supabaseClient.from(V14_REVIEW_TABLE).select('rating,review_text,display_name,created_at').eq('approved',true).order('created_at',{ascending:false}).limit(20);if(error){box.innerHTML='<p class="v14-muted">Reviews are temporarily unavailable. Please check the V14 Supabase setup.</p>';return}if(!data.length){box.innerHTML='<p class="v14-muted">No reviews yet. Be the first! ⭐</p>';document.getElementById('v14AvgRating').textContent='—';document.getElementById('v14RatingCount').textContent='No ratings yet.';return}const avg=data.reduce((a,x)=>a+x.rating,0)/data.length;document.getElementById('v14AvgRating').textContent=avg.toFixed(1)+'/5';document.getElementById('v14RatingStars').textContent='★★★★★'.slice(0,Math.round(avg))+'☆☆☆☆☆'.slice(0,5-Math.round(avg));document.getElementById('v14RatingCount').textContent=data.length+' published review'+(data.length===1?'':'s');box.innerHTML=data.map(x=>'<div class="v14-review"><div class="v14-review-head"><strong>'+escapeHtml(x.display_name||'Student')+'</strong><span>★★★★★'.slice(0,x.rating)+'☆☆☆☆☆'.slice(0,5-x.rating)+'</span></div><p>'+escapeHtml(x.review_text||'')+'</p><small class="v14-muted">'+new Date(x.created_at).toLocaleDateString()+'</small></div>').join('')}
-async function v14RefreshReviewForm(){const {data}=await v14AuthState(),user=data.session?.user;const form=document.getElementById('v14ReviewForm'),login=document.getElementById('v14ReviewLogin');if(user){form.style.display='block';login.textContent='You are signed in. Choose a rating below.';v14SetStars(v14SelectedRating||0)}else{form.style.display='none';login.textContent='Log in to submit a rating and review.'}}
-async function v14SubmitReview(){const {data}=await v14AuthState(),user=data.session?.user;if(!user){v14Toast('Please log in first.');openAccount();return}if(!v14SelectedRating){v14Toast('Choose a star rating.');return}const text=document.getElementById('v14ReviewText').value.trim();const name=user.user_metadata?.name||user.email?.split('@')[0]||'Student';const {error}=await supabaseClient.from(V14_REVIEW_TABLE).insert({user_id:user.id,display_name:name,rating:v14SelectedRating,review_text:text});if(error){v14Toast('Review could not be submitted: '+error.message);return}document.getElementById('v14ReviewText').value='';v14SetStars(0);v14SelectedRating=0;v14Toast('Review submitted for moderation. ⭐');v14LoadReviews()}
+async function v14RefreshReviewForm(){const {data}=await v14AuthState(),user=data.session?.user;const form=document.getElementById('v14ReviewForm'),login=document.getElementById('v14ReviewLogin');if(user){form.style.display='block';login.textContent='You are signed in. Choose a rating below.';v14SetStars(v14SelectedRating||0)}else{form.style.display='none';login.innerHTML='Log in to submit a rating and review.<br><button type="button" onclick="v14StartReviewLogin()" style="margin-top:10px">Login to Rate &amp; Review</button>'}}
+async function v14SubmitReview(){const {data}=await v14AuthState(),user=data.session?.user;if(!user){studenthubReviewLoginPending=true;v14Toast('Please log in first.');openAccount();return}if(!v14SelectedRating){v14Toast('Choose a star rating.');return}const text=document.getElementById('v14ReviewText').value.trim();const name=user.user_metadata?.name||user.email?.split('@')[0]||'Student';const {error}=await supabaseClient.from(V14_REVIEW_TABLE).insert({user_id:user.id,display_name:name,rating:v14SelectedRating,review_text:text});if(error){v14Toast('Review could not be submitted: '+error.message);return}document.getElementById('v14ReviewText').value='';v14SetStars(0);v14SelectedRating=0;v14Toast('Review submitted for moderation. ⭐');v14LoadReviews()}
 document.addEventListener('DOMContentLoaded',()=>{v14LoadTheme();v14RenderExam();v14RenderTasks();v14RenderProgress();v14UpdateStreak(false);const b=JSON.parse(localStorage.getItem('studenthub_v14_boost')||'null');if(b&&b.date===new Date().toISOString().slice(0,10)){document.getElementById('v14Boost').textContent=b.done+'/3 boosts completed today.'}v14LoadReviews();v14RefreshReviewForm()});
 if(typeof supabaseClient!=='undefined')supabaseClient.auth.onAuthStateChange(()=>{v14RefreshReviewForm();v14LoadReviews()});
 </script>
 
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script>
+
+<style id="studenthub-v4-polish">
+:root{--v4-accent:#7c6cff;--v4-accent2:#4fd1ff;--v4-glass:rgba(255,255,255,.055);--v4-line:rgba(255,255,255,.11)}
+html{scroll-padding-top:76px}
+body{transition:background .25s ease,color .25s ease}
+body::before{content:"";position:fixed;top:0;left:0;width:var(--v4-scroll,0%);height:3px;background:linear-gradient(90deg,var(--v4-accent),var(--v4-accent2));z-index:99999;pointer-events:none;box-shadow:0 0 14px rgba(79,209,255,.35)}
+.v14-top{position:sticky;top:0;z-index:900;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(8,11,20,.72);border-bottom:1px solid rgba(255,255,255,.07);padding-top:8px;padding-bottom:8px}
+body.light .v14-top{background:rgba(255,255,255,.82);border-bottom-color:rgba(15,23,42,.08)}
+.v14-top button,.account-btn,.premium-ai-open,.v14-cat-card,.v14-panel button{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+.v14-top button:hover,.account-btn:hover,.premium-ai-open:hover,.v14-panel button:hover{transform:translateY(-1px)}
+.v14-top button:active,.account-btn:active,.premium-ai-open:active,.v14-panel button:active{transform:translateY(0) scale(.98)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--v4-accent2);outline-offset:2px}
+.search{transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.search:focus-within{border-color:rgba(79,209,255,.42);box-shadow:0 14px 42px rgba(0,0,0,.24),0 0 0 3px rgba(79,209,255,.07);transform:translateY(-1px)}
+.v14-home,.v14-section,.card,.v14-panel,.premium-ai-feature{animation:v4Rise .55s ease both}
+@keyframes v4Rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.v4-reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.v4-reveal.v4-visible{opacity:1;transform:none}
+.v4-float-actions{position:fixed;right:18px;bottom:18px;z-index:950;display:flex;flex-direction:column;gap:8px;opacity:0;pointer-events:none;transform:translateY(10px);transition:.22s ease}
+.v4-float-actions.show{opacity:1;pointer-events:auto;transform:none}
+.v4-float-btn{width:44px;height:44px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(13,18,31,.82);color:#fff;backdrop-filter:blur(16px);box-shadow:0 12px 30px rgba(0,0,0,.25);cursor:pointer;font-weight:800}
+body.light .v4-float-btn{background:rgba(255,255,255,.88);color:#172033;border-color:rgba(15,23,42,.1)}
+.v4-shortcut{font-size:11px;opacity:.58;margin-left:6px;border:1px solid currentColor;border-radius:5px;padding:1px 4px}
+.v4-search-clear{display:none!important}
+@media(max-width:700px){
+  header{padding-top:24px!important}
+  .premium-brand h1{font-size:30px!important}
+  .account-btn{top:14px!important;right:12px!important;font-size:12px!important;padding:8px 10px!important}
+  .v14-top{overflow-x:auto;justify-content:flex-start!important;white-space:nowrap}
+  .v14-top button{flex:0 0 auto}
+  .v4-float-actions{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.v4-reveal{opacity:1;transform:none}}
+</style>
+
+<div class="v4-float-actions" id="v4FloatActions" aria-label="Quick navigation">
+  <button class="v4-float-btn" type="button" title="Open AI Study Buddy" aria-label="Open AI Study Buddy" onclick="openStudyBuddy()">AI</button>
+  <button class="v4-float-btn" type="button" title="Back to top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<script id="studenthub-v4-polish-js">
+(function(){
+  function updateScroll(){
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=h>0?Math.min(100,Math.max(0,(window.scrollY/h)*100)):0;
+    document.documentElement.style.setProperty('--v4-scroll',pct+'%');
+    const f=document.getElementById('v4FloatActions');
+    if(f)f.classList.toggle('show',window.scrollY>420);
+  }
+  window.addEventListener('scroll',updateScroll,{passive:true});
+  window.addEventListener('resize',updateScroll);
+  document.addEventListener('DOMContentLoaded',function(){
+    updateScroll();
+    const search=document.getElementById('search');
+    if(search){
+      const holder=search.closest('.search');
+      if(holder){
+        const hint=document.createElement('span');
+        hint.className='v4-shortcut'; hint.textContent='Ctrl K';
+        hint.setAttribute('aria-hidden','true');
+        const clear=document.createElement('button');
+        clear.type='button'; clear.className='v4-search-clear'; clear.textContent='Clear';
+        clear.setAttribute('aria-label','Clear search');
+        clear.onclick=function(){if(typeof clearSearch==='function')clearSearch();search.focus()};
+        search.addEventListener('input',function(){clear.style.display=search.value?'inline-flex':'none'});
+        holder.appendChild(clear);
+        const oldBtn=holder.querySelector('button:not(.v4-search-clear)');
+        if(oldBtn&&oldBtn.textContent.trim().toLowerCase()==='clear')oldBtn.style.display='none';
+        const parent=search.parentElement;
+        if(parent&&!parent.querySelector('.v4-shortcut'))parent.appendChild(hint);
+      }
+    }
+    const targets=document.querySelectorAll('.v14-home,.v14-section,.card,.premium-ai-feature');
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v4-visible');io.unobserve(e.target)}}),{threshold:.08});
+      targets.forEach(el=>{el.classList.add('v4-reveal');io.observe(el)});
+    }
+  });
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){
+      e.preventDefault();const s=document.getElementById('search');if(s){s.focus();s.select()}
+    }
+    if(e.key==='Escape'){
+      const s=document.getElementById('search');
+      if(s&&document.activeElement===s&&s.value){if(typeof clearSearch==='function')clearSearch();s.blur()}
+    }
+  });
+})();
+</script>
+
 </body></html>
