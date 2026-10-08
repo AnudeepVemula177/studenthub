@@ -9,7 +9,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#4f46e5">
 <meta name="author" content="StudentHub">
-<!-- StudentHub Premium UI v1: frontend-only visual upgrade; AI backend unchanged. -->
+<!-- StudentHub Premium UI v6: theme reliability + mobile polish; AI backend unchanged. -->
 <meta name="keywords" content="student calculators, CGPA calculator, SGPA calculator, attendance calculator, percentage calculator, marks calculator, study planner">
 <link rel="canonical" href="https://anudeepvemula177.github.io/studenthub/">
 <link rel="manifest" href="site.webmanifest">
@@ -163,14 +163,55 @@ header p{position:relative;z-index:1;color:#9ca8bb;margin:8px auto 18px}
 body.light .premium-ai-feature{background:linear-gradient(135deg,#eef0ff,#f7fbff);border-color:#d8d8ff;box-shadow:0 18px 45px rgba(46,56,90,.1)}body.light .premium-ai-copy p{color:#5f6b7d}body.light .premium-ai-tags span{color:#475569;background:#fff;border-color:#dbe2ea}body.light .premium-ai-feature:before{border-color:rgba(99,102,241,.12)}body.light .v14-cat-card{background:#fff!important;border-color:#e2e8f0!important}body.light .search{background:#fff;border-color:#dbe2ea}body.light .search input{color:#172033}
 </style>
 
+
+<style id="studenthub-v6-theme-fix">
+/* V6: reliable light/dark theme across mobile + desktop */
+:root{color-scheme:dark;--page-bg:#080b14;--page-text:#eef2ff;--panel-bg:#111827;--panel-border:#263244;--input-bg:#0f172a;--muted:#94a3b8}
+body{background:var(--page-bg);color:var(--page-text);transition:background .25s ease,color .25s ease}
+body.light{color-scheme:light;--page-bg:#f5f7fb;--page-text:#172033;--panel-bg:#fff;--panel-border:#dbe2ea;--input-bg:#fff;--muted:#64748b}
+body.light header{box-shadow:0 10px 35px rgba(15,23,42,.08)}
+body.light .card,body.light .about,body.light .cloud-card,body.light .v10-box,body.light .v14-panel{background:var(--panel-bg);border-color:var(--panel-border);color:var(--page-text)}
+body.light .card p,body.light .v14-home p,body.light .v14-cat-sub,body.light .v14-muted,body.light .cloud-status{color:var(--muted)}
+body.light input,body.light select,body.light textarea{background:var(--input-bg);color:var(--page-text);border-color:#cbd5e1}
+body.light button:not(.close):not(.v15-close){color:#172033}
+body.light .v14-top button{background:rgba(255,255,255,.9);color:#334155;border-color:#dbe2ea}
+body.light .chip{background:#fff;color:#334155;border-color:#cbd5e1}
+body.light footer{border-top-color:#dbe2ea;color:#64748b}
+body.light .links a{color:#4f46e5}
+body.light .v15-ai-modal{background:rgba(15,23,42,.42)}
+body.light .v15-ai-shell{background:#fff;color:#172033;border-color:#dbe2ea;box-shadow:0 30px 90px rgba(15,23,42,.22)}
+body.light .v15-ai-side{background:#f8fafc;border-right-color:#e2e8f0}
+body.light .v15-ai-history button{background:#fff;color:#475569;border-color:#e2e8f0}
+body.light .v15-ai-history button.active{background:#eef0ff;color:#312e81;border-color:#7c6cff}
+body.light .v15-ai-head{background:rgba(255,255,255,.94);border-bottom-color:#e2e8f0}
+body.light .v15-ai-chat{background:#fff}
+body.light .v15-msg.ai{background:#f8fafc;color:#172033;border-color:#e2e8f0}
+body.light .v15-compose-wrap{background:#f8fafc;border-top-color:#e2e8f0}
+body.light .v15-compose{background:#fff;border-color:#cbd5e1;box-shadow:0 10px 30px rgba(15,23,42,.08)}
+body.light .v15-text{color:#172033}
+body.light .v15-icon{background:#fff;color:#334155;border-color:#cbd5e1}
+body.light .v15-modebar{background:#fff;border-bottom-color:#e2e8f0}
+body.light .v15-mode{background:#fff!important;color:#475569!important;border-color:#cbd5e1!important}
+body.light .v15-attach{background:#fff;border-color:#dbe2ea;box-shadow:0 12px 35px rgba(15,23,42,.15)}
+body.light .v14-launch-modal{background:rgba(15,23,42,.42)}
+body.light .v14-toast{background:#172033;color:#fff}
+.theme-mobile-toggle{display:none}
+@media(max-width:700px){
+  .theme-mobile-toggle{display:flex;position:fixed;right:12px;bottom:66px;z-index:940;width:44px;height:44px;padding:0;margin:0;border-radius:14px;align-items:center;justify-content:center;background:rgba(13,18,31,.88);color:#fff;border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 30px rgba(0,0,0,.25);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:17px}
+  body.light .theme-mobile-toggle{background:rgba(255,255,255,.92);color:#172033;border-color:#dbe2ea;box-shadow:0 12px 30px rgba(15,23,42,.14)}
+  .v14-top{padding-right:64px}
+}
+@media(min-width:701px){.theme-mobile-toggle{display:none!important}}
+</style>
 </head>
 <body>
+<button id="themeMobileToggle" class="theme-mobile-toggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme" onclick="toggleTheme()">☾</button>
 <header><div class="premium-brand"><span class="brand-mark">S</span><h1>StudentHub</h1></div>
 <button class="account-btn" onclick="openAccount()">Login / Sign Up</button>
 <p>Free tools that make student life easier.</p>
 <div class="search"><input id="search" oninput="filterTools()" placeholder="Search a tool..."><button onclick="clearSearch()">Clear</button></div></header>
 <div class="v14-top">
-<button onclick="toggleTheme()"><span id="themeLabel">Dark Mode</span></button>
+<button onclick="toggleTheme()"><span id="themeLabel">Light Mode</span></button>
 <button onclick="installStudentHub()">Install App</button>
 <button onclick="document.getElementById('v14-productivity').scrollIntoView({behavior:'smooth'})">Productivity</button>
 <button onclick="document.getElementById('v14-community').scrollIntoView({behavior:'smooth'})">Ratings & Reviews</button>
@@ -556,10 +597,11 @@ document.addEventListener('DOMContentLoaded',refreshFavorites)
 <p class="small-muted">We created your StudentHub account. Confirm your email to finish signup.</p>
 <p id="verifyEmail" class="small-muted"></p>
 <div class="account-actions">
-<button onclick="resendSignupEmail()">Resend confirmation</button>
+<button id="resendSignupBtn" onclick="resendSignupEmail()">Resend confirmation</button>
 <button onclick="showAccountForm()">Back to login</button>
 </div>
-<p id="verifyMsg" class="small-muted"></p>
+<button class="secondary-action" onclick="checkEmailConfirmation()" style="margin-top:10px;width:100%">I already confirmed my email — check</button>
+<p id="verifyMsg" class="small-muted" aria-live="polite"></p>
 </div>
 <div id="profileCard" class="profile-card">
 <h3>Welcome, <span id="profileName"></span>! 👋</h3>
@@ -608,53 +650,118 @@ async function signUpStudent(){
   const name=document.getElementById('accName').value.trim();
   if(!email||!password){authMessage('Enter email and password.');return}
   if(password.length<6){authMessage('Password must be at least 6 characters.');return}
-  const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{name},emailRedirectTo:window.location.origin+window.location.pathname}});
-  if(error){authMessage(error.message);return}
-  if(data.session){
-    authMessage('Account created. You are signed in.');
-    await refreshAuthUI();
-  }else{
-    showVerifyCard(email);
+  authMessage('Creating your StudentHub account…');
+  try{
+    const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{name},emailRedirectTo:window.location.origin+window.location.pathname}});
+    if(error){
+      const msg=(error.message||'').toLowerCase();
+      if(msg.includes('already registered')||msg.includes('already been registered')){
+        authMessage('This email is already registered. Use Login instead.');
+      }else{
+        authMessage(error.message||'Could not create the account. Please try again.');
+      }
+      return;
+    }
+    if(data.session){
+      await refreshAuthUI();
+      authMessage('Account created. You are signed in.');
+    }else{
+      showVerifyCard(email);
+    }
+  }catch(e){
+    authMessage('StudentHub could not reach the account service. Please try again.');
   }
 }
+
+let studenthubResendCooldown=0;
+let studenthubResendTimer=null;
 async function resendSignupEmail(){
   const email=document.getElementById('accEmail').value.trim() || document.getElementById('verifyEmail').textContent.replace(/^Confirmation sent to\s*/,'').trim();
-  if(!email){document.getElementById('verifyMsg').textContent='Enter your email first.';return}
-  const {error}=await supabaseClient.auth.resend({
-    type:'signup',
-    email,
-    options:{emailRedirectTo:window.location.origin+window.location.pathname}
-  });
-  document.getElementById('verifyMsg').textContent=error
-    ? error.message
-    : 'Confirmation email sent again. Check your inbox and Spam/Promotions.';
+  const msg=document.getElementById('verifyMsg');
+  const btn=document.getElementById('resendSignupBtn');
+  if(!email){msg.textContent='Enter your email first.';return}
+  if(studenthubResendCooldown>0){msg.textContent=`Please wait ${studenthubResendCooldown}s before requesting another email.`;return}
+  btn.disabled=true;
+  msg.textContent='Sending confirmation email…';
+  try{
+    const {error}=await supabaseClient.auth.resend({type:'signup',email,options:{emailRedirectTo:window.location.origin+window.location.pathname}});
+    if(error){
+      msg.textContent=error.message||'Could not resend the confirmation email.';
+      return;
+    }
+    msg.textContent='Confirmation email sent. Check Inbox, Spam and Promotions.';
+    studenthubResendCooldown=60;
+    clearInterval(studenthubResendTimer);
+    studenthubResendTimer=setInterval(()=>{
+      studenthubResendCooldown--;
+      if(studenthubResendCooldown<=0){
+        clearInterval(studenthubResendTimer);studenthubResendTimer=null;btn.disabled=false;btn.textContent='Resend confirmation';
+      }else{
+        btn.textContent=`Resend in ${studenthubResendCooldown}s`;
+      }
+    },1000);
+    btn.textContent='Resend in 60s';
+  }catch(e){
+    msg.textContent='Could not reach the email service. Please try again later.';
+    btn.disabled=false;
+  }
+}
+
+async function checkEmailConfirmation(){
+  const msg=document.getElementById('verifyMsg');
+  msg.textContent='Checking your account…';
+  try{
+    const {data,error}=await supabaseClient.auth.getUser();
+    if(error){msg.textContent='Please confirm the email first, then try again.';return}
+    const user=data.user;
+    if(user?.email_confirmed_at){
+      await refreshAuthUI();
+      if(studenthubReviewLoginPending){
+        studenthubReviewLoginPending=false;closeAccount();
+        document.getElementById('v14-community')?.scrollIntoView({behavior:'smooth',block:'start'});
+        v14Toast('Email confirmed. You can now rate and review StudentHub.');
+      }else{
+        authMessage('Email confirmed. You can now log in.');
+        showAccountForm();
+      }
+    }else{
+      msg.textContent='Your email is not confirmed yet. Open the confirmation link from your email and then try again.';
+    }
+  }catch(e){
+    msg.textContent='Could not check the confirmation status. Please try again.';
+  }
 }
 
 async function signInStudent(){
   const email=document.getElementById('accEmail').value.trim();
   const password=document.getElementById('accPassword').value;
   if(!email||!password){authMessage('Enter email and password.');return}
-  const {error}=await supabaseClient.auth.signInWithPassword({email,password});
-  if(error){
-    const msg=(error.message||'').toLowerCase();
-    if(msg.includes('email not confirmed')){
-      showVerifyCard(email);
-      document.getElementById('verifyMsg').textContent='Please confirm your email first, then come back and log in. You can resend the confirmation email below.';
-    }else{
-      authMessage(error.message);
+  authMessage('Signing you in…');
+  try{
+    const {error}=await supabaseClient.auth.signInWithPassword({email,password});
+    if(error){
+      const msg=(error.message||'').toLowerCase();
+      if(msg.includes('email not confirmed')){
+        showVerifyCard(email);
+        document.getElementById('verifyMsg').textContent='Please confirm your email first, then log in. If you did not receive the email, use Resend confirmation.';
+      }else{
+        authMessage(error.message||'Login failed. Check your email and password.');
+      }
+      return;
     }
-    return;
-  }
-  await refreshAuthUI();
-  if(studenthubReviewLoginPending){
-    studenthubReviewLoginPending=false;
-    closeAccount();
-    document.getElementById('v14-community')?.scrollIntoView({behavior:'smooth',block:'start'});
-    v14Toast('You are logged in. You can now rate and review StudentHub.');
-  }else{
-    authMessage('Login successful.');
+    await refreshAuthUI();
+    if(studenthubReviewLoginPending){
+      studenthubReviewLoginPending=false;closeAccount();
+      document.getElementById('v14-community')?.scrollIntoView({behavior:'smooth',block:'start'});
+      v14Toast('You are logged in. You can now rate and review StudentHub.');
+    }else{
+      closeAccount();
+    }
+  }catch(e){
+    authMessage('StudentHub could not complete the login. Please try again.');
   }
 }
+
 async function resetStudentPassword(){
   const email=document.getElementById('accEmail').value.trim();
   if(!email){authMessage('Enter your email first.');return}
@@ -731,6 +838,9 @@ async function loadCloudData(manual=false){
 }
 
 supabaseClient.auth.onAuthStateChange(()=>refreshAuthUI());
+window.addEventListener('load',async()=>{
+  try{await refreshAuthUI();}catch(e){}
+});
 </script>
 
 
@@ -967,8 +1077,26 @@ const V14_REVIEW_TABLE='studenthub_reviews';
 let v14SelectedRating=0;
 let v14InstallPrompt=null;
 function v14Toast(msg){const e=document.getElementById('v14Toast');if(!e)return;e.textContent=msg;e.classList.add('show');clearTimeout(window.v14ToastT);window.v14ToastT=setTimeout(()=>e.classList.remove('show'),2200)}
-function toggleTheme(){const light=document.body.classList.toggle('light');localStorage.setItem('studenthub_theme',light?'light':'dark');document.getElementById('themeLabel').textContent=light?'Light Mode':'Dark Mode'}
-function v14LoadTheme(){if(localStorage.getItem('studenthub_theme')==='light'){document.body.classList.add('light');document.getElementById('themeLabel').textContent='Light Mode'}}
+function applyStudentHubTheme(mode){
+  const light=mode==='light';
+  document.body.classList.toggle('light',light);
+  localStorage.setItem('studenthub_theme',light?'light':'dark');
+  const label=document.getElementById('themeLabel');
+  if(label)label.textContent=light?'Dark Mode':'Light Mode';
+  const mobile=document.getElementById('themeMobileToggle');
+  if(mobile){mobile.textContent=light?'☾':'☀';mobile.setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode');mobile.title=light?'Dark mode':'Light mode'}
+  const meta=document.querySelector('meta[name=theme-color]');
+  if(meta)meta.setAttribute('content',light?'#f5f7fb':'#080b14');
+}
+function toggleTheme(){
+  const next=document.body.classList.contains('light')?'dark':'light';
+  applyStudentHubTheme(next);
+}
+function v14LoadTheme(){
+  const saved=localStorage.getItem('studenthub_theme');
+  applyStudentHubTheme(saved==='light'?'light':'dark');
+}
+
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();v14InstallPrompt=e});
 async function installStudentHub(){if(v14InstallPrompt){v14InstallPrompt.prompt();await v14InstallPrompt.userChoice;v14InstallPrompt=null}else v14Toast('If your browser supports installation, use its menu → Add to Home screen. 📱')}
 function v14ExamKey(){return 'studenthub_v14_exam'}
